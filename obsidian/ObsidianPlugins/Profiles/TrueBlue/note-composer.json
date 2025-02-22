@@ -1,0 +1,5 @@
+{
+  "askBeforeMerging": true,
+  "template": "Code_Samples/obsidian_templates/note_composer_template",
+  "replacementText": "embed"
+}

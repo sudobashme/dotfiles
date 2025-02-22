@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#               repo: https://github.com/sudobashme/dotfiles
+#               file: zprofile
+#           filepath: ${HOME}/.config/dotfiles/zsh/.zprofile
+#      symbolic link: ${ZDOTDIR/.zprofile:-${HOME}/.zsh/.zprofile
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Added by `rbenv init` on Fri Jan  3 14:28:36 CST 2025
+

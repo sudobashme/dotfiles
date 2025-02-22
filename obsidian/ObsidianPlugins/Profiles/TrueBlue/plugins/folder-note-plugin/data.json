@@ -1,0 +1,9 @@
+{
+  "folderNoteHide": true,
+  "folderNoteType": "inside",
+  "folderNoteName": "_about_",
+  "folderNoteKey": "ctrl",
+  "folderNoteAutoRename": true,
+  "folderDelete2Note": false,
+  "folderNoteStrInit": "# {{FOLDER_NAME}} Overview\n---\n\n## Tags Contained in this Vault\n\n```dataview\nTABLE WITHOUT ID (tag + \"(\" + length(rows.file.link) + \")\") AS Tags, sort(rows.file.link) AS Files\nFROM \"\"\nWHERE file.tags \nFLATTEN file.tags AS tag \nGROUP BY tag\nSORT length(rows.file.link) DESC\n```\n\n---"
+}
