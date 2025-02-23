@@ -93,163 +93,225 @@ function omz_diagnostic_dump() {
   builtin echo "WARNING: This dump file contains all your zsh and omz configuration files,"
   builtin echo "so don't share it publicly if there's sensitive information in them."
   builtin echo
-  open "$outfile"
+  ${HOME}/.local/bin/subl "$outfile" || /usr/local/bin/nvim "$outfile";
 }
 
 function _omz_diag_dump_one_big_text() {
   local program programs progfile md5
 
-  builtin echo diagnostic dump
+  ## Entry point of report 
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  builtin echo Your ZSH Diagnostic Dump
   builtin echo
-  builtin echo $outfile
+  builtin echo File location: $outfile
   builtin echo
-
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   # Basic system and zsh information
-  command date
-  command uname -a
-  builtin echo OSTYPE=$OSTYPE
-  builtin echo ZSH_VERSION=$ZSH_VERSION
+  builtin echo Date: $(date)
+  builtin echo 
+  builtin echo Kernel Name: $(uname -s)
+  builtin echo
+  builtin echo Kernel Release: $(uname -r)
+  builtin echo
+  builtin echo Node: $(uname -n)
+  builtin echo
+  builtin echo Machine: $(uname -m)
+  builtin echo
+  builtin echo Processor: $(uname -p)
+  builtin echo
+  builtin echo Platform: $(uname -i)
+  builtin echo
+  builtin echo OS: $(uname -o)
+  builtin echo
+  builtin echo OSTYPE: $OSTYPE
+  builtin echo
+  builtin echo ZSH_VERSION: $ZSH_VERSION
+  builtin echo
   builtin echo User: $USERNAME
-  builtin echo umask: $(umask)
+  builtin echo
+  builtin echo Umask: $(umask)
   builtin echo
   _omz_diag_dump_os_specific_version
   builtin echo
 
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   # Installed programs
+  builtin echo Core Commands:
+  builtin echo 
   programs=(sh zsh ksh bash sed cat grep ls find git df dig du env gcc ifconfig last mount mtr netstat ping ps pv stat sysctl tcpdump traceroute uptime w who )
-  local progfile="" extra_str="" sha_str=""
+  # local progfile="" extra_str="" sha_str=""
   for program in $programs; do
-    extra_str="" sha_str=""
+    # extra_str="" sha_str=""
     progfile=$(builtin which $program)
     if [[ $? == 0 ]]; then
       if [[ -e $progfile ]]; then
-        if builtin whence shasum &>/dev/null; then
-          sha_str=($(command shasum $progfile))
-          sha_str=$sha_str[1]
-          extra_str+=" SHA $sha_str"
-        fi
+        # if builtin whence shasum &>/dev/null; then
+        #   sha_str=($(command shasum $progfile))
+        #   sha_str=$sha_str[1]
+        #   extra_str+=" SHA $sha_str"
+        # fi
         if [[ -h "$progfile" ]]; then
           extra_str+=" ( -> ${progfile:A} )"
         fi
       fi
-      builtin printf '%-9s %-20s %s\n' "$program is" "$progfile" "$extra_str"
+      builtin printf '%-9s %-20s %s\n' "$program is" "$progfile" # "$extra_str"
     else
       builtin echo "$program: not found"
     fi
   done
   builtin echo
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   builtin echo Command Versions:
+  builtin echo
   builtin echo "zsh: $(zsh --version)"
   builtin echo "this zsh session: $ZSH_VERSION"
   builtin echo "bash: $(bash --version | command grep bash)"
   builtin echo "git: $(git --version)"
   builtin echo "grep: $(grep --version)"
   builtin echo
-
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   # Core command definitions
   _omz_diag_dump_check_core_commands || return 1
   builtin echo
-
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   # ZSH Process state
   builtin echo Process state:
+  builtin echo 
   builtin echo pwd: $PWD
+  builtin echo 
   if builtin whence pstree &>/dev/null; then
     builtin echo Process tree for this shell:
     pstree -p $$
   else
     ps -fT
   fi
-  builtin set | command grep -a '^\(ZSH\|plugins\|TERM\|LC_\|LANG\|precmd\|chpwd\|preexec\|FPATH\|TTY\|DISPLAY\|PATH\)\|OMZ'
+  builtin echo 
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  builtin echo Aliases
+  builtin echo 
+  builtin alias 
+  builtin echo 
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  builtin echo Environment
+  builtin echo 
+  #builtin set | command grep -a '^\(ZSH\|plugins\|TERM\|LC_\|LANG\|precmd\|chpwd\|preexec\|FPATH\|TTY\|DISPLAY\|PATH\)\|OMZ'
+  command env
   builtin echo
   #TODO: Should this include `env` instead of or in addition to `export`?
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   builtin echo Exported:
+  builtin echo 
   builtin echo $(builtin export | command sed 's/=.*//')
   builtin echo
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   builtin echo Locale:
+  builtin echo 
   command locale
   builtin echo
 
   # Zsh installation and configuration
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   builtin echo Zsh configuration:
-  builtin echo setopt: $(builtin setopt)
   builtin echo
-  builtin echo zstyle:
+  builtin echo Setopt: 
+  builtin echo 
+  builtin setopt
+  builtin echo
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  builtin echo Zstyle: 
+  builtin echo
   builtin zstyle
   builtin echo
-  builtin echo 'compaudit output:'
-  compaudit
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  builtin echo Functions
   builtin echo
-  builtin echo '$fpath directories:'
+  builtin print -l ${(okv)functions}
+  builtin echo
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  builtin echo Fpath Directories:
+  builtin echo
   command ls -lad $fpath
+  builtin echo 
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  builtin echo ZSH Installation:
   builtin echo
-
-  # Oh-my-zsh installation
-  builtin echo oh-my-zsh installation:
   command ls -ld ${ZDOTDIR}
+  builtin echo
   command ls -ld ${DOTFILES}
   builtin echo
-  builtin echo DOTFILES git state:
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  builtin echo DOTFILES Git State:
+  builtin echo 
   (builtin cd $DOTFILES && builtin echo "HEAD: $(git rev-parse HEAD)" && git remote -v && git status | command grep "[^[:space:]]")
   if [[ $verbose -ge 1 ]]; then
     (builtin cd $DOTFILES && git reflog --date=default | command grep pull)
   fi
-
+  builtin echo 
   # Key binding and terminal info
   if [[ $verbose -ge 1 ]]; then
+    builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     builtin echo "bindkey:"
+    builtin echo 
     builtin bindkey
     builtin echo
+    builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     builtin echo "infocmp:"
+    builtin echo
     command infocmp -L
     builtin echo
   fi
 
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   # Configuration file info
   local zdotdir=${ZDOTDIR:-$HOME}
-  builtin echo "Zsh configuration files:"
+  builtin echo "Zsh Configuration Files:"
+  builtin echo 
   local cfgfile cfgfiles
   # Some files for bash that zsh does not use are intentionally included
   # to help with diagnosing behavior differences between bash and zsh
   cfgfiles=( \
-    /etc/zshenv \
+    /etc/profile \
     /etc/zprofile \
     /etc/zshrc \
-    /etc/zlogin \
-    /etc/zlogout \
     $zdotdir/.zshenv \
     $zdotdir/.zprofile \
     $zdotdir/.zshrc \
     $zdotdir/.zlogin \
     $zdotdir/.zlogout \
-    /etc/bashrc \
-    /etc/profile \
-    ~/.bashrc \
     ~/.profile \
-    ~/.bash_profile \
-    ~/.bash_logout \
     )
+
   command ls -lad $cfgfiles 2>&1
   builtin echo
   if [[ $verbose -ge 1 ]]; then
     for cfgfile in $cfgfiles; do
-      _omz_diag_dump_echo_file_w_header $cfgfile
+      if [[ -f $cfgfile ]]; then
+        builtin echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
+        builtin echo 
+        _omz_diag_dump_echo_file_w_header $cfgfile
+      fi
     done
+    builtin echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
   fi
   builtin echo
+  builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   builtin echo "Zsh compdump files:"
+  builtin echo
   local dumpfile dumpfiles
-  command ls -lad $zdotdir/.zcompdump
-  dumpfiles=( "${XDG_CACHE_HOME}/zsh/compdump"*(N) )
+  #command ls -lad $zdotdir/.zcompdump
+  dumpfile=( "${XDG_CACHE_HOME}/zsh/compdump" )
   if [[ $verbose -ge 2 ]]; then
-    for dumpfile in $dumpfiles; do
+      command ls -ld $dumpfile 
+      builtin echo 
       _omz_diag_dump_echo_file_w_header $dumpfile
-    done
+      builtin echo
+      builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   fi
-
 }
 
 function _omz_diag_dump_check_core_commands() {
   builtin echo "Core command check:"
+  builtin echo 
   local redefined name builtins externals reserved_words
   redefined=()
   # All the zsh non-module builtin commands
@@ -315,6 +377,7 @@ function _omz_diag_dump_echo_file_w_header() {
       builtin echo "==========    ( => ${file:A} )   =========="
     fi
     command cat $file
+    builtin echo 
     builtin echo "========== end $file =========="
     builtin echo
   elif [[ -d $file ]]; then

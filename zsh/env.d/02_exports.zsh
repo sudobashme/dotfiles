@@ -88,3 +88,10 @@ fi
 if [[ -d "${HOME}/IBM/NoteBooks/Current_Projects" ]]; then
     export PROJECTS="${HOME}/IBM/NoteBooks/Current_Projects"
 fi
+
+if [[ -d "${HOME}/Dropbox" ]]; then
+    export DROPBOX="${HOME}/Dropbox"
+    export 2DProjects="${DROPBOX}/Family\ Room/2DProjects"
+    export DBPictures="${DROPBOX}/Pictures"
+    export WALLPAPER="${DROPBOX}/Wallpaper"
+fi

@@ -6,11 +6,6 @@
 #      symbolic link: ${ZDOTDIR}/.zshrc
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# `.zshrc' is sourced in interactive shells. It should contain commands to set
-# up aliases, functions, options, key bindings, etc.
-#
-# ref: https://zsh.sourceforge.io/Intro/intro_3.html
-
 for conffile in ${ZDOTDIR}/rc.d/*; do
     source ${conffile}
 done
@@ -27,4 +22,4 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(tree-sitter complete --shell zsh)"
 
-
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

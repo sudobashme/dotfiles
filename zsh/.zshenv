@@ -6,15 +6,6 @@
 #      symbolic link: ${ZDOTDIR}/.zshenv; ${HOME}/.zshenv
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# `.zshenv' is sourced on all invocations of the shell, unless the -f option is
-# set. It should contain commands to set the command search path, plus other
-# important environment variables. `.zshenv' should not contain commands that
-# produce output or assume the shell is attached to a tty.
-#
-# ref: https://zsh.sourceforge.io/Intro/intro_3.html
-
-# Determine own path if ZDOTDIR isn't set or home symlink exists
-
 if [[ -z ${ZDOTDIR} ]]; then
     export ZDOTDIR="${HOME}/.zsh"
 fi
@@ -37,3 +28,5 @@ unset envfile
 if [[ "$-" == *i* ]]; then
   source ${ZDOTDIR}/.zshrc
 fi
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
