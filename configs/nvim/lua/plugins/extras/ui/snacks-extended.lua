@@ -11,6 +11,7 @@ return {
     words = { enabled = true },
     scroll = { enabled = true },
     input = { enabled = true },
+    image = { enabled = true },
     picker = {
       enabled = true,
       finder = "meta_preview",

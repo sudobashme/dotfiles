@@ -25,6 +25,6 @@ eval "$(pyenv virtualenv-init -)"
 eval "$(rbenv init - --no-rehash zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-eval "$(tree-sitter completions --shell zsh)"
+eval "$(tree-sitter complete --shell zsh)"
 
 

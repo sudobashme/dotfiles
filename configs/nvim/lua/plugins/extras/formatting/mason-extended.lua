@@ -6,7 +6,6 @@ return {
       "shellcheck",
       "shfmt",
       "flake8",
-      "prettier",
       "prettierd",
       "black",
       "markdownlint-cli2",

@@ -24,7 +24,7 @@ export GPG_TTY=${TTY}
 export PAGER=less
 export LESS="--RAW-CONTROL-CHARS --ignore-case --hilite-unread --LONG-PROMPT --window=-4 --tabs=4 --mouse --wheel-lines=3"
 export READNULLCMD=${PAGER}
-export LESSHISTFILE="${HOME}/lesshst"
+export LESSHISTFILE="${XDG_CACHE_HOME}/lesshst"
 
 # node
 export NODENV_ROOT="${HOME}/.nodenv"
