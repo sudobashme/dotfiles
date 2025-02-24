@@ -20,6 +20,6 @@
   "svelte-language-server": "0.17.10",
   "taplo": "0.9.3",
   "vtsls": "0.2.8",
-  "vue-language-server": "2.2.2",
+  "vue-language-server": "2.2.4",
   "yaml-language-server": "1.16.0"
 }

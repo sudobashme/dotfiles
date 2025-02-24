@@ -91,7 +91,7 @@ fi
 
 if [[ -d "${HOME}/Dropbox" ]]; then
     export DROPBOX="${HOME}/Dropbox"
-    export 2DProjects="${DROPBOX}/Family\ Room/2DProjects"
+    export GraphicsProjects="${DROPBOX}/Family\ Room/2DProjects"
     export DBPictures="${DROPBOX}/Pictures"
     export WALLPAPER="${DROPBOX}/Wallpaper"
 fi

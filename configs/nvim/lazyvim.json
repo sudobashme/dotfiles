@@ -33,6 +33,7 @@
     "plugins.extras.formatting.conform-extended",
     "plugins.extras.formatting.mason-extended",
     "plugins.extras.treesitter.treesitter-extended",
+    "plugins.extras.ui.nerdy",
     "plugins.extras.ui.snacks-extended",
     "plugins.extras.ui.tiny-devicons-auto-colors",
     "plugins.extras.util.dotfyle",

@@ -28,6 +28,7 @@
     "yaml-language-server"
   ],
   "plugins": [
+    "2kabhishek/nerdy.nvim",
     "LazyVim/LazyVim",
     "MagicDuck/grug-far.nvim",
     "MunifTanjim/nui.nvim",
@@ -84,6 +85,7 @@
     "saghen/blink.cmp",
     "smjonas/inc-rename.nvim",
     "stevearc/conform.nvim",
+    "stevearc/dressing.nvim",
     "theHamsta/nvim-dap-virtual-text",
     "williamboman/mason-lspconfig.nvim",
     "williamboman/mason.nvim",
@@ -146,3 +148,4 @@
   ],
   "leaderKey": "<Space>"
 }
+

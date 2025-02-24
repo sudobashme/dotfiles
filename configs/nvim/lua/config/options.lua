@@ -4,9 +4,9 @@
 
 local o = vim.opt
 local g = vim.g
-
+local u = vim.ui
 vim.loader.enable()
-vim.ui.input = "%!v:lua.require'snacks.input'.get()"
+u.input = "%!v:lua.require'snacks.input'.get()"
 o.statuscolumn = "%!v:lua.require'snacks.statuscolumn'.get()"
 g.mapleader = " "
 g.maplocalleader = "\\"

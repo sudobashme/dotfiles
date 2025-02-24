@@ -51,7 +51,7 @@ alias clear=clear-screen-soft-bottom
 (( ${+commands[gmkdir]} )) && alias mkdir="nocorrect gmkdir"
 (( ${+commands[gcp]} )) && alias cp="nocorrect gcp --verbose"
 (( ${+commands[ag]} )) && alias ag="noglob ag"
-(( ${+commands[fd]} )) && alias fd="noglob fd --color=auto --unrestricted --show-errors"
+(( ${+commands[/opt/homebrew/bin/fd]} )) && alias fd="noglob fd --color=auto --unrestricted --show-errors"
 (( ${+commands[man]} )) && alias man="nocorrect wrap-man"
 (( ${+commands[sudo]} )) && alias sudo="noglob wrap-sudo " # trailing space is needed to enable alias expansion
 (( ${+commands[grm]} )) && alias rm="grm" && alias rmd="grm -rf"
