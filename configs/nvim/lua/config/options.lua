@@ -6,10 +6,12 @@ local o = vim.opt
 local g = vim.g
 local u = vim.ui
 vim.loader.enable()
-u.input = "%!v:lua.require'snacks.input'.get()"
+--u.input = "Snacks.input"
+u.select = "Snacks.picker"
 o.statuscolumn = "%!v:lua.require'snacks.statuscolumn'.get()"
 g.mapleader = " "
 g.maplocalleader = "\\"
+g.lazyvim_picker = "Snacks"
 g.autoformat = true
 g.editorconfig = true
 g.root_spec = {
@@ -42,3 +44,4 @@ g.loaded_perl_provider = 0
 g.lazyvim_prettier_needs_config = false
 -- Enable the option to require a Prettier config file
 -- If no prettier config file is found, the formatter will not be used
+g.lazyvim_rust_diagnostics = "rust-analyzer"

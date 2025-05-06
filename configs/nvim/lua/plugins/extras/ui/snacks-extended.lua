@@ -3,6 +3,7 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    animate = { enabled = true },
     bigfile = { enabled = true },
     dashboard = {
       preset = {
@@ -29,6 +30,8 @@ return {
           { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
           { icon = "", key = "h", desc = "Lazy Health", action = ":LazyHealth" },
+          { icon = "󱊈", key = "m", desc = "Mason", action = ":Mason"},
+          { icon = "", key = "t", desc = "Treesitter Update", action = ":TSUpdate" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
       },
@@ -39,8 +42,9 @@ return {
     input = { enabled = true },
     notifier = { enabled = true },
     picker = {
-      ---@type snacks.picker.ui_select
-      enabled = true,
+      items = {},
+      main = { current = true },
+      layout = { preset = "select" },
       finder = "meta_preview",
       format = "text",
       ui_select = true,

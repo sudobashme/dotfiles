@@ -10,6 +10,10 @@ return {
       "black",
       "markdownlint-cli2",
       "markdown-toc",
+      "rust-analyzer",
+      "codelldb",
+      "bacon",
+      "render-markdown",
     },
   },
 }

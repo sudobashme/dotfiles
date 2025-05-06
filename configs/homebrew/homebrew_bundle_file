@@ -44,9 +44,9 @@ brew "assimp"
 brew "ast-grep"
 brew "m4"
 brew "autoconf"
+brew "bash"
 brew "autoenv"
 brew "automake"
-brew "bash"
 brew "bat"
 brew "bdw-gc"
 brew "berkeley-db"
@@ -321,6 +321,7 @@ brew "stow"
 brew "subversion"
 brew "svt-av1"
 brew "swig"
+brew "utf8cpp"
 brew "taglib"
 brew "tcl-tk"
 brew "tectonic"
@@ -332,7 +333,6 @@ brew "tree"
 brew "universal-ctags"
 brew "unzip"
 brew "usb.ids"
-brew "utf8cpp"
 brew "vbindiff"
 brew "viu"
 brew "wal2json"
@@ -411,6 +411,10 @@ cask "wireshark-chmodbpf"
 mas "1Password 7", id: 1333542190
 mas "Adobe Lightroom", id: 1451544217
 mas "Developer", id: 640199958
+mas "Endel", id: 1346247457
+mas "Skitch", id: 425955336
+mas "Telegram", id: 747648890
+mas "WhatsApp", id: 310633997
 mas "Xcode", id: 497799835
 vscode "asvetliakov.vscode-neovim"
 vscode "catppuccin.catppuccin-vsc"
