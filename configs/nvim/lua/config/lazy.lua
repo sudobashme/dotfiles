@@ -14,6 +14,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -30,12 +33,12 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
+  install = { colorscheme = { "tokyonight", "habamax", "catppuccin" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = true, -- notify on update
   }, -- automatically check for plugin updates
   performance = {
-    cache = { enabled = true },
     rtp = {
       -- disable some rtp plugins
       disabled_plugins = {

@@ -11,6 +11,8 @@ for conffile in ${ZDOTDIR}/rc.d/*; do
 done
 unset conffile
 
+. "$HOME/.cargo/env"
+
 eval "$(carapace init zsh)"
 eval "$(goenv init -)"
 eval "$(luaenv init -)"
@@ -23,3 +25,4 @@ eval "$(zoxide init zsh)"
 eval "$(tree-sitter complete --shell zsh)"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#EOF

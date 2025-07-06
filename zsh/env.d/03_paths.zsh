@@ -9,6 +9,7 @@
 fpath=(${ZDOTDIR}/fpath ${fpath})
 
 # Ensure we have local paths enabled
+path=(/bin /sbin /usr/bin /usr/sbin ${path})
 path=(/usr/local/bin /usr/local/sbin ${path})
 
 if [[ "${OSTYPE}" = darwin* ]]; then

@@ -33,6 +33,7 @@ return {
       end,
       integrations = {
         alpha = true,
+        blink_cmp = true,
         cmp = true,
         barbecue = {
           dim_dirname = true, -- directory name is dimmed by default

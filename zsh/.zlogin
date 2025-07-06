@@ -5,3 +5,4 @@
 #           filepath: ${HOME}/.config/dotfiles/zsh/.zlogin
 #      symbolic link: ${ZDOTDIR/.zlogin:-${HOME}/.zsh/.zlogin}
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# EOF
