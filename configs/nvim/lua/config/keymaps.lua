@@ -13,7 +13,7 @@
 -- vim.keymap.del("n", "g[")
 -- vim.keymap.del("n", "g]")
 -- vim.keymap.del("n", "g%")
-vim.keymap.del("n", "g<C-X>")
+-- vim.keymap.del("n", "g<C-X>")
 -- vim.keymap.del("n", "gP")
 -- vim.keymap.del("x", "a")
 -- vim.keymap.del("x", "i")
@@ -33,6 +33,7 @@ vim.keymap.del("n", "g<C-X>")
 --   { desc = "Toggle comment" }
 -- )
 
+-- vim.keymap.del("n", "g")
 -- Retain LSP mappings with <leader>g prefix
 -- vim.keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { desc = "Go to implementation" })
 -- vim.keymap.set("n", "<leader>ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code action" })
@@ -56,10 +57,27 @@ vim.keymap.del("n", "g<C-X>")
 -- vim.keymap.set("o", "ii", "<cmd>lua require('textobjects').indent_inside()<CR>", { desc = "Inside indent" })
 
 -- Remove or remap <gO>
-vim.keymap.set("n", "<leader>lo", vim.lsp.buf.document_symbol, { desc = "LSP Document Symbols" })
-vim.keymap.del("n", "gO") -- Optional: Remove original mapping
+-- vim.keymap.del("n", "l")
+-- vim.keymap.set("n", "<leader>lo", vim.lsp.buf.document_symbol, { desc = "LSP Document Symbols" })
+-- vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
+-- vim.keymap.del("n", "gO") -- Optional: Remove original mapping
 
-vim.keymap.set("n", "<leader>cc", "<Plug>(comment_toggle_linewise_current)", { desc = "Toggle Comment Line" })
-vim.keymap.set("n", "<leader>cb", "<Plug>(comment_toggle_blockwise_current)", { desc = "Toggle Comment Block" })
-vim.keymap.set("n", "<leader>fn", ":Nerdy<CR>", { desc = "Browse nerd icons" })
-vim.keymap.set("n", "<leader>fr", ":NerdyRecents<CR>", { desc = "Browse recent nerd icons" })
+-- vim.keymap.set("n", "<leader>cc", "<Plug>(comment_toggle_linewise_current)", { desc = "Toggle Comment Line" })
+-- vim.keymap.set("n", "<leader>cb", "<Plug>(comment_toggle_blockwise_current)", { desc = "Toggle Comment Block" })
+-- vim.keymap.set("n", "<leader>fn", ":Nerdy<CR>", { desc = "Browse nerd icons" })
+-- vim.keymap.set("n", "<leader>fr", ":NerdyRecents<CR>", { desc = "Browse recent nerd icons" })
+
+local wk = require("which-key")
+-- For gc
+vim.keymap.del("n", "gc")
+wk.add({ "gc", group = "Toggle comment" })
+
+-- Similarly for g
+wk.add({ "g", group = "goto" })
+
+-- For a and i in x/o modes
+wk.add({
+  mode = { "x", "o" },
+  { "a", group = "around" },
+  { "i", group = "inside" },
+})
