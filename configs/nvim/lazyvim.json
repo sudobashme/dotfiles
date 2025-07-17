@@ -8,6 +8,8 @@
     "lazyvim.plugins.extras.editor.aerial",
     "lazyvim.plugins.extras.editor.dial",
     "lazyvim.plugins.extras.editor.inc-rename",
+    "lazyvim.plugins.extras.editor.snacks_picker",
+    "lazyvim.plugins.extras.editor.telescope",
     "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.lang.cmake",
     "lazyvim.plugins.extras.lang.go",
@@ -19,7 +21,18 @@
     "lazyvim.plugins.extras.lsp.none-ls",
     "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.util.dot",
-    "lazyvim.plugins.extras.util.mini-hipatterns"
+    "lazyvim.plugins.extras.util.mini-hipatterns",
+    "plugins.catppuccin",
+    "plugins.conform",
+    "plugins.core",
+    "plugins.dotfyle",
+    "plugins.mason",
+    "plugins.nerdicons",
+    "plugins.obsidian-bridge",
+    "plugins.obsidian",
+    "plugins.snacks",
+    "plugins.tmux",
+    "plugins.trouble"
   ],
   "install_version": 8,
   "news": {
@@ -27,3 +40,4 @@
   },
   "version": 8
 }
+

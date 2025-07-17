@@ -71,13 +71,3 @@ local wk = require("which-key")
 -- For gc
 vim.keymap.del("n", "gc")
 wk.add({ "gc", group = "Toggle comment" })
-
--- Similarly for g
-wk.add({ "g", group = "goto" })
-
--- For a and i in x/o modes
-wk.add({
-  mode = { "x", "o" },
-  { "a", group = "around" },
-  { "i", group = "inside" },
-})
