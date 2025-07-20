@@ -14,7 +14,12 @@ export XDG_STATE_HOME="${HOME}/.state";
 export XDG_DATA_DIRS="${XDG_DATA_HOME}:${XDG_CONFIG_HOME}:${XDG_STATE_HOME}";
 export XDG_CONFIG_DIRS="${XDG_CONFIG_HOME}";
 
-export LOCAL_TOOLS="${HOME}/.local/tools"
+if [[ -d "${HOME}/.local/tools" ]]; then 
+    export LOCAL_TOOLS="${HOME}/.local/tools";
+fi
+if [[ -d "${ZDOTDIR}/plugins" ]]; then 
+    export ZPLUGDIR="${ZDOTDIR}/plugins";
+fi
 
 # best effort to make tools compliant to XDG basedir spec
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
@@ -93,8 +98,11 @@ if [[ -d "${HOME}/IBM/NoteBooks/Current_Projects" ]]; then
 fi
 
 if [[ -d "${HOME}/Dropbox" ]]; then
-    export DROPBOX="${HOME}/Dropbox"
-    export GraphicsProjects="${DROPBOX}/Family\ Room/2DProjects"
-    export DBPictures="${DROPBOX}/Pictures"
-    export WALLPAPER="${DROPBOX}/Wallpaper"
+    export DROPBOX="${HOME}/Dropbox";
+    export GraphicsProjects="${DROPBOX}/Family\ Room/2DProjects";
+    export DBPictures="${DROPBOX}/Pictures";
+    export WALLPAPER="${DROPBOX}/Wallpaper";
 fi
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# EOF

@@ -43,3 +43,15 @@ alias search='fzf --print0 --tmux | xargs -0 -o nvim'
 
 # Open in tmux popup if on tmux, otherwise use --height mode
 #export FZF_DEFAULT_OPTS='--height 40% --tmux bottom,40% --layout reverse --border top'
+
+# Use fzf for tab completions
+source "${ZDOTDIR}/plugins/fzf-tab/fzf-tab.zsh"
+
+zstyle ':fzf-tab:*' prefix ''
+
+if [[ -v TMUX ]]; then
+    zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+fi
+
+
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup

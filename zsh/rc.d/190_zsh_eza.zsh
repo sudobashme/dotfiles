@@ -5,3 +5,5 @@
 #           filepath: ${ZDOTDIR}/rc.d/190_zsh_eza.zsh
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 source ${ZDOTDIR}/plugins/zsh-eza/zsh-eza.plugin.zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# EOF
