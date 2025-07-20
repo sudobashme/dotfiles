@@ -14,6 +14,7 @@
     "lazyvim.plugins.extras.lang.cmake",
     "lazyvim.plugins.extras.lang.go",
     "lazyvim.plugins.extras.lang.json",
+    "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.yaml",
@@ -28,9 +29,11 @@
     "plugins.dotfyle",
     "plugins.mason",
     "plugins.nerdicons",
-    "plugins.obsidian-bridge",
     "plugins.obsidian",
+    "plugins.obsidian-bridge",
+    "plugins.render-markdown",
     "plugins.snacks",
+    "plugins.telescope",
     "plugins.tmux",
     "plugins.trouble"
   ],
@@ -40,4 +43,3 @@
   },
   "version": 8
 }
-

@@ -6,4 +6,4 @@
 #      symbolic link: ${ZDOTDIR/.zprofile:-${HOME}/.zsh/.zprofile
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-
+# EOF
