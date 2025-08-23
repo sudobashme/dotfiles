@@ -7,7 +7,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 for conffile in ${ZDOTDIR}/rc.d/*; do
-    source ${conffile}
+  source ${conffile}
 done
 unset conffile
 
@@ -26,3 +26,4 @@ eval "$(tree-sitter complete --shell zsh)"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #EOF
+

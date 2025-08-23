@@ -13,3 +13,6 @@ elif (( ${+commands[subl]} )); then
     export EDITOR=subl
     export VISUAL=subl
 fi
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# EOF

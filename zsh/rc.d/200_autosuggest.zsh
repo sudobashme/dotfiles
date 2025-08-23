@@ -1,5 +1,8 @@
-source ${ZDOTDIR}/plugins/autocomplete/zsh-autocomplete.plugin.zsh
+ABBR_USER_ABBREVIATIONS_FILE="${ZDOTDIR}/plugins/abbreviations-store"
+source "${ZDOTDIR}/plugins/abbr/zsh-abbr.zsh"
+export MANPATH=${ZDOTDIR}/plugins/abbr/man:$MANPATH
 
+source ${ZDOTDIR}/plugins/autocomplete/zsh-autocomplete.plugin.zsh
 
 ## Autosuggestions plugin
 source "${ZDOTDIR}/plugins/autosuggestions/zsh-autosuggestions.zsh"

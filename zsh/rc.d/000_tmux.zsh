@@ -19,3 +19,6 @@ else
     # since the tmux socket doesn't exist create it and attach
     tmux new-session -As workspace
 fi
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# EOF

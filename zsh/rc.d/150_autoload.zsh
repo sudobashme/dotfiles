@@ -1,3 +1,6 @@
+
+
+
 # Initialize colors
 autoload -Uz colors
 colors
