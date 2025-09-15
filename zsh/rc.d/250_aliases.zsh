@@ -73,10 +73,12 @@ alias clear=clear-screen-soft-bottom
     alias -s html=chrome
     alias -s org=chrome
     alias -s md=chrome
-    [[ -f "${ZDOTDIR}/more.zsh.md" ]] && \ 
-    alias morezsh='${ZDOTDIR}/more.zsh.md' && \
-    alias nfo='${ZDOTDIR}/more.zsh.md'
 }
+    
+if [[ -f "${ZDOTDIR}/more.zsh.md" ]]; then
+    alias morezsh='open "${ZDOTDIR}/more.zsh.md"'
+    alias nfo='open "${ZDOTDIR}/more.zsh.md"'
+fi
 
 # sublime text
 (( ${+commands[subl]} )) && {
