@@ -79,7 +79,7 @@ export HOMEBREW_BUNDLE_FILE="${DOTFILES}/configs/homebrew/homebrew_bundle_file"
 export HOMEBREW_HISTORY_FILE="${HOME}/.homebrew_history"
 
 # Obsidian Rest API Key
-export OBSIDIAN_REST_API_KEY=$(cat ~/.ssh/obsidian_local_rest_api_key)
+# export OBSIDIAN_REST_API_KEY=$(cat ~/.ssh/obsidian_local_rest_api_key)
 
 #lua
 export LUAENV_ROOT="${HOME}/.luaenv"

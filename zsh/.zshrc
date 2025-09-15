@@ -11,9 +11,6 @@ for conffile in ${ZDOTDIR}/rc.d/*; do
 done
 unset conffile
 
-. "$HOME/.cargo/env"
-
-eval "$(carapace init zsh)"
 eval "$(goenv init -)"
 eval "$(luaenv init -)"
 eval "$(nodenv init - zsh)"
