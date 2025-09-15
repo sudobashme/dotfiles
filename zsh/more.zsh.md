@@ -1,8 +1,8 @@
-# more zsh
+# more
 
 ---
 
-## commonly needed
+## zsh
 
 This page will probably be all links but specifically this first section will be for common zsh stuff I am always looking up.
 
@@ -14,11 +14,15 @@ This page will probably be all links but specifically this first section will be
 - [zsh substitution](https://zsh.sourceforge.io/Guide/zshguide05.html#l111)
 - [zsh completion, old and new](https://zsh.sourceforge.io/Guide/zshguide06.html#l144)
 - [zshell.dev zsh native scripting handbook](https://wiki.zshell.dev/community/zsh_handbook)
+- [Awesome ZSH Plugins](https://github.com/unixorn/awesome-zsh-plugins)
 
 ---
 
-## links
+## Aerospace
 
-- [Awesome ZSH Plugins](https://github.com/unixorn/awesome-zsh-plugins)
+- [Github Page](https://github.com/nikitabobko/AeroSpace)
+- [Guide](https://nikitabobko.github.io/AeroSpace/guide#)
+- [Commands](https://nikitabobko.github.io/AeroSpace/commands)
+- [Goodies](https://nikitabobko.github.io/AeroSpace/goodies)
 
 ---

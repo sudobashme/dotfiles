@@ -73,8 +73,9 @@ alias clear=clear-screen-soft-bottom
     alias -s html=chrome
     alias -s org=chrome
     alias -s md=chrome
-    alias awesome='chrome ${HOME}/IBM/Repos/github.ibm.com/awesome-ibm-networking/README.md'
-    [[ -f "${ZDOTDIR}/more.zsh.md" ]] && alias morezsh='${ZDOTDIR}/more.zsh.md'
+    [[ -f "${ZDOTDIR}/more.zsh.md" ]] && \ 
+    alias morezsh='${ZDOTDIR}/more.zsh.md' && \
+    alias nfo='${ZDOTDIR}/more.zsh.md'
 }
 
 # sublime text
@@ -125,3 +126,6 @@ alias -g X0G='| xargs -0 egrep'
 alias -g X0='| xargs -0'
 alias -g XG='| xargs egrep'
 alias -g X='| xargs'
+
+alias sa='source "${ZDOTDIR}/rc.d/250_aliases.zsh"'
+
