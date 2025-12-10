@@ -49,7 +49,8 @@ alias clear=clear-screen-soft-bottom
 
 (( ${+commands[gtouch]} )) && alias touch="nocorrect gtouch"
 (( ${+commands[gmkdir]} )) && alias mkdir="nocorrect gmkdir"
-(( ${+commands[gcp]} )) && alias cp="nocorrect gcp --verbose"
+(( ${+commands[cp]} )) && alias cp="cp --progress"
+(( ${+commands[mv]} )) && alias mv="mv --progress"
 (( ${+commands[ag]} )) && alias ag="noglob ag"
 (( ${+commands[/opt/homebrew/bin/fd]} )) && alias fd="noglob fd --color=auto --unrestricted --show-errors"
 (( ${+commands[man]} )) && alias man="nocorrect wrap-man"
@@ -130,4 +131,5 @@ alias -g XG='| xargs egrep'
 alias -g X='| xargs'
 
 alias sa='source "${ZDOTDIR}/rc.d/250_aliases.zsh"'
+alias grealpath="/usr/local/bin/realpath"
 

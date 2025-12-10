@@ -428,6 +428,16 @@ install_env_managers() {
 }
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# install rust coreutils
+
+install_rust_coreutils() {
+    export COREUTILS="${LOCAL_TOOLS}/coreutils"
+    git clone https://github.com/uutils/coreutils "${COREUTILS}"
+    cd "${COREUTILS}"
+    gmake && gmake install && gmake clean
+}
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # terminal styling happens here
 if [ -t 1 ]; then
   is_tty() {
@@ -621,6 +631,7 @@ if [[ $1 = "--install" ]]; then
     install_homebrew_apps
     install_rust
     install_rust_apps
+    install_rust_coreutils
     install_zsh_environment
     install_luajit
     install_env_managers

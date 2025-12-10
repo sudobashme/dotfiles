@@ -5,7 +5,7 @@
 	clean = git-lfs clean -- %f
 [user]
 	name = Shawn Lime
-	email = Shawn.Lime@ibm.com
+	email = shawnlime@gmail.com 
 [credential]
 	helper = osxkeychain
 [core]

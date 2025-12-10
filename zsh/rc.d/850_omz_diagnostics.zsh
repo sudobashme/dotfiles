@@ -136,11 +136,31 @@ function _omz_diag_dump_one_big_text() {
 
   builtin echo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
   # Installed programs
-  builtin echo Core Commands:
+  coreutilapps=(arch base64 basename cat chcon chgrp chmod chown chroot cksum comm cp csplit cut date dd df dir dircolors dirname du echo env expand expr factor false fmt fold groups head hostid hostname id install join kill link ln logname ls md5sum mkdir mkfifo mknod mktemp mv nice nl nohup nproc numfmt od paste pathchk pinky pr printenv printf ptx pwd readlink realpath rm rmdir runcon seq shred shuf sleep sort split stat stdbuf stty sum tac tail tee test timeout touch tr true truncate tsort tty uname unexpand uniq unlink uptime users vdir wc who whoami yes)
+  programs=(sh zsh ksh bash sed grep find git dig gcc ifconfig last mount mtr netstat ping ps pv stat sysctl tcpdump traceroute uptime w who )
+  builtin echo Core Command Verification:
   builtin echo 
-  programs=(sh zsh ksh bash sed cat grep ls find git df dig du env gcc ifconfig last mount mtr netstat ping ps pv stat sysctl tcpdump traceroute uptime w who )
   # local progfile="" extra_str="" sha_str=""
   for program in $programs; do
+    # extra_str="" sha_str=""
+    progfile=$(builtin which $program)
+    if [[ $? == 0 ]]; then
+      if [[ -e $progfile ]]; then
+        # if builtin whence shasum &>/dev/null; then
+        #   sha_str=($(command shasum $progfile))
+        #   sha_str=$sha_str[1]
+        #   extra_str+=" SHA $sha_str"
+        # fi
+        if [[ -h "$progfile" ]]; then
+          extra_str+=" ( -> ${progfile:A} )"
+        fi
+      fi
+      builtin printf '%-9s %-20s %s\n' "$program is" "$progfile" # "$extra_str"
+    else
+      builtin echo "$program: not found"
+    fi
+  done
+  for program in $coreutilapps; do
     # extra_str="" sha_str=""
     progfile=$(builtin which $program)
     if [[ $? == 0 ]]; then

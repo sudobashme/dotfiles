@@ -10,7 +10,6 @@ fpath=(${ZDOTDIR}/fpath ${fpath})
 
 # Ensure we have local paths enabled
 path=(/bin /sbin /usr/bin /usr/sbin ${path})
-path=(/usr/local/bin /usr/local/sbin ${path})
 
 if [[ "${OSTYPE}" = darwin* ]]; then
     # Check whether homebrew available under new path
@@ -24,7 +23,7 @@ if [[ "${OSTYPE}" = darwin* ]]; then
         evalcache brew shellenv
 
         # Enable gnu version of utilities on macOS, if installed
-        for gnuutil in coreutils gnu-sed gnu-tar grep; do
+        for gnuutil in gnu-sed gnu-tar grep; do
             if [[ -d ${HOMEBREW_PREFIX}/opt/${gnuutil}/libexec/gnubin ]]; then
                 path=(${HOMEBREW_PREFIX}/opt/${gnuutil}/libexec/gnubin ${path})
             fi
@@ -77,6 +76,9 @@ if [[ -d ${RBENV_ROOT} ]]; then
     path=(${RBENV_ROOT}/bin ${path})
 fi
 
+path=(/usr/local/bin /usr/local/sbin ${path})
+
+. "${HOME}/.atuin/bin/env"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # EOF
 
