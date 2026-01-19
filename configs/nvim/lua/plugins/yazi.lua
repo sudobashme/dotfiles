@@ -39,7 +39,7 @@ return {
         grep_in_directory = "<c-s>",
         replace_in_directory = "<c-g>",
         cycle_open_buffers = "<tab>",
-        copy_relative_path_to_selected_files = nil,
+        copy_relative_path_to_selected_files = "nil",
         send_to_quickfix_list = "<c-q>",
         change_working_directory = "<c-\\>",
         open_and_pick_window = "<c-o>",

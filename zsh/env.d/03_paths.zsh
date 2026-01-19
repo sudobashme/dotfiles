@@ -50,7 +50,8 @@ fi
 
 # Enable local binaries and man pages
 path=(${HOME}/.local/bin ${path})
-MANPATH="${XDG_DATA_HOME}/man:${MANPATH}"
+export MANPATH="${XDG_DATA_HOME}/man:/usr/local/share/man:/usr/share/man:${MANPATH}"
+
 
 # Add go binaries to paths
 path=(${GOPATH}/bin ${path})
