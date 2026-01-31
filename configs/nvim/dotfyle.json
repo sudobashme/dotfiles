@@ -25,7 +25,6 @@
     "folke/flash.nvim",
     "folke/lazy.nvim",
     "folke/lazydev.nvim",
-    "folke/neoconf.nvim",
     "folke/noice.nvim",
     "folke/persistence.nvim",
     "folke/snacks.nvim",

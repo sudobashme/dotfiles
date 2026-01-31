@@ -107,6 +107,12 @@ update() {
     nvim --headless "+Lazy! sync" +qa 2>/dev/null || __log_error "NeoVim update failed"
   fi
 
+  # npm update
+  if command -v npm >/dev/null; then
+    print -P "${GREEN}\n  Updating node via npm...${NOCOLOR}"
+    npm update -g && npm fund || __log_error "Npm update failed"
+  fi
+
   print -P "${GREEN}\n  Adding new update timestamp...${NOCOLOR}"
   # update_timestamp # Uncomment if implemented
 
