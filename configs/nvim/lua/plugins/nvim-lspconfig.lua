@@ -1,16 +1,17 @@
 return {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        bashls = {
-          settings = {
-            filetypes = { "sh", "zsh" },
-          },
+  "neovim/nvim-lspconfig",
+  opts = {
+    servers = {
+      bashls = {
+        settings = {
+          filetypes = { "sh", "zsh", "typescript", "typescriptreact", "typescript.tsx" },
         },
-        html = {},
-        jsonls = {},
-        lemminx = {},
-        yamlls = {},
       },
+      html = {},
+      jsonls = {},
+      lemminx = {},
+      yamlls = {},
     },
-  }
+  },
+}
+
