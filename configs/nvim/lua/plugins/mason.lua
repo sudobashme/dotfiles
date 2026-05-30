@@ -1,7 +1,7 @@
 return {
   {
     "mason-org/mason.nvim",
-    version = "v2.2.1",
+    version = "v2.3.0",
     opts = {
       ensure_installed = {
         "lua-language-server",

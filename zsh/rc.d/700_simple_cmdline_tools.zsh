@@ -57,3 +57,7 @@ ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('${(j:|:)${(Qk)ABBR_REGULAR_USER_
 
 alias tldr="nocorrect noglob ${LOCAL_TOOLS}/tldr-bash-client/tldr"
 alias tldr-lint="${LOCAL_TOOLS}/tldr-bash-client/tldr-lint"
+
+source "${ZDOTDIR}/plugins/zsh-colored-man-pages/colored-man-pages.plugin.zsh"
+
+source "${ZDOTDIR}/plugins/zsh-colorize-functions/zsh-colorize-functions.plugin.zsh"

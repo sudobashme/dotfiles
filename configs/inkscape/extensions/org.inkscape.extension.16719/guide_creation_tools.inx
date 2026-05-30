@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+
+  <name>Guide Creation Tools</name>
+  <id>de.vektorrascheln.guide_creation_tools</id>
+
+  <param name="tab" type="notebook">
+
+    <page name="preset_guides" gui-text="Presets">
+      <param name="preset_option" type="optiongroup" appearance="combo" gui-text="Preset guides type:">
+        <option value="centered">Centered</option>
+        <option value="golden">Golden ratio</option>
+        <option value="rule_of_third">Rule-of-third</option>
+        <option value="book_left">Left book page</option>
+        <option value="book_right">Right book page</option>
+      </param>
+    </page>
+
+    <page name="margin_guides" gui-text="Margins">
+      <param name="margin_type" type="notebook">
+
+        <page name="margins_by_distance" gui-text="By distance">
+          <param name="mbd_margin_top" type="float" min="-10000" max="10000" precision="3" gui-text="Top:">10</param>
+          <param name="mbd_margin_bottom" type="float" min="-10000" max="10000" precision="3" gui-text="Bottom:">10</param>
+          <param name="mbd_margin_left" type="float" min="-10000" max="10000" precision="3" gui-text="Left:">10</param>
+          <param name="mbd_margin_right" type="float" min="-10000" max="10000" precision="3" gui-text="Right:">10</param>
+
+          <label appearance="header">Additional information</label>
+          <label>Margins can be negative for adding guides outside the page borders ("bleed").</label>
+        </page>
+
+        <page name="margins_by_fraction" gui-text="By fraction">
+          <param name="mbf_dim" type="optiongroup" appearance="combo" gui-text="Relative to:">
+            <option value="w">Width</option>
+            <option value="h">Height</option>
+          </param>
+          <param name="mbf_margin_top" type="optiongroup" appearance="combo" gui-text="Top:">
+            <option translatable="no" value="10">1/10</option>
+            <option translatable="no" value="9">1/9</option>
+            <option translatable="no" value="8">1/8</option>
+            <option translatable="no" value="7">1/7</option>
+            <option translatable="no" value="6">1/6</option>
+            <option translatable="no" value="5">1/5</option>
+            <option translatable="no" value="4">1/4</option>
+            <option translatable="no" value="3">1/3</option>
+            <option translatable="no" value="2">1/2</option>
+            <option context="Margin" value="1">None</option>
+          </param>
+          <param name="mbf_margin_bottom" type="optiongroup" appearance="combo" gui-text="Bottom:">
+            <option translatable="no" value="10">1/10</option>
+            <option translatable="no" value="9">1/9</option>
+            <option translatable="no" value="8">1/8</option>
+            <option translatable="no" value="7">1/7</option>
+            <option translatable="no" value="6">1/6</option>
+            <option translatable="no" value="5">1/5</option>
+            <option translatable="no" value="4">1/4</option>
+            <option translatable="no" value="3">1/3</option>
+            <option translatable="no" value="2">1/2</option>
+            <option context="Margin" value="1">None</option>
+          </param>
+          <param name="mbf_margin_left" type="optiongroup" appearance="combo" gui-text="Left:">
+            <option translatable="no" value="10">1/10</option>
+            <option translatable="no" value="9">1/9</option>
+            <option translatable="no" value="8">1/8</option>
+            <option translatable="no" value="7">1/7</option>
+            <option translatable="no" value="6">1/6</option>
+            <option translatable="no" value="5">1/5</option>
+            <option translatable="no" value="4">1/4</option>
+            <option translatable="no" value="3">1/3</option>
+            <option translatable="no" value="2">1/2</option>
+            <option context="Margin" value="1">None</option>
+          </param>
+          <param name="mbf_margin_right" type="optiongroup" appearance="combo" gui-text="Right:">
+            <option translatable="no" value="10">1/10</option>
+            <option translatable="no" value="9">1/9</option>
+            <option translatable="no" value="8">1/8</option>
+            <option translatable="no" value="7">1/7</option>
+            <option translatable="no" value="6">1/6</option>
+            <option translatable="no" value="5">1/5</option>
+            <option translatable="no" value="4">1/4</option>
+            <option translatable="no" value="3">1/3</option>
+            <option translatable="no" value="2">1/2</option>
+            <option context="Margin" value="1">None</option>
+          </param>
+        </page>
+      </param>
+
+      <param name="same_margins" type="bool" gui-text="Use top margin for all sides" gui-description="If checked, the value of top margin will be used for all sides, while the other values will be ignored.">false</param>
+    </page>
+
+    <page name="grid_guides" gui-text="Grid">
+      <param name="grid_type_tab" type="notebook">
+
+        <page name="grid_even" gui-text="Distribute evenly">
+          <param name="ge_num_rows" type="int" min="1" max="1000" gui-text="Number of rows:">3</param>
+          <param name="ge_num_cols" type="int" min="1" max="1000" gui-text="Number of columns:">2</param>
+        </page>
+
+        <page name="grid_by_distance" gui-text="Specify distances">
+            <hbox>
+              <vbox>
+                <label appearance="header">Rows</label>
+                <param name="gbd_num_rows" type="int" min="1" max="1000" gui-text="Number of rows:">3</param>
+                <param name="gbd_row_height" type="float" min="0" max="10000" gui-text="Row height:">50</param>
+                <param name="gbd_row_gutter" type="float" min="-5000" max="5000" gui-text="Gutter height:" gui-description="Spacing between rows, can be 0 or even negative">10</param>
+                <param name="gbd_include_outer_row_gutter" type="bool" gui-text="Add outer gutters">true</param>
+                <param name="gbd_row_align" type="optiongroup" appearance="combo" gui-text="Alignment:" gui-description="Alignment in relation to the page or selection">
+                  <option value="top">Top</option>
+                  <option value="centered">Centered</option>
+                  <option value="bottom">Bottom</option>
+                </param>
+              </vbox>
+
+              <spacer />
+              <spacer />
+
+              <vbox>
+                <label appearance="header">Columns</label>
+                <param name="gbd_num_cols" type="int" min="1" max="1000" gui-text="Number of columns:">2</param>
+                <param name="gbd_col_width" type="float" min="0" max="10000" gui-text="Column width:">50</param>
+                <param name="gbd_col_gutter" type="float" min="-5000" max="5000" gui-text="Gutter width:" gui-description="Spacing between columns, can 0 or even negative">10</param>
+                <param name="gbd_include_outer_col_gutter" type="bool" gui-text="Add outer gutters">true</param>
+                <param name="gbd_col_align" type="optiongroup" appearance="combo" gui-text="Alignment:" gui-description="Alignment in relation to the page or selection">
+                  <option value="left">Left</option>
+                  <option value="centered">Centered</option>
+                  <option value="right">Right</option>
+                </param>
+              </vbox>
+            </hbox>
+            <hbox>
+              <param name="report_dimensions" type="bool" gui-text="Report total dimensions of the created grid" gui-description="Show a popup dialog that lists width and height of the resulting grid">false</param>
+            </hbox>
+        </page>
+      </param>
+    </page>
+
+    <page name="diagonal_guides" gui-text="Diagonal">
+      <param name="ul_to_lr" type="bool" gui-text="Upper left corner to lower right corner">true</param>
+      <param name="ur_to_ll" type="bool" gui-text="Upper right corner to lower left corner">true</param>
+      <param name="ul" type="bool" gui-text="Upper left corner (45°)">false</param>
+      <param name="ur" type="bool" gui-text="Upper right corner (45°)">false</param>
+      <param name="ll" type="bool" gui-text="Lower left corner (45°)">false</param>
+      <param name="lr" type="bool" gui-text="Lower right corner (45°)">false</param>
+    </page>
+
+    <page name="delete_selected" gui-text="Delete">
+      <param name="remove_hor_guides" type="boolean" gui-text="Remove all horizontal guides">true</param>
+      <param name="remove_vert_guides" type="boolean" gui-text="Remove all vertical guides">true</param>
+      <param name="remove_ang_guides" type="boolean" gui-text="Remove all angled guides">true</param>
+    </page>
+  </param>
+
+
+  <param name="unit" type="optiongroup" appearance="combo" gui-text="Units:">
+    <option value="mm">mm</option>
+    <option value="cm">cm</option>
+    <option value="in">in</option>
+    <option value="px">px</option>
+    <option value="pt">pt</option>
+    <option value="pc">pc</option>
+  </param>
+
+  <param name="color" type="color" appearance="colorbutton" gui-text="Color:">0x3f3fff40</param>
+
+  <param name="label" type="string" gui-text="Label:"></param>
+
+  <param name="start_from_edges" type="bool" gui-text="Start from edges" gui-description="Draw four guides around the page, selection or grid. Only a single set of these guides will be created when the margin for margin guides is set to 0.">false</param>
+  <param name="delete_existing" type="bool" gui-text="Delete existing guides" gui-description="Delete all guides in the drawing before drawing new ones. This setting is ignored when using the 'Delete' tab, so really only the specified guides will be deleted.">false</param>
+  <param name="lock" type="bool" gui-text="Lock new guides">false</param>
+  <param name="pages" type="string" gui-description="Leave empty for all pages, or enter a number for a specific page (e.g. '2'), a range for multiple pages in a sequence (e.g. '1-10'), or a '+' for multiple pages that are not directly following one another (e.g. 4+7). Separate the instructions with a comma, e.g. '2,5-7,8+9'. Spaces will be ignored. Setting is ignored if something is selected, guides are added to the selection instead." gui-text="Apply to pages"></param>
+
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <menu-tip>Add sets of guides to page or selection</menu-tip>
+    <effects-menu>
+      <submenu name="Guides"/>
+    </effects-menu>
+    <icon>img/guide_tools_icon_70x60.svg</icon>
+  </effect>
+
+  <script>
+    <command location="inx" interpreter="python">guide_creation_tools.py</command>
+  </script>
+</inkscape-extension>

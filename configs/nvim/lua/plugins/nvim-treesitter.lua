@@ -36,6 +36,7 @@ return {
       "xml",
       "xsl",
       "yaml",
+      "dkjson",
     },
   },
 }

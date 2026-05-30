@@ -77,9 +77,15 @@ if [[ -d ${RBENV_ROOT} ]]; then
     path=(${RBENV_ROOT}/bin ${path})
 fi
 
+# add grok to path
+if [[ -d ${HOME}/.grok ]]; then
+    path=(${HOME}/.grok/bin ${path})
+fi
+
+
 path=(/usr/local/bin /usr/local/sbin ${path})
 
-. "${HOME}/.atuin/bin/env"
+#. "${HOME}/.atuin/bin/env"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # EOF
 

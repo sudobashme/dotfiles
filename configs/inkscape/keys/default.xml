@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<keys
+   name="User Shortcuts">
+  <modifier
+     action="node-grow-linear"
+     modifiers="Ctrl" />
+</keys>

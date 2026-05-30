@@ -9,6 +9,7 @@
 ; Configs like `//<hostname>/:_authToken` are auth that is restricted
 ; to the registry host specified.
 
+package-lock=false
 prefix=${HOME}/.node_modules
 userconfig=~/.config/npm/config
 
