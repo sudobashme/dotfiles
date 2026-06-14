@@ -30,7 +30,7 @@ return {
           { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
           { icon = "󰒲  ", key = "l", desc = "Lazy", action = ":Lazy" },
           { icon = " ", key = "h", desc = "Lazy Health", action = ":LazyHealth" },
-          { icon = "󱊈 ", key = "m", desc = "Mason", action = ":Mason"},
+          { icon = "󱊈  ", key = "m", desc = "Mason", action = ":Mason"},
           { icon = " ", key = "t", desc = "Treesitter Update", action = ":TSUpdate" },
           { icon = " ", key = "D", desc = "Generate Dotfyle Config", action = ":DotfyleGenerate" },
           { icon = " ", key = "d", desc = "Open Current Dotfyle Config", action = ":DotfyleOpen" },

@@ -33,23 +33,31 @@ fpath=("${ZDOTDIR}/plugins/git-completion/src" ${fpath})
 source "${HOME}/.local/tools/git-extras/etc/git-extras-completion.zsh"
 zmodload zsh/complist
 
-# Init completions, but regenerate compdump only once a day.
-# The globbing is a little complicated here:
-# - '#q' is an explicit glob qualifier that makes globbing work within zsh's [[ ]] construct.
-# - 'N' makes the glob pattern evaluate to nothing when it doesn't match (rather than throw a globbing error)
-# - '.' matches "regular files"
-# - 'mh+20' matches files (or directories or whatever) that are older than 20 hours.
-autoload -Uz compinit
-if [[ -n ${XDG_CACHE_HOME}/zsh/compdump("#qN.mh+20") ]]; then
-    compinit -i -u -d "${XDG_CACHE_HOME}/zsh/compdump"
-    # zrecompile fresh compdump in background
-    {
-        autoload -Uz zrecompile
-        zrecompile -pq "${XDG_CACHE_HOME}/zsh/compdump"
-    } &!
+# Completion initialization with smart caching.
+#
+# We only fully rebuild the compdump roughly once a day.
+# This avoids the expensive compinit on every shell startup.
+#
+# We deliberately use find -mtime here instead of zsh glob qualifiers
+# because the qualifier approach is fragile across zsh versions and
+# was previously broken in this file for a long time.
+autoload -Uz compinit zrecompile
+
+local compdump="${XDG_CACHE_HOME}/zsh/compdump"
+
+# Rebuild if the dump is missing or older than 1 day (mtime +1)
+if [[ ! -f $compdump || -n $(find "$compdump" -mtime +1 2>/dev/null) ]]; then
+    compinit -i -u -d "$compdump"
+    # Recompile the dump in the background for faster future startups
+    { zrecompile -pq "$compdump" } &!
 else
-    compinit -i -u -C -d "${XDG_CACHE_HOME}/zsh/compdump"
+    compinit -i -u -C -d "$compdump"
 fi
+
+# Prevent other random compinit calls (e.g. from installers) from
+# polluting ZDOTDIR or $HOME with stray .zcompdump files.
+# We force the canonical location above.
+export COMPDUMPFILE="$compdump"
 
 # Enable bash completions too
 autoload -Uz bashcompinit

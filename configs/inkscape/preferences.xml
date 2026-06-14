@@ -414,7 +414,7 @@
        changelayer="1"
        changepage="1"
        show="content"
-       lock_aspect_ratio="0"
+       lock_aspect_ratio="1"
        touch_box="0" />
     <eventcontext
        id="connector"
@@ -661,7 +661,7 @@
        show_all_extensions="1">
       <group
          id="exportarea"
-         value="page" />
+         value="selection" />
       <group
          id="defaultxdpi"
          value="300" />
@@ -685,12 +685,12 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="${HOME}/Dropbox/Family Room/2DProjects/Landon_Lettering"
+       path="${HOME}/Documents/Personal/MiiCasa"
        enable_svgexport="0" />
     <group
        id="open"
        enable_preview="1"
-       path="${HOME}/Dropbox/Family Room/2DProjects/Landon_Lettering/" />
+       path="${HOME}/Documents/Personal/MiiCasa" />
     <group
        id="import"
        enable_preview="1"
@@ -1129,11 +1129,11 @@
      id="desktop"
      style="fill:#d40000;text-orientation:auto;-inkscape-font-specification:'CPMono_v07,  weight=307';font-family:CPMono_v07;font-size:5.33333333px;stroke-width:2.64566929;font-weight:307;letter-spacing:-0.93px;opacity:0.78977273;stroke-linejoin:bevel">
     <group
-       width="2816"
-       height="1382"
+       width="3504"
+       height="1350"
        x="59"
        y="30"
-       maximized="1"
+       maximized="0"
        fullscreen="0"
        id="geometry" />
     <group

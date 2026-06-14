@@ -5,6 +5,12 @@
 #           filepath: ${ZDOTDIR}/rc.d/200_zbrowse.zsh
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+# zui + zbrowse are supporting libraries for zsh-navigation-tools.
+# We skip them entirely if navigation tools are disabled.
+if [[ -n $NO_ZSH_NAV_TOOLS ]]; then
+    return
+fi
+
 __local_zplug=${ZDOTDIR}/plugins/zui/zui.plugin.zsh
 __plugin_dir=${ZDOTDIR}/plugins/zui
 

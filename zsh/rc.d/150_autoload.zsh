@@ -43,3 +43,20 @@ autoload -z lspath bag fgb fgd fgl fz ineachdir psg vpaste evalcache compdefcach
 # Enable wrapper, if original command is available
 (( ${+commands[man]} )) && autoload -z wrap-man
 (( ${+commands[sudo]} )) && autoload -z wrap-sudo
+
+# Lazy loader for the old OMZ diagnostics (omz_diagnostic_dump).
+# We moved the heavy script out of rc.d/ so it no longer loads on every shell.
+# This stub only sources the real file the first time you actually call it.
+omz_diagnostic_dump() {
+    local _diag_file="${DOTFILES}/zsh/legacy/850_omz_diagnostics.zsh"
+    if [[ -f $_diag_file ]]; then
+        source "$_diag_file"
+        # Call the real function that was just defined by sourcing the file.
+        # We do NOT unfunction here — the sourced file has already installed
+        # the proper definition in the function table.
+        omz_diagnostic_dump "$@"
+    else
+        print -u2 "omz_diagnostic_dump: diagnostics file not found at $_diag_file"
+        return 1
+    fi
+}

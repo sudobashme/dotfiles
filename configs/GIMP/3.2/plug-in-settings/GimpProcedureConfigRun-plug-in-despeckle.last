@@ -1,0 +1,8 @@
+# settings
+
+(radius 2)
+(type "adaptive")
+(black 88)
+(white 148)
+
+# end of settings

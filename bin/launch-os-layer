@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+# Personal OS Layer launcher
+# Launches OpenClaw TUI + Grok side-by-side in tmux for your high-craftsmanship setup.
+# Prefers tmux for nice splits. Falls back gracefully.
+# Full paths for reliability across shell contexts.
+
+set -euo pipefail
+
+GROK="${HOME}/.grok/bin/grok"
+OPENCLAW="${HOME}/.node_modules/bin/openclaw"
+
+if [[ ! -x "$GROK" ]]; then
+  echo "Error: grok not found at $GROK" >&2
+  exit 1
+fi
+
+if [[ ! -x "$OPENCLAW" ]]; then
+  echo "Error: openclaw not found at $OPENCLAW" >&2
+  exit 1
+fi
+
+if [[ -n "${TMUX:-}" ]]; then
+  # Inside tmux: clean horizontal split.
+  # Grok in the new (right) pane.
+  # OpenClaw TUI in the original pane.
+  # Uses full paths and $TMUX_PANE for reliable pane control.
+  # Preserves current directory in the split.
+  tmux split-window -h -c "#{pane_current_path}" "$GROK"
+  tmux select-pane -t "${TMUX_PANE}"
+  exec "$OPENCLAW" tui
+else
+  echo "Not inside tmux."
+  echo "Launching OpenClaw TUI here. Open another terminal or pane and run 'grok' for the pair."
+  exec "$OPENCLAW" tui
+fi

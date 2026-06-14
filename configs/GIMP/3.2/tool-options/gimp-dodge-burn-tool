@@ -1,0 +1,12 @@
+# GIMP gimp-dodge-burn-tool options
+
+(background
+    (color "R'G'B'A float" 16 "\1\0\200\77\1\0\200\77\1\0\200\77\0\0\200\77" 0))
+(brush "2. Hardness 050")
+(dynamics "Pressure Opacity")
+(palette "Color History")
+(brush-size 43)
+(brush-angle -2.7755575615628914e-17)
+(brush-hardness 0.93999999999999995)
+
+# end of gimp-dodge-burn-tool options

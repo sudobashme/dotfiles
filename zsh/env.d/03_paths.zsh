@@ -82,6 +82,10 @@ if [[ -d ${HOME}/.grok ]]; then
     path=(${HOME}/.grok/bin ${path})
 fi
 
+# grok zsh completions (from official grok CLI installer)
+if [[ -d ${HOME}/.grok/completions/zsh ]]; then
+    fpath=(${HOME}/.grok/completions/zsh $fpath)
+fi
 
 path=(/usr/local/bin /usr/local/sbin ${path})
 

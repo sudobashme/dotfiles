@@ -1,0 +1,16 @@
+# GIMP user context
+
+(tool "gimp-mypaint-brush-tool")
+(paint-info "gimp-mybrush")
+(background
+    (color "R'G'B'A float" 16 "\1\0\200\77\1\0\200\77\1\0\200\77\0\0\200\77" 0))
+(brush "2. Hardness 050")
+(dynamics "Pressure Opacity")
+(mybrush "marker 05")
+(pattern "Pine")
+(gradient "FG to BG (RGB)")
+(palette "Color History")
+(font "SignPainter HouseScript Semibold")
+(tool-preset "Core Pointer")
+
+# end of user context

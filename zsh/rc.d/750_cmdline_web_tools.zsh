@@ -9,7 +9,7 @@ if [[ -f "${LOCAL_TOOLS}/httpstat/httpstat.sh" ]]; then
 	alias httpstat="bash ${LOCAL_TOOLS}/httpstat/httpstat.sh";
 fi 
 
-if [[ -f "${LOCAL_TOOLS}/httpstat/httpstat.sh" ]]; then
+if [[ -f "${LOCAL_TOOLS}/testssl.sh/testssl.sh" ]]; then
 	alias testssl="${LOCAL_TOOLS}/testssl.sh/testssl.sh";
 fi
 

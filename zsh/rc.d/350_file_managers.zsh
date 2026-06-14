@@ -21,7 +21,7 @@ if (( ${+commands[mc]} )); then
 
         if [[ -r ${mc_pwd_file} ]]; then
             local mc_last_pwd=$(<"${mc_pwd_file}")
-            if [[ -d ${mc_last_pwd} ]] && [[ ${mc_last_file} != ${PWD} ]]; then
+            if [[ -d ${mc_last_pwd} ]] && [[ ${mc_last_pwd} != ${PWD} ]]; then
                 cd "${mc_last_pwd}"
             fi
             zf_rm -f "${mc_pwd_file}"
@@ -84,9 +84,11 @@ if (( ${+commands[yazi]} )); then
         add-zsh-hook zshexit _yazi_cd
     fi
 
-    function prompt_yazi() {
-        if [[ -v YAZI_LEVEL ]]; then
-            p10k segment
-        fi
-    }
+    # Note: The original prompt_yazi was written for Powerlevel10k.
+    # With Starship we don't need a special segment function here.
+    # Leaving placeholder in case you want custom Starship integration later.
+    function prompt_yazi() {}
 fi
+
+source "${ZDOTDIR}/plugins/yazi-zoxide-zsh/yazi-zoxide-zsh.plugin.zsh"
+

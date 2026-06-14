@@ -1,0 +1,15 @@
+# settings
+
+(GimpGegl-gegl-supernova-config "2026-06-02 19:17:54"
+    (time 1780445874)
+    (gimp-mode merge)
+    (center-x 0.50416666666666665)
+    (center-y 0.41296296296296298)
+    (radius 16)
+    (spokes-count 43)
+    (random-hue 16)
+    (color
+        (color "R'G'B'A float" 16 "\0\0\0\0\0\0\0\0\1\0\200\77fff\77" 0))
+    (seed 8))
+
+# end of settings

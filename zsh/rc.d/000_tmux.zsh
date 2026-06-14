@@ -5,20 +5,32 @@
 #           filepath: ${ZDOTDIR}/rc.d/00_tmux.zsh
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# Start tmux, if it's first terminal tab, skip this on remote sessions and root/sudo
-# Handoff to tmux early, as rest of the rc config isn't needed for this
+# Early tmux handoff for interactive shells.
+#
+# This runs as the very first rc file so we can skip loading the rest
+# of the (heavy) configuration until we're inside tmux.
+#
+# Behavior:
+# - Respects NO_TMUX or TMUX_AUTO_OFF to disable auto-start
+# - Skips on SSH / root / non-interactive shells
+# - Attaches to (or creates) a session named "workspace"
+# - If you want a plain shell, just run: NO_TMUX=1 zsh  or  export NO_TMUX=1
 
-if [[ -v TMUX ]]; then
-    # if tmux socket exists
-    if [[ $TERM_PROGRAM != "tmux" ]]; then
-        # if term_program is not tmux (meaning tmux exists but you are not attached)
-        tmux attach-session -t workspace
-    fi
-    # which obviously means you are already attached to tmux
-else
-    # since the tmux socket doesn't exist create it and attach
-    tmux new-session -As workspace
-fi
+# Only for interactive shells
+[[ $- != *i* ]] && return
+
+# Opt-out support
+[[ -n $NO_TMUX || -n $TMUX_AUTO_OFF ]] && return
+
+# Already inside tmux → nothing to do
+[[ -n $TMUX ]] && return
+
+# Don't force tmux on remote sessions or when running as root
+[[ -n $SSH_CONNECTION || -n $SSH_TTY || $USER == root ]] && return
+
+# Attach to existing "workspace" session or create it
+exec tmux new-session -A -s workspace
+# (using exec so we fully replace the shell process)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # EOF

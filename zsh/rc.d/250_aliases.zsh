@@ -89,6 +89,56 @@ fi
     alias exabgp="subl --project ${HOME}/IBM/Repos/github.com/exabgp/.sublime/exabgp.sublime-project"
 }
 
+# OpenClaw + Grok integration
+# OpenClaw already supports Grok models via xAI, but we can bridge this local Grok TUI (with full local tools, subagents, skills, ACP)
+# using OpenClaw's built-in ACP client support.
+(( ${+commands[openclaw]} )) && {
+    alias oc="openclaw"
+    alias oct="openclaw tui"
+    alias oc-tui="openclaw tui"
+    alias oc-chat="openclaw chat 2>/dev/null || openclaw terminal 2>/dev/null || openclaw tui"
+    alias oc-doctor="openclaw doctor"
+    alias oc-mcp="openclaw mcp"
+    alias oc-agents="openclaw agents"
+
+    # Bridge this Grok (local powerful instance) into OpenClaw via ACP
+    # Usage: oc-grok [optional-cwd]
+    # This lets OpenClaw's interface/agent system use this Grok's full local capabilities (file edits, commands, our skills, plan mode, etc.)
+    oc-grok() {
+        local cwd="${1:-.}"
+        echo "Starting OpenClaw ACP client bridged to local Grok (cwd: $cwd)..."
+        echo "This runs Grok's ACP server under the hood for full local tool access."
+        echo "Note: Some xAI-specific extensions may cause protocol warnings/errors (partial integration)."
+        openclaw acp --provenance off client --server grok-acp --cwd "$cwd"
+    }
+
+    # Quick alias for current dir
+    oc-grok-here() {
+        echo "Note: the ACP bridge to local Grok is partial (xAI extension mismatch)."
+        echo "Recommended: use side-by-side (os-layer or oc-tui + grok in another pane)."
+        echo "Trying the bridge anyway for experimentation..."
+        oc-grok .
+    }
+
+    # Note: requires the grok-acp wrapper in ~/.local/bin (created as part of integration)
+    # If not in PATH, add: export PATH="$HOME/.local/bin:$PATH" early in your zshenv or profile.
+
+    # Launch OpenClaw TUI with a note about using Grok
+    oc-with-grok() {
+        echo "Tip: Inside OpenClaw you can use cloud Grok models (already configured), or use 'oc-grok' / acp client for this local instance."
+        openclaw tui
+    }
+}
+
+# Bonus: one-command side-by-side launcher for the Personal OS Layer (tmux-aware)
+(( ${+commands[launch-os-layer]} )) && alias os-layer='launch-os-layer'
+
+# Grok ACP helpers (for use with OpenClaw or other ACP clients like Neovim)
+(( ${+commands[grok]} )) && {
+    alias grok-acp="grok agent stdio"
+    alias grok-acp-serve="grok agent serve"
+}
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 alias -g ...='../..'
 alias -g ....='../../..'

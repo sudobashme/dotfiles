@@ -1,0 +1,10 @@
+[print-page-setup]
+PPDName=Letter
+DisplayName=US Letter
+Width=215.89999389648438
+Height=279.39999389648438
+MarginTop=4.9999962700737841
+MarginBottom=4.9999898778067688
+MarginLeft=6.3999888737996411
+MarginRight=6.3000030517578116
+Orientation=portrait
