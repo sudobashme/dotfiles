@@ -52,7 +52,8 @@ else
     eval "$(zoxide init zsh)"
 fi
 
-eval "$(starship init zsh)"
+# Starship is already fully initialized via the instant-prompt cache above.
+# Running `starship init` again duplicates precmd hooks and can confuse ZLE redraw.
 
 # eval "$(tree-sitter complete --shell zsh)"
 # eval "$(atuin init zsh)"
