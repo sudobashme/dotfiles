@@ -60,4 +60,5 @@ eval "$(starship init zsh)"
 # Start prettierd if present (fixed redirection)
 (( ${+commands[prettierd]} )) && prettierd start >/dev/null 2>&1
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-#EOF
+# nvim: ft=zsh
+# EOF

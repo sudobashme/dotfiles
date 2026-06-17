@@ -10,4 +10,6 @@ data
 .bak/*
 .DS_Store
 */.DS_Store
-
+.dotter/cache/
+.dotter/cache.toml
+.obsidian/*

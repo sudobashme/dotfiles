@@ -1,0 +1,53 @@
+#!/usr/bin/env zsh
+# Lamina — Personal OS Layer deploy and health CLI
+set -euo pipefail
+
+LAMINA_BIN="${0:A}"
+DOTFILES="${LAMINA_BIN:h:h}"
+LAMINA_LIB="${DOTFILES}/lamina/lib"
+LAMINA_DIR="${DOTFILES}/lamina"
+
+source "${LAMINA_LIB}/common.zsh"
+
+usage() {
+    cat <<'EOF'
+lamina — Personal OS Layer deploy and health
+
+Usage:
+  lamina deploy [--dry-run]   Apply symlinks via dotter (+ dual-links)
+  lamina health               Check for drift, strays, and missing links
+  lamina diff                 Show what deploy would change (dotter dry-run)
+  lamina repair               Deploy symlinks only (alias for deploy)
+
+Options passed to deploy/diff are forwarded to dotter.
+EOF
+}
+
+cmd="${1:-}"
+shift || true
+
+case "${cmd}" in
+    deploy)
+        LAMINA_DEPLOY_MODE=deploy source "${LAMINA_DIR}/deploy.zsh" "$@"
+        ;;
+    repair)
+        LAMINA_DEPLOY_MODE=repair source "${LAMINA_DIR}/deploy.zsh" "$@"
+        ;;
+    health|check)
+        source "${LAMINA_DIR}/health.zsh"
+        ;;
+    diff)
+        (
+            cd "${DOTFILES}" || exit 1
+            dotter deploy --dry-run -v "$@"
+        )
+        ;;
+    -h|--help|help|"")
+        usage
+        ;;
+    *)
+        print -u2 "lamina: unknown command: ${cmd}"
+        usage >&2
+        exit 1
+        ;;
+esac

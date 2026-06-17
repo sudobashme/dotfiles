@@ -14,7 +14,7 @@ if [[ -z ${ZDOTDIR} ]]; then
 fi
 
 # DOTFILES dir is parent to ZDOTDIR in my setup so if this file is even executing
-# then it should be but lets verify 
+# then it should be but lets verify
 if [[ -z ${DOTFILES} ]]; then
     # and if its not then we will set it here along with this .zshenv file
     local homezshenv="${HOME}/.zshenv"
@@ -38,4 +38,5 @@ if [[ "$-" == *i* ]]; then
   source ${ZDOTDIR}/.zshrc
 fi
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
 # EOF

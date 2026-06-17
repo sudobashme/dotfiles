@@ -47,7 +47,7 @@ This is likely the most important new component we will build.
 See `DIAGNOSTICS-VISION.md` for detailed thinking.
 
 Possible implementation directions:
-- A small, high-quality CLI tool (`pos` or `layer` or `health` or custom name)
+- **Lamina** — the deploy/health CLI (`lamina deploy`, `lamina health`, `lamina diff`)
 - Shell functions that call the tool
 - Structured data + multiple presentation layers
 - Ability for other components to register health checks

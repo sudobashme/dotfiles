@@ -5,4 +5,5 @@
 #           filepath: ${HOME}/.config/dotfiles/zsh/.zlogout
 #      symbolic link: ${ZDOTDIR/.zlogout:-${HOME}/.zsh/.zlogout}
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
 # EOF

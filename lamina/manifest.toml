@@ -1,0 +1,26 @@
+# Lamina manifest — Personal OS Layer desired state
+# Symlinks are applied via dotter (.dotter/global.toml).
+# Health checks read this file for drift and stray-file detection.
+
+[meta]
+name = "lamina"
+version = "0.1.0"
+description = "Personal OS Layer deploy and health CLI"
+
+[symlinks]
+provider = "dotter"
+config = ".dotter/global.toml"
+
+# Dual-link: zsh/.zshenv also targets ZDOTDIR (see lamina/deploy.zsh)
+dual_link = "zsh/.zshenv"
+
+[health.stray_files]
+"~/.zshrc" = "Installer stray; real config lives in ZDOTDIR (~/.zsh)"
+
+[health.stale_paths]
+"~/.zsh/plugins/powerlevel10k" = "Removed from stack; starship is the prompt now"
+
+[health.required_bins]
+launch-os-layer = "~/.local/bin/launch-os-layer"
+grok-acp = "~/.local/bin/grok-acp"
+lamina = "~/.local/bin/lamina"

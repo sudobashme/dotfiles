@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+# Wrapper for OpenClaw ACP bridge to Grok stdio.
+# Ignores extra args OpenClaw may pass.
+exec "${HOME}/.grok/bin/grok" agent stdio

@@ -101,6 +101,46 @@ fi
     alias oc-mcp="openclaw mcp"
     alias oc-agents="openclaw agents"
 
+    # Recover from a corrupted/failed TUI session (garbled output, connected|error)
+    oc-fresh() {
+        echo "Resetting OpenClaw main session and restarting gateway..."
+        python3 - <<'PY'
+import json, pathlib, shutil, sqlite3
+oc = pathlib.Path.home() / ".openclaw"
+sessions = oc / "agents/main/sessions/sessions.json"
+if sessions.exists():
+    shutil.copy2(sessions, sessions.with_suffix(".json.bak-oc-fresh"))
+    sessions.write_text("{}\n")
+db = oc / "agents/main/agent/openclaw-agent.sqlite"
+if db.exists():
+    conn = sqlite3.connect(db)
+    cur = conn.cursor()
+    cur.execute("SELECT state_json FROM auth_profile_state")
+    row = cur.fetchone()
+    if row:
+        state = json.loads(row[0])
+        stats = state.get("usageStats", {}).get("xai:default", {})
+        stats.pop("cooldownUntil", None)
+        stats.pop("cooldownReason", None)
+        cur.execute("UPDATE auth_profile_state SET state_json=?", (json.dumps(state),))
+        conn.commit()
+    conn.close()
+print("Session store cleared.")
+PY
+        openclaw gateway restart
+        echo "Starting fresh TUI..."
+        openclaw tui
+    }
+
+    # Show the real xAI/OpenClaw error (avoids gzip garbage in the TUI)
+    oc-diagnose() {
+        openclaw status
+        echo ""
+        openclaw models auth list
+        echo ""
+        openclaw infer model run --local --model xai/grok-4.3 --prompt ping 2>&1 | tail -3
+    }
+
     # Bridge this Grok (local powerful instance) into OpenClaw via ACP
     # Usage: oc-grok [optional-cwd]
     # This lets OpenClaw's interface/agent system use this Grok's full local capabilities (file edits, commands, our skills, plan mode, etc.)
