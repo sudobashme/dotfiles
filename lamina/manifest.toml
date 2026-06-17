@@ -14,11 +14,19 @@ config = ".dotter/global.toml"
 # Dual-link: zsh/.zshenv also targets ZDOTDIR (see lamina/deploy.zsh)
 dual_link = "zsh/.zshenv"
 
+[plugins]
+zsh = "lamina/plugins.toml"
+sync_hook = "lamina/hooks/sync-plugins.zsh"
+
 [health.stray_files]
 "~/.zshrc" = "Installer stray; real config lives in ZDOTDIR (~/.zsh)"
 
 [health.stale_paths]
 "~/.zsh/plugins/powerlevel10k" = "Removed from stack; starship is the prompt now"
+"~/.zsh/plugins/archive" = "Legacy broken URL; not used in rc.d"
+"~/.zsh/plugins/iterm2-shell-integration" = "Not referenced in rc.d"
+"~/.zsh/plugins/autocomplete" = "Deliberately disabled in rc.d/720_autosuggest.zsh"
+"~/.zsh/plugins/zsh-zoxide" = "Redundant; zoxide init runs directly in zsh/.zshrc"
 
 [health.required_bins]
 launch-os-layer = "~/.local/bin/launch-os-layer"

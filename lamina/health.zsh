@@ -78,6 +78,39 @@ print -r -- ""
 
 print -r -- "Stale artifacts"
 check_stale_path "${HOME}/.zsh/plugins/powerlevel10k" "replaced by starship"
+check_stale_path "${HOME}/.zsh/plugins/archive" "legacy broken URL"
+check_stale_path "${HOME}/.zsh/plugins/iterm2-shell-integration" "not in rc.d"
+check_stale_path "${HOME}/.zsh/plugins/autocomplete" "disabled in rc.d/720_autosuggest.zsh"
+check_stale_path "${HOME}/.zsh/plugins/zsh-zoxide" "redundant; use zoxide init in .zshrc"
+print -r -- ""
+
+print -r -- "Zsh plugins"
+if (( ${+commands[python3]} )); then
+    while IFS= read -r line; do
+        [[ -z "${line}" ]] && continue
+        local pname="${line%%|*}"
+        local pdest="${line#*|}"
+        if [[ -d "${pdest}/.git" ]]; then
+            lamina_ok "${pname}"
+        else
+            lamina_fail "missing plugin ${pname} at ${pdest}"
+            issues+=1
+        fi
+    done < <(python3 - "${DOTFILES}/lamina/plugins.toml" <<'PY'
+import sys, tomllib
+from pathlib import Path
+home = Path.home()
+data = tomllib.loads(Path(sys.argv[1]).read_text())
+section = data.get("plugins", {})
+root = home / section.get("root", "~/.zsh/plugins")[2:]
+for entry in section.get("repo", []):
+    dest = root / entry["dir"]
+    print(f"{entry['name']}|{dest}")
+PY
+)
+else
+    lamina_warn "python3 not found — skipping plugin checks"
+fi
 print -r -- ""
 
 print -r -- "Required binaries"

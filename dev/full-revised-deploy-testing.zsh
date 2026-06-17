@@ -252,66 +252,13 @@ install_zsh_environment() {
   zf_mkdir -p "${XDG_CACHE_HOME}"/zsh
   zf_mkdir -p "${HOME}"/.local/{bin,etc}
   zf_mkdir -p "${HOME}"/.tmux
-  echo "${FMT_BLUE} linking required config directories... ${FMT_RESET}"
-  zf_ln -sfn "${DOTFILES}/zsh/env.d" "${ZDOTDIR}/env.d"
-  zf_ln -sfn "${DOTFILES}/zsh/rc.d" "${ZDOTDIR}/rc.d"
-  zf_ln -sfn "${DOTFILES}/zsh/fpath" "${ZDOTDIR}/fpath"
-  zf_ln -sfn "${DOTFILES}/configs/btop" "${XDG_CONFIG_HOME}/btop"
-  zf_ln -sfn "${DOTFILES}/configs/carapace" "${XDG_CONFIG_HOME}/carapace"
-  zf_ln -sfn "${DOTFILES}/configs/fish" "${XDG_CONFIG_HOME}/fish"
-  zf_ln -sfn "${DOTFILES}/configs/git" "${XDG_CONFIG_HOME}/git"
-  zf_ln -sfn "${DOTFILES}/configs/gtk-2.0" "${XDG_CONFIG_HOME}/gtk-2.0"
-  if [[ $OS == "macOS" ]]; then
-    zf_ln -sfn "${DOTFILES}/configs/iterm2" "${XDG_CONFIG_HOME}/iterm2"
+  echo "${FMT_BLUE} linking configs via lamina (dotter + plugins)... ${FMT_RESET}"
+  if [[ -x "${DOTFILES}/bin/lamina" ]]; then
+    "${DOTFILES}/bin/lamina" deploy
+  else
+    echo "${FMT_RED} lamina not found at ${DOTFILES}/bin/lamina ${FMT_RESET}" >&2
+    return 1
   fi
-  zf_ln -sfn "${DOTFILES}/configs/kitty" "${XDG_CONFIG_HOME}/kitty"
-  zf_ln -sfn "${DOTFILES}/configs/lnav" "${XDG_CONFIG_HOME}/lnav"
-  zf_ln -sfn "${DOTFILES}/configs/mc" "${XDG_CONFIG_HOME}/mc"
-  zf_ln -sfn "${DOTFILES}/configs/npm" "${XDG_CONFIG_HOME}/npm"
-  zf_ln -sfn "${DOTFILES}/configs/nvim" "${XDG_CONFIG_HOME}/nvim"
-  zf_ln -sfn "${DOTFILES}/configs/ranger" "${XDG_CONFIG_HOME}/ranger"
-  zf_ln -sfn "${DOTFILES}/configs/zbrowse" "${XDG_CONFIG_HOME}/zbrowse"
-  zf_ln -sfn "${DOTFILES}/configs/znt" "${XDG_CONFIG_HOME}/znt"
-  echo "${FMT_BLUE} linking required config files... ${FMT_RESET}"
-  zf_ln -sf "${DOTFILES}/configs/tmux/tmux.conf" "${HOME}/.tmux.conf"
-  zf_ln -sf "${DOTFILES}/configs/starship/starship.toml" "${XDG_CONFIG_HOME}/starship.toml"
-  zf_ln -sf "${DOTFILES}/zsh/.zshenv" "${ZDOTDIR}/.zshenv"
-  zf_ln -sf "${DOTFILES}/zsh/.zshrc" "${ZDOTDIR}/.zshrc"
-  zf_ln -sf "${DOTFILES}/zsh/.zprofile" "${ZDOTDIR}/.zprofile"
-  zf_ln -sf "${DOTFILES}/zsh/.zshenv" "${HOME}/.zshenv"
-  zf_ln -sf "${DOTFILES}/zsh/.zlogin" "${ZDOTDIR}/.zlogin"
-  zf_ln -sf "${DOTFILES}/zsh/.zlogout" "${ZDOTDIR}/.zlogout"
-  zshplugins="${ZDOTDIR}/plugins"
-  zf_mkdir -p $zshplugins
-  git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "${zshplugins}/autocomplete"
-  git clone https://github.com/zsh-users/zsh-autosuggestions "${zshplugins}/autosuggestions"
-  git clone https://github.com/Aloxaf/fzf-tab "${zshplugins}/fzf-tab"
-  git clone https://github.com/zsh-users/zsh-completions.git "${zshplugins}/completions"
-  git clone https://github.com/romkatv/zsh-defer.git "${zshplugins}/defer"
-  git clone https://github.com/felipec/git-completion.git "${zshplugins}/git-completion"
-  if [[ $OS == "macOS" ]]; then
-    git clone https://github.com/gnachman/iTerm2-shell-integration.git "${zshplugins}/iterm2-shell-integration"
-  fi
-  git clone https://github.com/romkatv/archive.git "${zshplugins}/archive"
-  git clone https://github.com/Tarrasch/zsh-autoenv.git "${zshplugins}/autoenv"
-  git clone https://github.com/hlissner/zsh-autopair.git "${zshplugins}/autopair"
-  git clone https://github.com/trapd00r/LS_COLORS.git "${zshplugins}/ls-colors"
-  git clone https://github.com/romkatv/powerlevel10k.git "${zshplugins}/powerlevel10k"
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${zshplugins}/syntax-highlighting"
-  git clone https://github.com/olets/zsh-window-title.git "${zshplugins}/window-title"
-  git clone https://github.com/z-shell/zsh-navigation-tools "${zshplugins}/zsh-navigation-tools"
-  git clone https://github.com/z-shell/zsh-zoxide.git "${ZDOTDIR}/plugins/zsh-zoxide"
-  git clone https://github.com/z-shell/zsh-eza.git "${ZDOTDIR}/plugins/zsh-eza"
-  git clone https://github.com/olets/zsh-autosuggestions-abbreviations-strategy --single-branch --branch main --depth 1 "${zshplugins}/autosuggestions-abbreviations-strategy"
-  git clone https://github.com/olets/zsh-abbr --recurse-submodules --single-branch --branch v6 --depth 1 "${zshplugins}/abbr"
-  git clone https://github.com/zdharma-continuum/zbrowse.git "${zshplugins}/zbrowse"
-  zmodload -LR zsh
-  setopt local_options extended_glob
-  autoload -Uz zrecompile
-  for plugin_file in "${ZDOTDIR}/plugins/**/*.zsh{-theme,}(#q.)"; do
-    zrecompile -pq "${plugin_file}"
-  done
-  unset zshplugins plugin_file
   cd ${LOCAL_TOOLS}
   git clone https://github.com/so-fancy/diff-so-fancy.git "${LOCAL_TOOLS}/diff-so-fancy"
   git clone https://github.com/junegunn/fzf.git "${LOCAL_TOOLS}/fzf"

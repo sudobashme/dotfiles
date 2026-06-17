@@ -14,10 +14,13 @@ usage() {
 lamina — Personal OS Layer deploy and health
 
 Usage:
-  lamina deploy [--dry-run]   Apply symlinks via dotter (+ dual-links)
-  lamina health               Check for drift, strays, and missing links
-  lamina diff                 Show what deploy would change (dotter dry-run)
-  lamina repair               Deploy symlinks only (alias for deploy)
+  lamina deploy [--dry-run] [--symlinks-only]
+                              Apply symlinks + sync zsh plugins
+  lamina sync-plugins [--dry-run] [--no-zrecompile]
+                              Sync zsh plugins from lamina/plugins.toml
+  lamina health               Check for drift, strays, plugins, and symlinks
+  lamina diff                 Show symlink changes (dotter dry-run)
+  lamina repair               Repair symlinks + resync plugins
 
 Options passed to deploy/diff are forwarded to dotter.
 EOF
@@ -32,6 +35,22 @@ case "${cmd}" in
         ;;
     repair)
         LAMINA_DEPLOY_MODE=repair source "${LAMINA_DIR}/deploy.zsh" "$@"
+        ;;
+    sync-plugins|plugins)
+        typeset -a sync_args
+        sync_args=()
+        for arg in "$@"; do
+            case "${arg}" in
+                --dry-run) export LAMINA_PLUGINS_DRY_RUN=1 ;;
+                --no-zrecompile) export LAMINA_PLUGINS_NO_ZRECOMPILE=1 ;;
+                *) sync_args+=("${arg}") ;;
+            esac
+        done
+        if [[ -n "${sync_args[*]:-}" ]]; then
+            print -u2 "lamina: unknown sync-plugins args: ${sync_args[*]}"
+            exit 1
+        fi
+        source "${LAMINA_DIR}/hooks/sync-plugins.zsh"
         ;;
     health|check)
         source "${LAMINA_DIR}/health.zsh"

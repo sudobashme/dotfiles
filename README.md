@@ -13,10 +13,11 @@ The accompanying ~~bootstrap script~~ will attempt to install the following:
 - [~~ohmyzsh~~](https://ohmyz.sh/)
 - [this repo](https://github.com/sudobashme/dotfiles)
 - [powerline fonts](https://github.com/powerline/fonts?tab=readme-ov-file)
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [starship](https://starship.rs/) (prompt)
+- [lamina](./bin/lamina) (deploy + health CLI)
 - [my neovim configuration](https://github.com/sudobashme/dotfiles/tree/main/configs/nvim)
 
-so that has been replaced with the [deploy.zsh](./deploy.zsh) script however its not completely dialed in yet but I am working on that.
+Bootstrap is handled by [deploy.zsh](./deploy.zsh) and [lamina](./bin/lamina). Symlinks and zsh plugins are declared in [lamina/plugins.toml](./lamina/plugins.toml).
 
 And then all the applications I install via homebrew of which a list can be found [here](./configs/homebrew/homebrew_bundle_file)
 
@@ -99,12 +100,13 @@ Definitely worth a read:
 
 ---
 
-Some plugins I really like:
+Some plugins I really like (see [lamina/plugins.toml](./lamina/plugins.toml) for the canonical list):
 
 - [zsh navigation tools](https://github.com/z-shell/zsh-navigation-tools)
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [zsh-abbr](https://github.com/olets/zsh-abbr)
+- [fzf-tab](https://github.com/Aloxaf/fzf-tab)
 
-Make sure you check out the [instant prompt section of powerlevel10k](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#instant-prompt)
+Zoxide is integrated directly via `evalcache zoxide init zsh` in `zsh/.zshrc` (not the z-shell zsh-zoxide plugin wrapper).
 
 ---
 

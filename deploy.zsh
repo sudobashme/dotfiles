@@ -184,35 +184,6 @@ install_zsh_environment() {
         echo "${FMT_RED} lamina not found at ${DOTFILES}/bin/lamina ${FMT_RESET}" >&2
         return 1
     fi
-    zshplugins="${ZDOTDIR}/plugins"
-    zf_mkdir -p $zshplugins
-    git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git "${zshplugins}/autocomplete"
-    git clone --depth 1 -- https://github.com/zsh-users/zsh-autosuggestions "${zshplugins}/autosuggestions"
-    git clone --depth 1 -- https://github.com/Aloxaf/fzf-tab "${zshplugins}/fzf-tab"
-    git clone --depth 1 -- https://github.com/zsh-users/zsh-completions.git "${zshplugins}/completions"
-    git clone --depth 1 -- https://github.com/romkatv/zsh-defer.git "${zshplugins}/defer"
-    git clone --depth 1 -- https://github.com/felipec/git-completion.git "${zshplugins}/git-completion"
-    git clone --depth 1 -- https://github.com/gnachman/iTerm2-shell-integration.git "${zshplugins}/iterm2-shell-integration"
-    git clone --depth 1 -- https://github.com/https://github.com/romkatv/archive.git "${zshplugins}/archive"
-    git clone --depth 1 -- https://github.com/Tarrasch/zsh-autoenv.git "${zshplugins}/autoenv"
-    git clone --depth 1 -- https://github.com/hlissner/zsh-autopair.git "${zshplugins}/autopair"
-    git clone --depth 1 -- https://github.com/trapd00r/LS_COLORS.git "${zshplugins}/ls-colors"
-    git clone --depth 1 -- https://github.com/romkatv/powerlevel10k.git "${zshplugins}/powerlevel10k"
-    git clone --depth 1 -- https://github.com/zsh-users/zsh-syntax-highlighting.git "${zshplugins}/syntax-highlighting"
-    git clone --depth 1 -- https://github.com/olets/zsh-window-title.git "${zshplugins}/window-title"
-    git clone --depth 1 -- https://github.com/z-shell/zsh-navigation-tools "${zshplugins}/zsh-navigation-tools"
-    git clone --depth 1 -- https://github.com/z-shell/zsh-zoxide.git "${ZDOTDIR}/plugins/zsh-zoxide"
-    git clone --depth 1 -- https://github.com/z-shell/zsh-eza.git "${ZDOTDIR}/plugins/zsh-eza"
-    git clone --depth 1 -- https://github.com/olets/zsh-autosuggestions-abbreviations-strategy --single-branch --branch main --depth 1 "${zshplugins}/autosuggestions-abbreviations-strategy"
-    git clone --depth 1 -- https://github.com/olets/zsh-abbr --recurse-submodules --single-branch --branch v6 --depth 1 "${zshplugins}/abbr"
-    git clone --depth 1 -- https://github.com/zdharma-continuum/zbrowse.git "${zshplugins}/zbrowse"
-    emulate -LR zsh
-    setopt local_options extended_glob
-    autoload -Uz zrecompile
-    for plugin_file in "${ZDOTDIR}/plugins/**/*.zsh{-theme,}(#q.)"; do
-        zrecompile -pq "${plugin_file}"
-    done
-    unset zshplugins plugin_file
     cd ${LOCAL_TOOLS}
     git clone https://github.com/so-fancy/diff-so-fancy.git "${LOCAL_TOOLS}/diff-so-fancy"
     git clone https://github.com/junegunn/fzf.git "${LOCAL_TOOLS}/fzf"

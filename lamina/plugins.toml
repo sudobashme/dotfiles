@@ -1,0 +1,128 @@
+# Zsh plugins required by dotfiles zsh/rc.d
+# Synced by: lamina sync-plugins (also runs during lamina deploy)
+
+[plugins]
+root = "~/.zsh/plugins"
+
+# Plain file used by zsh-abbr (not a git repo)
+[[plugins.files]]
+path = "~/.zsh/plugins/abbreviations-store"
+mode = "touch"
+
+[[plugins.repo]]
+name = "abbr"
+dir = "abbr"
+url = "https://github.com/olets/zsh-abbr.git"
+depth = 1
+branch = "v6"
+recurse_submodules = true
+
+[[plugins.repo]]
+name = "autoenv"
+dir = "autoenv"
+url = "https://github.com/Tarrasch/zsh-autoenv.git"
+depth = 1
+
+[[plugins.repo]]
+name = "autopair"
+dir = "autopair"
+url = "https://github.com/hlissner/zsh-autopair.git"
+depth = 1
+
+[[plugins.repo]]
+name = "autosuggestions"
+dir = "autosuggestions"
+url = "https://github.com/zsh-users/zsh-autosuggestions.git"
+depth = 1
+
+[[plugins.repo]]
+name = "autosuggestions-abbreviations-strategy"
+dir = "autosuggestions-abbreviations-strategy"
+url = "https://github.com/olets/zsh-autosuggestions-abbreviations-strategy.git"
+depth = 1
+branch = "main"
+
+[[plugins.repo]]
+name = "completions"
+dir = "completions"
+url = "https://github.com/zsh-users/zsh-completions.git"
+depth = 1
+
+[[plugins.repo]]
+name = "fzf-tab"
+dir = "fzf-tab"
+url = "https://github.com/Aloxaf/fzf-tab.git"
+depth = 1
+
+[[plugins.repo]]
+name = "git-completion"
+dir = "git-completion"
+url = "https://github.com/felipec/git-completion.git"
+depth = 1
+
+[[plugins.repo]]
+name = "ls-colors"
+dir = "ls-colors"
+url = "https://github.com/trapd00r/LS_COLORS.git"
+depth = 1
+
+[[plugins.repo]]
+name = "syntax-highlighting"
+dir = "syntax-highlighting"
+url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+depth = 1
+
+[[plugins.repo]]
+name = "window-title"
+dir = "window-title"
+url = "https://github.com/olets/zsh-window-title.git"
+depth = 1
+
+[[plugins.repo]]
+name = "yazi-zoxide-zsh"
+dir = "yazi-zoxide-zsh"
+url = "https://github.com/fdw/yazi-zoxide-zsh.git"
+depth = 1
+
+[[plugins.repo]]
+name = "zbrowse"
+dir = "zbrowse"
+url = "https://github.com/zdharma-continuum/zbrowse.git"
+depth = 1
+
+[[plugins.repo]]
+name = "zsh-colored-man-pages"
+dir = "zsh-colored-man-pages"
+url = "https://github.com/ael-code/zsh-colored-man-pages.git"
+depth = 1
+
+[[plugins.repo]]
+name = "zsh-colorize-functions"
+dir = "zsh-colorize-functions"
+url = "https://github.com/Freed-Wu/zsh-colorize-functions.git"
+depth = 1
+
+[[plugins.repo]]
+name = "zsh-eza"
+dir = "zsh-eza"
+url = "https://github.com/z-shell/zsh-eza.git"
+depth = 1
+
+[[plugins.repo]]
+name = "zsh-navigation-tools"
+dir = "zsh-navigation-tools"
+url = "https://github.com/z-shell/zsh-navigation-tools.git"
+depth = 1
+
+[[plugins.repo]]
+name = "zui"
+dir = "zui"
+url = "https://github.com/zdharma-continuum/zui.git"
+depth = 1
+
+# Removed from stack (do not sync):
+# - powerlevel10k (starship is the prompt)
+# - zsh-autocomplete (explicitly disabled in rc.d/720_autosuggest.zsh)
+# - romkatv/archive (was a broken URL in legacy deploy.zsh)
+# - iterm2-shell-integration (not referenced in rc.d)
+# - zsh-zoxide (redundant; zoxide init runs directly in zsh/.zshrc)

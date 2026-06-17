@@ -48,4 +48,12 @@ fi
 # Dual-link .zshenv into ZDOTDIR (dotter handles ~/.zshenv)
 zf_ln -sf "${DOTFILES}/zsh/.zshenv" "${ZDOTDIR}/.zshenv"
 
+# Zsh plugins (unless symlinks-only)
+if (( ! ${dotter_args[(I)--symlinks-only]} )); then
+    if (( ${dotter_args[(I)--dry-run]} )); then
+        export LAMINA_PLUGINS_DRY_RUN=1
+    fi
+    source "${DOTFILES}/lamina/hooks/sync-plugins.zsh"
+fi
+
 print -r -- "lamina deploy — done"
