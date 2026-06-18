@@ -82,6 +82,8 @@ check_stale_path "${HOME}/.zsh/plugins/archive" "legacy broken URL"
 check_stale_path "${HOME}/.zsh/plugins/iterm2-shell-integration" "not in rc.d"
 check_stale_path "${HOME}/.zsh/plugins/autocomplete" "disabled in rc.d/720_autosuggest.zsh"
 check_stale_path "${HOME}/.zsh/plugins/zsh-zoxide" "redundant; use zoxide init in .zshrc"
+check_stale_path "${HOME}/.colima" "removed; Tart (lamina vm-test) is the VM stack"
+check_stale_path "${HOME}/.lima" "removed; Tart (lamina vm-test) is the VM stack"
 print -r -- ""
 
 print -r -- "Zsh plugins"

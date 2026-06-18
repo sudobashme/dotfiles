@@ -23,6 +23,7 @@ Usage:
   lamina health               Check for drift, strays, plugins, and symlinks
   lamina diff                 Show symlink changes (dotter dry-run)
   lamina repair               Repair symlinks + resync plugins
+  lamina vm-test <cmd>        Tart macOS sandbox for deploy testing (see --help)
 
 Options passed to deploy/diff are forwarded to dotter.
 EOF
@@ -56,6 +57,9 @@ case "${cmd}" in
         ;;
     update|up)
         source "${LAMINA_DIR}/update.zsh" "$@"
+        ;;
+    vm|vm-test)
+        source "${LAMINA_DIR}/vm-test.zsh" "$@"
         ;;
     health|check)
         source "${LAMINA_DIR}/health.zsh"

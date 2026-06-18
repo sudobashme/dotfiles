@@ -27,6 +27,8 @@ sync_hook = "lamina/hooks/sync-plugins.zsh"
 "~/.zsh/plugins/iterm2-shell-integration" = "Not referenced in rc.d"
 "~/.zsh/plugins/autocomplete" = "Deliberately disabled in rc.d/720_autosuggest.zsh"
 "~/.zsh/plugins/zsh-zoxide" = "Redundant; zoxide init runs directly in zsh/.zshrc"
+"~/.colima" = "Removed colima; Tart (lamina vm-test) is the VM stack"
+"~/.lima" = "Removed lima; Tart (lamina vm-test) is the VM stack"
 
 [health.required_bins]
 launch-os-layer = "~/.local/bin/launch-os-layer"

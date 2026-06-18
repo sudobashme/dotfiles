@@ -57,7 +57,7 @@ Per [DIAGNOSTICS-VISION.md](./DIAGNOSTICS-VISION.md) and [PROJECT-CHARTER.md](./
 | Lamina deploy CLI | 🟡 Started | `bin/lamina`, `lamina/deploy.zsh`, `manifest.toml` |
 | Update strategy doc | ✅ Done | [UPDATE-STRATEGY.md](./UPDATE-STRATEGY.md) — cadence + gaps documented |
 | `lamina update` command | ✅ Done | `lamina/update.zsh`; `up` → `lamina update --full` |
-| VM deploy sandbox (Tart) | 🟡 Planned | [VM-INFRASTRUCTURE.md](./VM-INFRASTRUCTURE.md) — Lima/Colima ≠ macOS guest |
+| VM deploy sandbox (Tart) | ✅ Scaffold | `lamina vm-test` + Brewfile; run `setup-base` once |
 | Declarative desired state | ⬜ Not started | Single source of truth for packages, symlinks, plugins |
 | `deploy.zsh` retirement / shrink | ⬜ Not started | Large imperative script; hard to trust on fresh machine |
 | Fresh-machine bootstrap test | 🟡 Planned | Tart VM Phase B; `deploy-testing.zsh` is interim |

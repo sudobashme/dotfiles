@@ -2,6 +2,7 @@ tap "antoniorodr/memo"
 tap "bramstein/webfonttools"
 tap "brewsci/science"
 tap "buo/cask-upgrade"
+tap "cirruslabs/cli"
 tap "damenly/virt-manager"
 tap "fairwindsops/tap"
 tap "fsouza/prettierd"
@@ -200,8 +201,9 @@ brew "cmake-docs"
 brew "cmocka"
 # High performance code minimap generator
 brew "code-minimap"
-# Container runtimes on MacOS (and Linux) with minimal setup
-brew "colima", restart_service: :changed
+# macOS VMs for Personal OS Layer deploy testing (see lamina vm-test)
+brew "cirruslabs/cli/tart"
+brew "cirruslabs/cli/sshpass"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Generic library support script
@@ -238,12 +240,6 @@ brew "delve"
 brew "docbook"
 # XML vocabulary to create presentation-neutral documents
 brew "docbook-xsl"
-# Pack, ship and run any application as a lightweight container
-brew "docker"
-# Isolated development environments using Docker
-brew "docker-compose"
-# Create Docker hosts locally and on cloud providers
-brew "docker-machine"
 # Binary-decimal and decimal-binary routines for IEEE doubles
 brew "double-conversion"
 # Generate documentation for several programming languages

@@ -70,6 +70,31 @@ Chronological record of meaningful changes. One entry per sprint or significant 
 
 ---
 
+## 2026-06-17 — Tart VM testing + remove Colima/Docker stack
+
+### Added
+
+- `lamina/vm-test.zsh` — `lamina vm-test {setup-base,clone,run,deploy,test,...}`
+- `lamina/vm.toml` — Tart image/CPU/RAM/guest defaults
+- Brewfile: `tap cirruslabs/cli`, `tart`, `sshpass`
+
+### Removed from Brewfile
+
+- `colima`, `docker`, `docker-compose`, `docker-machine` (Lima/Colima Linux stack — not needed)
+
+### Health
+
+- Stale path warnings for `~/.colima` and `~/.lima`
+
+### First run
+
+```bash
+lamina vm-test setup-base    # downloads ~25GB base image (once)
+lamina vm-test e2e --check
+```
+
+---
+
 ## Earlier history
 
 Pre-2026 work (lamina scaffold, personal-os-layer charter, zsh modularization, OpenClaw integration doc) predates this worklog. See git history and [PROJECT-CHARTER.md](./PROJECT-CHARTER.md) for intent.

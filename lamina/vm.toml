@@ -1,0 +1,14 @@
+# Tart VM settings for lamina vm-test
+# See: docs/personal-os-layer/VM-INFRASTRUCTURE.md
+
+[vm]
+base_image = "ghcr.io/cirruslabs/macos-tahoe-base:latest"
+base_name = "lamina-base-macos"
+test_prefix = "lamina-test"
+cpus = 4
+memory_gb = 8
+guest_user = "admin"
+guest_password = "admin"
+mount_name = "dotfiles"
+guest_dotfiles = "/Volumes/My Shared Files/dotfiles"
+ssh_timeout_secs = 300
