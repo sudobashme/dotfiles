@@ -1,6 +1,6 @@
 # Current State Assessment
 
-This document captures where the environment actually is today (as of May 2025), without romanticizing it.
+This document captures where the environment actually is today (as of June 2026), without romanticizing it.
 
 ## Overall Maturity
 
@@ -11,7 +11,7 @@ This document captures where the environment actually is today (as of May 2025),
   - Hard-coded paths
   - No real modularity or testability
   - A "works on my machine (sometimes)" quality
-- **Neovim**: Using LazyVim. This is actually one of the more modern and coherent parts of the stack.
+- **Neovim**: Using LazyVim with a growing custom plugin layer (`configs/nvim/lua/plugins/`). After the Jun 2026 cohesion sprint this is the **most stable and best-documented** part of the stack — Neorg, Obsidian, render-markdown, Biome/conform, neoconf, and Yazi integration conflicts were resolved. See [WORKLOG.md](./WORKLOG.md) for specifics. Remaining gap: no bridge yet between Neovim `:checkhealth` and shell-level `lamina health`.
 - **Philosophy**: The README and various docs still reflect an earlier mindset. The gap between the stated values ("journey not destination") and the desire for high-craftsmanship work is visible.
 
 ## Specific Problem Areas
@@ -26,7 +26,10 @@ The current diagnostic tooling satisfies the *feeling* of having self-inspection
 The deploy script gives the *appearance* of a reproducible environment, but it is difficult to trust, hard to modify, and full of historical accidents.
 
 ### 4. Inconsistent Craft Level
-Some areas (certain parts of the zsh modular structure, the move toward XDG compliance) show care. Other areas show accumulated technical debt and "good enough" decisions.
+Some areas (certain parts of the zsh modular structure, the move toward XDG compliance, the Neovim layer post–Jun 2026) show care. Other areas show accumulated technical debt and "good enough" decisions.
+
+### 5. Documentation Lag
+Project intent lives in `docs/personal-os-layer/` but had fallen behind execution — game plan and worklog were not updated during the editor sprint until explicitly caught. [GAME-PLAN.md](./GAME-PLAN.md) and [WORKLOG.md](./WORKLOG.md) now track agenda vs. reality.
 
 ## What Still Works Well
 

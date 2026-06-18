@@ -84,7 +84,7 @@ This is one of the hardest and most valuable parts to get right.
 
 1. **Tooling Language**: How much of the new infrastructure (especially diagnostics and a better deploy system) should be written in shell vs a "real" language (Go, Rust, etc.)?
 2. **Configuration Format**: Do we want a single source of truth (e.g. a TOML or custom format) that generates parts of the zsh config, tmux config, etc.?
-3. **Update Model**: How does the system stay up to date across machines in a way that still feels intentional rather than "just run the deploy script again"?
+3. **Update Model**: Documented in [UPDATE-STRATEGY.md](./UPDATE-STRATEGY.md). Implementation still split (`update`, `deploy.zsh`, manual nvim); target is `lamina update`.
 4. **Extensibility for Future Layers**: What happens when we later want to add window management, automation (hammerspoon/raycast/etc.), or other concerns?
 
 ---
