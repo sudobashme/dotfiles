@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-LAMINA_CMD="${0}"
-DOTFILES="$(lamina_root "${LAMINA_CMD}")" || exit 1
+DOTFILES="$(lamina_dotfiles)" || exit 1
 
 LAMINA_VM_CONFIG="${DOTFILES}/lamina/vm.toml"
 LAMINA_VM_STATE="${XDG_CACHE_HOME:-${HOME}/.cache}/lamina/vm"
@@ -91,7 +90,7 @@ lamina_vm_default_test_name() {
 
 lamina_vm_exists() {
     local name="$1"
-    tart list 2>/dev/null | awk '{print $1}' | grep -Fxq "${name}"
+    tart list 2>/dev/null | awk '$1 == "local" { print $2 }' | grep -Fxq "${name}"
 }
 
 lamina_vm_ssh_opts() {
@@ -196,7 +195,6 @@ lamina_vm_clone() {
 
     tart clone "${base}" "${name}"
     lamina_ok "cloned ${base} → ${name}"
-    print -r -- "${name}"
 }
 
 lamina_vm_run() {
@@ -251,19 +249,43 @@ lamina_vm_destroy() {
     lamina_ok "destroyed ${name}"
 }
 
+lamina_vm_guest_bootstrap() {
+    local name="${1:?VM name required}"
+
+    if (( CHECK )); then
+        print -r -- "  → ssh: install Homebrew + dotter (if missing)"
+        return 0
+    fi
+
+    lamina_update_banner "guest bootstrap (Homebrew + dotter)"
+    lamina_vm_ssh "${name}" 'set -euo pipefail
+export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
+if command -v dotter >/dev/null 2>&1; then
+  exit 0
+fi
+if ! command -v brew >/dev/null 2>&1; then
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+brew install dotter'
+    lamina_ok "guest bootstrap complete"
+}
+
 lamina_vm_deploy() {
     local name="${1:?VM name required}"
     local guest_dotfiles
     guest_dotfiles="$(lamina_vm_cfg guest_dotfiles)"
 
     if (( CHECK )); then
+        lamina_vm_guest_bootstrap "${name}"
         print -r -- "  → ssh: cd '${guest_dotfiles}' && ./bin/lamina deploy"
         print -r -- "  → ssh: cd '${guest_dotfiles}' && ./bin/lamina health"
         return 0
     fi
 
+    lamina_vm_guest_bootstrap "${name}"
     lamina_vm_ssh "${name}" \
-        "set -euo pipefail; cd '${guest_dotfiles}' && ./bin/lamina deploy && ./bin/lamina health"
+        "export PATH=/opt/homebrew/bin:/usr/local/bin:\${PATH}; set -euo pipefail; cd '${guest_dotfiles}' && ./bin/lamina deploy && ./bin/lamina health"
     lamina_ok "deploy + health passed in ${name}"
 }
 
@@ -284,7 +306,7 @@ lamina_vm_test() {
         return 0
     fi
 
-    name="$(lamina_vm_clone)"
+    lamina_vm_clone "${name}"
     lamina_vm_run "${name}"
 
     local ip
@@ -305,7 +327,7 @@ lamina_vm_test() {
 }
 
 lamina_vm_list() {
-    tart list 2>/dev/null | awk 'NR==1 || $1 ~ /^lamina-/' || tart list
+    tart list 2>/dev/null | awk 'NR == 1 || ($1 == "local" && $2 ~ /^lamina-/)' || tart list
 }
 
 lamina_update_banner() {

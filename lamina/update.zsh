@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-LAMINA_CMD="${0}"
-DOTFILES="$(lamina_root "${LAMINA_CMD}")" || exit 1
+DOTFILES="$(lamina_dotfiles)" || exit 1
 
 typeset -i CHECK=0 FULL=0 NO_PULL=0 NO_NVIM=0 SKIP_HEALTH=0
 typeset -i failures=0

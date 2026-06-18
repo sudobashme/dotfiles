@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-LAMINA_CMD="${0}"
-DOTFILES="$(lamina_root "${LAMINA_CMD}")" || exit 1
+DOTFILES="$(lamina_dotfiles)" || exit 1
 export ZDOTDIR="${ZDOTDIR:-${HOME}/.zsh}"
 
 typeset -i issues=0

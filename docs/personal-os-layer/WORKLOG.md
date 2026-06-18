@@ -93,6 +93,12 @@ lamina vm-test setup-base    # downloads ~25GB base image (once)
 lamina vm-test e2e --check
 ```
 
+### Tart e2e validated (2026-06-17)
+
+- `setup-base` completed (~27GB pull)
+- Fixed: `tart list` name parsing, `lamina_dotfiles()` for sourced scripts, guest Homebrew/dotter bootstrap
+- `lamina vm-test e2e` — deploy + health passed in guest, VM destroyed after run
+
 ### Host cleanup (2026-06-17)
 
 - Stopped/deleted Colima instance

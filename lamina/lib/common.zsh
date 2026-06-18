@@ -15,6 +15,19 @@ lamina_root() {
     return 1
 }
 
+lamina_dotfiles() {
+    # Prefer caller context (bin/lamina sets DOTFILES/LAMINA_BIN before sourcing)
+    if [[ -n "${DOTFILES:-}" && -d "${DOTFILES}/lamina" ]]; then
+        print -r -- "${DOTFILES}"
+        return 0
+    fi
+    if [[ -n "${LAMINA_BIN:-}" ]]; then
+        lamina_root "${LAMINA_BIN}"
+        return $?
+    fi
+    lamina_root "${1:-}"
+}
+
 lamina_expand() {
     local path="${1}"
     path="${path/#\~/$HOME}"
