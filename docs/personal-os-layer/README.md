@@ -11,7 +11,8 @@ This is the working space for a serious, long-term project:
 - [CURRENT-STATE.md](./CURRENT-STATE.md) — Honest assessment of where things are today
 - [GAME-PLAN.md](./GAME-PLAN.md) — **Living agenda** — what's done, what's next, phase order
 - [WORKLOG.md](./WORKLOG.md) — **Session log** — what actually shipped and when
-- [UPDATE-STRATEGY.md](./UPDATE-STRATEGY.md) — **How to update** — git, deploy, `up`, Neovim, docs cadence
+- [UPDATE-STRATEGY.md](./UPDATE-STRATEGY.md) — **How to update** — `lamina update`, `up`, Neovim, docs cadence
+- [VM-INFRASTRUCTURE.md](./VM-INFRASTRUCTURE.md) — **Deploy testing VMs** — Tart vs Lima on Apple Silicon
 
 ## Where we are (Jun 2026)
 

@@ -58,7 +58,7 @@ Defined in `zsh/rc.d/800_update.zsh`. Runs:
 update    # or: up
 ```
 
-**Gaps today (known):** `update` does not run `TSUpdate`, `MasonUpdate`, `lamina deploy`, or `git pull`. Those stay manual until Phase 2 folds them into lamina.
+**Implementation:** `update` / `up` now delegates to `lamina update --full`.
 
 ### C. Neovim plugin / config change (you edit `configs/nvim/`)
 
@@ -122,17 +122,18 @@ No deploy step required.
 
 ---
 
-## Roadmap — unify into `lamina update` (Phase 2)
-
-Today update logic is split across `update()`, `deploy.zsh`, and manual Neovim commands. Target shape:
+## `lamina update` (implemented)
 
 ```bash
-lamina update              # safe routine: git pull, deploy, lazy sync, TSUpdate
-lamina update --full       # + brew, mason, npm (opt-in heavy)
-lamina update --check      # dry-run / report only
+lamina update              # git pull (if clean) → deploy → Lazy sync → TSUpdate → health
+lamina update --full       # + Homebrew, CLT check, npm global, MasonUpdate
+lamina update --check      # dry-run — list steps only
+lamina update --no-pull    # skip git pull
+lamina update --no-nvim    # skip editor steps
+lamina update --no-health  # skip health at end
 ```
 
-Until then, use this doc + `update` + manual Neovim steps above.
+Shell alias: `update` / `up` → `lamina update --full`.
 
 ---
 

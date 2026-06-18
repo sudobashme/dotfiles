@@ -52,6 +52,24 @@ Chronological record of meaningful changes. One entry per sprint or significant 
 
 ---
 
+## 2026-06-17 — `lamina update` + VM infrastructure doc
+
+**Context:** Unify scattered update paths; answer whether macOS can host deploy-test VMs.
+
+### Added
+
+- `lamina/update.zsh` — `lamina update [--check|--full|--no-pull|--no-nvim|--no-health]`
+- `bin/lamina` — `update` / `up` subcommand
+- `zsh/rc.d/800_update.zsh` — `update`/`up` now delegates to `lamina update --full`
+- `docs/personal-os-layer/VM-INFRASTRUCTURE.md` — Tart (macOS guests) vs Lima/Colima (Linux)
+
+### VM takeaway
+
+- **Yes on macOS** for full dotfiles testing → **Tart** (Apple Virtualization.framework, macOS-on-macOS)
+- **Lima/Colima** already on machine — good for Linux/Docker, not macOS bootstrap fidelity
+
+---
+
 ## Earlier history
 
 Pre-2026 work (lamina scaffold, personal-os-layer charter, zsh modularization, OpenClaw integration doc) predates this worklog. See git history and [PROJECT-CHARTER.md](./PROJECT-CHARTER.md) for intent.

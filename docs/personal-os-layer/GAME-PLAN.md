@@ -56,10 +56,11 @@ Per [DIAGNOSTICS-VISION.md](./DIAGNOSTICS-VISION.md) and [PROJECT-CHARTER.md](./
 |------|--------|-------|
 | Lamina deploy CLI | 🟡 Started | `bin/lamina`, `lamina/deploy.zsh`, `manifest.toml` |
 | Update strategy doc | ✅ Done | [UPDATE-STRATEGY.md](./UPDATE-STRATEGY.md) — cadence + gaps documented |
-| `lamina update` command | ⬜ Not started | Unify `update()`, deploy tail, TSUpdate/Mason (see UPDATE-STRATEGY) |
+| `lamina update` command | ✅ Done | `lamina/update.zsh`; `up` → `lamina update --full` |
+| VM deploy sandbox (Tart) | 🟡 Planned | [VM-INFRASTRUCTURE.md](./VM-INFRASTRUCTURE.md) — Lima/Colima ≠ macOS guest |
 | Declarative desired state | ⬜ Not started | Single source of truth for packages, symlinks, plugins |
 | `deploy.zsh` retirement / shrink | ⬜ Not started | Large imperative script; hard to trust on fresh machine |
-| Fresh-machine bootstrap test | ⬜ Not started | README still says "mileage may vary" |
+| Fresh-machine bootstrap test | 🟡 Planned | Tart VM Phase B; `deploy-testing.zsh` is interim |
 
 ---
 

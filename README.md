@@ -14,7 +14,7 @@ The accompanying ~~bootstrap script~~ will attempt to install the following:
 - [this repo](https://github.com/sudobashme/dotfiles)
 - [powerline fonts](https://github.com/powerline/fonts?tab=readme-ov-file)
 - [starship](https://starship.rs/) (prompt)
-- [lamina](./bin/lamina) (deploy + health CLI)
+- [lamina](./bin/lamina) (deploy, update, and health CLI)
 - [my neovim configuration](https://github.com/sudobashme/dotfiles/tree/main/configs/nvim)
 
 Bootstrap is handled by [deploy.zsh](./deploy.zsh) and [lamina](./bin/lamina). Symlinks and zsh plugins are declared in [lamina/plugins.toml](./lamina/plugins.toml).
