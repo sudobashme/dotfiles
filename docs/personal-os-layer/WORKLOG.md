@@ -93,6 +93,13 @@ lamina vm-test setup-base    # downloads ~25GB base image (once)
 lamina vm-test e2e --check
 ```
 
+### Host cleanup (2026-06-17)
+
+- Stopped/deleted Colima instance
+- `brew uninstall colima lima docker docker-compose docker-machine`
+- Removed `~/.colima`
+- `lamina health` — all checks passed
+
 ---
 
 ## Earlier history
