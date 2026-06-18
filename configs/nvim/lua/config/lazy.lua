@@ -51,4 +51,8 @@ require("lazy").setup({
       },
     },
   },
+  -- Bundled luarocks 3.x for neorg rockspec deps (tree-sitter-norg, etc.).
+  rocks = {
+    hererocks = true,
+  },
 })

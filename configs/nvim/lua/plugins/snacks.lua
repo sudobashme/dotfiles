@@ -39,7 +39,11 @@ return {
       },
     },
     explorer = { enabled = true },
-    image = { enabled = true },
+    image = {
+      enabled = true,
+      -- Let render-markdown.nvim handle LaTeX; snacks image math conflicts with it.
+      math = { enabled = false },
+    },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },

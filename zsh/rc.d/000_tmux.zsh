@@ -13,7 +13,7 @@
 # Behavior:
 # - Respects NO_TMUX or TMUX_AUTO_OFF to disable auto-start
 # - Skips on SSH / root / non-interactive shells
-# - Attaches to (or creates) a session named "workspace"
+# - Attaches to (or creates) a session named "workspace" (or "vscode" in VS Code)
 # - If you want a plain shell, just run: NO_TMUX=1 zsh  or  export NO_TMUX=1
 
 # Only for interactive shells
@@ -28,8 +28,13 @@
 # Don't force tmux on remote sessions or when running as root
 [[ -n $SSH_CONNECTION || -n $SSH_TTY || $USER == root ]] && return
 
-# Attach to existing "workspace" session or create it
-exec tmux new-session -A -s workspace
+local tmux_session=workspace
+if [[ ${TERM_PROGRAM:-} == vscode ]]; then
+    tmux_session=vscode
+fi
+
+# Attach to existing session or create it
+exec tmux new-session -A -s "$tmux_session"
 # (using exec so we fully replace the shell process)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

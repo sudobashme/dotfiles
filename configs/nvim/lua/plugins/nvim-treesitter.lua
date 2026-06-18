@@ -19,7 +19,6 @@ return {
       "luap",
       "markdown",
       "markdown_inline",
-      "norg",
       "printf",
       "python",
       "query",
@@ -34,9 +33,7 @@ return {
       "vimdoc",
       "vue",
       "xml",
-      "xsl",
       "yaml",
-      "dkjson",
     },
   },
 }

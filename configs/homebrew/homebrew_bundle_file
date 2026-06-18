@@ -15,7 +15,7 @@ tap "steipete/tap"
 tap "teamookla/speedtest"
 tap "thoughtbot/formulae"
 tap "universal-ctags/universal-ctags"
-tap "visidata/vd"
+tap "visidata/vd", "https://github.com/visidata/homebrew-vd.git"
 tap "xdevplatform/tap"
 tap "yakitrak/yakitrak"
 # C++ Common Libraries
