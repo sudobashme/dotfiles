@@ -6,10 +6,12 @@ debug
 foo.*
 *.log
 data
-.sublime/*
 .bak/*
 .DS_Store
 */.DS_Store
 .dotter/cache/
 .dotter/cache.toml
+.buildian/*
+.dotter/*
 .obsidian/*
+.sublime/*

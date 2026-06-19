@@ -65,7 +65,7 @@ complete -c grok -n "__fish_grok_needs_command" -l best-of-n -d 'Run the task N 
 complete -c grok -n "__fish_grok_needs_command" -l sandbox -d 'Sandbox profile for filesystem and network access' -r
 complete -c grok -n "__fish_grok_needs_command" -l storage-mode -d 'Session storage mode: local or writeback' -r
 complete -c grok -n "__fish_grok_needs_command" -l client-identifier -d 'Override the client identifier sent to the agent' -r
-complete -c grok -n "__fish_grok_needs_command" -l hunk-tracker-mode -d 'Hunk tracker mode: agent_only or all_dirty' -r
+complete -c grok -n "__fish_grok_needs_command" -l hunk-tracker-mode -d 'Hunk tracker mode: agent_only, all_dirty, or off ("disabled" is an alias for off, which turns the hunk tracker off entirely)' -r
 complete -c grok -n "__fish_grok_needs_command" -l installer -d 'Set the installer field in config.toml' -r
 complete -c grok -n "__fish_grok_needs_command" -l hub-url -d 'Computer Hub WebSocket URL for tool sharing' -r
 complete -c grok -n "__fish_grok_needs_command" -l hub-workspace-mode -d 'Workspace mode: "local" (default) or "remote=<server-id>"' -r
@@ -105,7 +105,7 @@ complete -c grok -n "__fish_grok_needs_command" -a "plugin" -d 'Manage plugins a
 complete -c grok -n "__fish_grok_needs_command" -a "memory" -d 'Manage cross-session memory'
 complete -c grok -n "__fish_grok_needs_command" -a "models" -d 'List available models and exit'
 complete -c grok -n "__fish_grok_needs_command" -a "sessions" -d 'List, search, or restore sessions'
-complete -c grok -n "__fish_grok_needs_command" -a "setup" -d 'Fetch and install managed deployment configuration'
+complete -c grok -n "__fish_grok_needs_command" -a "setup" -d 'Fetch and install managed configuration'
 complete -c grok -n "__fish_grok_needs_command" -a "share" -d 'Share a session and print the share URL (internal only)'
 complete -c grok -n "__fish_grok_needs_command" -a "ssh" -d 'Run ssh with local clipboard support'
 complete -c grok -n "__fish_grok_needs_command" -a "export" -d 'Export a session transcript as Markdown'
@@ -388,13 +388,14 @@ complete -c grok -n "__fish_grok_using_subcommand models" -l leader-socket -d 'U
 complete -c grok -n "__fish_grok_using_subcommand models" -l debug-file -d 'Write debug logs to FILE' -r -F
 complete -c grok -n "__fish_grok_using_subcommand models" -l debug -d 'Enable debug logging'
 complete -c grok -n "__fish_grok_using_subcommand models" -s h -l help -d 'Print help'
-complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search help" -l leader-socket -d 'Use a custom leader socket path instead of the default `~/.grok/leader.sock`' -r -F
-complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search help" -l debug-file -d 'Write debug logs to FILE' -r -F
-complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search help" -l debug -d 'Enable debug logging'
-complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search help" -s h -l help -d 'Print help'
-complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search help" -f -a "list" -d 'List recent sessions (same as search with no query)'
-complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search help" -f -a "search" -d 'Search sessions by keyword'
-complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search delete help" -l leader-socket -d 'Use a custom leader socket path instead of the default `~/.grok/leader.sock`' -r -F
+complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search delete help" -l debug-file -d 'Write debug logs to FILE' -r -F
+complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search delete help" -l debug -d 'Enable debug logging'
+complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search delete help" -s h -l help -d 'Print help'
+complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search delete help" -f -a "list" -d 'List recent sessions (same as search with no query)'
+complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search delete help" -f -a "search" -d 'Search sessions by keyword'
+complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search delete help" -f -a "delete" -d 'Permanently delete a session from history'
+complete -c grok -n "__fish_grok_using_subcommand sessions; and not __fish_seen_subcommand_from list search delete help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from list" -s n -l limit -d 'Maximum number of sessions to show' -r
 complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from list" -l leader-socket -d 'Use a custom leader socket path instead of the default `~/.grok/leader.sock`' -r -F
 complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from list" -l debug-file -d 'Write debug logs to FILE' -r -F
@@ -405,8 +406,13 @@ complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subc
 complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from search" -l debug-file -d 'Write debug logs to FILE' -r -F
 complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from search" -l debug -d 'Enable debug logging'
 complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from search" -s h -l help -d 'Print help'
+complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from delete" -l leader-socket -d 'Use a custom leader socket path instead of the default `~/.grok/leader.sock`' -r -F
+complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from delete" -l debug-file -d 'Write debug logs to FILE' -r -F
+complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from delete" -l debug -d 'Enable debug logging'
+complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from delete" -s h -l help -d 'Print help'
 complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from help" -f -a "list" -d 'List recent sessions (same as search with no query)'
 complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from help" -f -a "search" -d 'Search sessions by keyword'
+complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from help" -f -a "delete" -d 'Permanently delete a session from history'
 complete -c grok -n "__fish_grok_using_subcommand sessions; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c grok -n "__fish_grok_using_subcommand setup" -l leader-socket -d 'Use a custom leader socket path instead of the default `~/.grok/leader.sock`' -r -F
 complete -c grok -n "__fish_grok_using_subcommand setup" -l debug-file -d 'Write debug logs to FILE' -r -F
@@ -521,7 +527,7 @@ complete -c grok -n "__fish_grok_using_subcommand help; and not __fish_seen_subc
 complete -c grok -n "__fish_grok_using_subcommand help; and not __fish_seen_subcommand_from agent import inspect leader logout login mcp plugin memory models sessions setup share ssh export trace update version completions worktree dashboard help" -f -a "memory" -d 'Manage cross-session memory'
 complete -c grok -n "__fish_grok_using_subcommand help; and not __fish_seen_subcommand_from agent import inspect leader logout login mcp plugin memory models sessions setup share ssh export trace update version completions worktree dashboard help" -f -a "models" -d 'List available models and exit'
 complete -c grok -n "__fish_grok_using_subcommand help; and not __fish_seen_subcommand_from agent import inspect leader logout login mcp plugin memory models sessions setup share ssh export trace update version completions worktree dashboard help" -f -a "sessions" -d 'List, search, or restore sessions'
-complete -c grok -n "__fish_grok_using_subcommand help; and not __fish_seen_subcommand_from agent import inspect leader logout login mcp plugin memory models sessions setup share ssh export trace update version completions worktree dashboard help" -f -a "setup" -d 'Fetch and install managed deployment configuration'
+complete -c grok -n "__fish_grok_using_subcommand help; and not __fish_seen_subcommand_from agent import inspect leader logout login mcp plugin memory models sessions setup share ssh export trace update version completions worktree dashboard help" -f -a "setup" -d 'Fetch and install managed configuration'
 complete -c grok -n "__fish_grok_using_subcommand help; and not __fish_seen_subcommand_from agent import inspect leader logout login mcp plugin memory models sessions setup share ssh export trace update version completions worktree dashboard help" -f -a "share" -d 'Share a session and print the share URL (internal only)'
 complete -c grok -n "__fish_grok_using_subcommand help; and not __fish_seen_subcommand_from agent import inspect leader logout login mcp plugin memory models sessions setup share ssh export trace update version completions worktree dashboard help" -f -a "ssh" -d 'Run ssh with local clipboard support'
 complete -c grok -n "__fish_grok_using_subcommand help; and not __fish_seen_subcommand_from agent import inspect leader logout login mcp plugin memory models sessions setup share ssh export trace update version completions worktree dashboard help" -f -a "export" -d 'Export a session transcript as Markdown'
@@ -557,6 +563,7 @@ complete -c grok -n "__fish_grok_using_subcommand help; and __fish_seen_subcomma
 complete -c grok -n "__fish_grok_using_subcommand help; and __fish_seen_subcommand_from memory" -f -a "clear" -d 'Clear memory files (workspace by default)'
 complete -c grok -n "__fish_grok_using_subcommand help; and __fish_seen_subcommand_from sessions" -f -a "list" -d 'List recent sessions (same as search with no query)'
 complete -c grok -n "__fish_grok_using_subcommand help; and __fish_seen_subcommand_from sessions" -f -a "search" -d 'Search sessions by keyword'
+complete -c grok -n "__fish_grok_using_subcommand help; and __fish_seen_subcommand_from sessions" -f -a "delete" -d 'Permanently delete a session from history'
 complete -c grok -n "__fish_grok_using_subcommand help; and __fish_seen_subcommand_from worktree" -f -a "list" -d 'List tracked worktrees'
 complete -c grok -n "__fish_grok_using_subcommand help; and __fish_seen_subcommand_from worktree" -f -a "show" -d 'Show details for a specific worktree'
 complete -c grok -n "__fish_grok_using_subcommand help; and __fish_seen_subcommand_from worktree" -f -a "rm" -d 'Remove worktrees'

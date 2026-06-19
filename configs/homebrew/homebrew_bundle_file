@@ -201,9 +201,6 @@ brew "cmake-docs"
 brew "cmocka"
 # High performance code minimap generator
 brew "code-minimap"
-# macOS VMs for Personal OS Layer deploy testing (see lamina vm-test)
-brew "cirruslabs/cli/tart"
-brew "cirruslabs/cli/sshpass"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Generic library support script
@@ -716,6 +713,10 @@ brew "antoniorodr/memo/memo"
 brew "bramstein/webfonttools/sfnt2woff"
 # WOFF utilities with Zopfli compression
 brew "bramstein/webfonttools/sfnt2woff-zopfli"
+# Non-interactive ssh password auth Files
+brew "cirruslabs/cli/sshpass", trusted: true
+# Run macOS and Linux VMs on Apple Hardware
+brew "cirruslabs/cli/tart", trusted: true
 # Drop in replacement for ueberzug written in C++
 brew "jstkdng/programs/ueberzugpp"
 # Git status for Bash/Zsh prompt
