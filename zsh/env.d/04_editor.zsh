@@ -15,4 +15,5 @@ elif (( ${+commands[subl]} )); then
 fi
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
 # EOF

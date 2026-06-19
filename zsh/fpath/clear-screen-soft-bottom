@@ -12,4 +12,6 @@
 # zle -R
 # print -rn -- ${${terminfo[cnorm]-}:/*$'\e[?25h'(|'\e'*)/$'\e[?25h'}
 #
-# # vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

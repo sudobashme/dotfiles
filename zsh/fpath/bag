@@ -23,4 +23,6 @@ fi | fzf --ansi --layout=reverse-list --no-sort --height=50% --delimiter=: \
          --preview-window='right,50%,+{2}/2' \
          --bind='enter:become(${EDITOR} {1} +{2})'
 
-# vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

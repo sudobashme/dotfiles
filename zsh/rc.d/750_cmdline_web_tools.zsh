@@ -14,4 +14,5 @@ if [[ -f "${LOCAL_TOOLS}/testssl.sh/testssl.sh" ]]; then
 fi
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
 # EOF

@@ -10,4 +10,6 @@ git checkout $(git branch --color=always --all --sort=committerdate --no-contain
                    --preview='git log --color=always --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -200' |
                sed 's/^..//' | sed 's#^remotes/origin/##')
 
-# vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

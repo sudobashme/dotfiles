@@ -4,3 +4,6 @@ source "${ZDOTDIR}/plugins/ls-colors/lscolors.sh"
 if (( ${+commands[colordiff]} )); then
     alias diff="colordiff --new-file --text --recursive -u --algorithm patience"
 fi
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

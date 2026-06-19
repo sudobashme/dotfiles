@@ -25,4 +25,6 @@ else
     # cache hit, do nothing
 fi
 
-# vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

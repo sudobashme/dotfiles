@@ -68,4 +68,6 @@ EOH
     unfunction TRAPINT
 }
 
-# vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

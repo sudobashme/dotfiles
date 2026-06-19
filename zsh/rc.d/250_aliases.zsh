@@ -222,4 +222,6 @@ alias -g X='| xargs'
 
 alias sa='source "${ZDOTDIR}/rc.d/250_aliases.zsh"'
 alias grealpath="/usr/local/bin/realpath"
-
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

@@ -17,4 +17,6 @@ else
     return 1
 fi
 
-# vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

@@ -45,5 +45,6 @@ setopt LOGIN
 setopt PUSHDMINUS
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
-
-
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

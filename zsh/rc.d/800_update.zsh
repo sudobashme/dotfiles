@@ -19,3 +19,7 @@ update() {
 }
 
 alias up=update
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

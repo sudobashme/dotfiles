@@ -22,4 +22,6 @@ done
 allpaths=(${allpaths[@]} ${filepath})
 ls -ld "${allpaths[@]}"
 
-# vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

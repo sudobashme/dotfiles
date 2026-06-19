@@ -18,3 +18,6 @@ if [[ -z $NO_ZSH_NAV_TOOLS ]]; then
     alias naliases=n-aliases ncd=n-cd nenv=n-env nfunctions=n-functions nhistory=n-history
     alias nkill=n-kill noptions=n-options npanelize=n-panelize nhelp=n-help
 fi
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

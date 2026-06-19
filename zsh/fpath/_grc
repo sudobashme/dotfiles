@@ -23,4 +23,6 @@ args=(
 )
 
 _arguments -s $args
-# vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

@@ -107,4 +107,5 @@ if [[ -d "${HOME}/Dropbox" ]]; then
 fi
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
 # EOF

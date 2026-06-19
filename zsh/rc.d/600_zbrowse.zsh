@@ -46,4 +46,5 @@ fi
 unset __local_zplug __plugin_dir
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
 # EOF

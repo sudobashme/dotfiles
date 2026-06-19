@@ -67,3 +67,7 @@ bashcompinit
 if [[ -f "${HOME}/.openclaw/completions/openclaw.zsh" ]]; then
     source "${HOME}/.openclaw/completions/openclaw.zsh"
 fi
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

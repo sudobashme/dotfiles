@@ -60,3 +60,6 @@ omz_diagnostic_dump() {
         return 1
     fi
 }
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

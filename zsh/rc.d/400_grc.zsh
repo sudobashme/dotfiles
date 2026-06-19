@@ -17,3 +17,6 @@ if (( ${+commands[grc]} )); then
         done
     }
 fi
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

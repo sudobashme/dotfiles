@@ -42,3 +42,6 @@ zle -N _zsh_backspace_direct
 bindkey '^?' _zsh_backspace_direct
 bindkey '^H' _zsh_backspace_direct
 [[ -n ${terminfo[kbs]:-} ]] && bindkey "${terminfo[kbs]}" _zsh_backspace_direct
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

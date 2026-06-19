@@ -6,4 +6,5 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 source ${ZDOTDIR}/plugins/zsh-eza/zsh-eza.plugin.zsh
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
 # EOF

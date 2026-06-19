@@ -89,7 +89,7 @@ fi
 
 path=(/usr/local/bin /usr/local/sbin ${path})
 
-#. "${HOME}/.atuin/bin/env"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
 # EOF
 

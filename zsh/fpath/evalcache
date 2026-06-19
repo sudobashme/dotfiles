@@ -31,4 +31,6 @@ else
     source "${cache_file}"
 fi
 
-# vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

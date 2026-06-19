@@ -55,3 +55,7 @@ fi
 
 
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

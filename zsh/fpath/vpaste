@@ -19,4 +19,6 @@ elif (( ${+commands[pbcopy]} )); then
     echo -n "${out}" | pbcopy
 fi
 
-# vim: ft=zsh
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

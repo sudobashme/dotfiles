@@ -38,4 +38,5 @@ exec tmux new-session -A -s "$tmux_session"
 # (using exec so we fully replace the shell process)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
 # EOF

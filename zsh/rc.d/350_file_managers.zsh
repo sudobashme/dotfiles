@@ -91,4 +91,6 @@ if (( ${+commands[yazi]} )); then
 fi
 
 source "${ZDOTDIR}/plugins/yazi-zoxide-zsh/yazi-zoxide-zsh.plugin.zsh"
-
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF

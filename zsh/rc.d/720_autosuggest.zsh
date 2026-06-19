@@ -47,3 +47,6 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(
     kill-line
 )
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# nvim: ft=zsh
+# EOF
