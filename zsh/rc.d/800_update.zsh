@@ -10,7 +10,7 @@ update() {
     local lamina_bin
     lamina_bin="$(command -v lamina 2>/dev/null || true)"
     if [[ -n "${lamina_bin}" && -x "${lamina_bin}" ]]; then
-        "${lamina_bin}" update --full "$@"
+        "${lamina_bin}" update "$@"
         return $?
     fi
 

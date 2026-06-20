@@ -37,8 +37,6 @@ brew "aom"
 brew "libpng"
 # Library for ARIB STD-B24, decoding JIS 8 bit characters and parsing MPEG-TS
 brew "aribb24"
-# Extendable version manager with support for Ruby, Node.js, Erlang & more
-brew "asdf"
 # Portable library for importing many well-known 3D model formats
 brew "assimp"
 # Code searching, linting, rewriting
@@ -51,8 +49,6 @@ brew "autoconf"
 brew "readline"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
-# Per-project, per-directory shell environments
-brew "autoenv"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration

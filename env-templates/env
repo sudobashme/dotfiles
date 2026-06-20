@@ -1,5 +1,0 @@
-AUTOENV_ENABLE_LEAVE=1
-
-if [[ -d "$(pwd)/.venv" ]]; then
-	source "$(pwd)/.venv/bin/activate"
-fi

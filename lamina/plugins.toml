@@ -18,12 +18,6 @@ branch = "v6"
 recurse_submodules = true
 
 [[plugins.repo]]
-name = "autoenv"
-dir = "autoenv"
-url = "https://github.com/Tarrasch/zsh-autoenv.git"
-depth = 1
-
-[[plugins.repo]]
 name = "autopair"
 dir = "autopair"
 url = "https://github.com/hlissner/zsh-autopair.git"

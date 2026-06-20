@@ -33,14 +33,6 @@ fi
 
 
 
-# autoenv: automatically source .env / .autoenv.zsh when entering directories
-# This can be surprising/magical. Disable with: export NO_AUTOENV=1
-if [[ -z $NO_AUTOENV ]]; then
-    source "${ZDOTDIR}/plugins/autoenv/autoenv.zsh"
-fi
-
-
-
 source "${ZDOTDIR}/plugins/window-title/zsh-window-title.zsh"
 export MANPATH=${ZDOTDIR}/plugins/window-title/man:$MANPATH
 

@@ -2,33 +2,53 @@
 set -euo pipefail
 
 DOTFILES="$(lamina_dotfiles)" || exit 1
+export DOTFILES
 
-typeset -i CHECK=0 FULL=0 NO_PULL=0 NO_NVIM=0 SKIP_HEALTH=0
+source "${DOTFILES}/lamina/lib/update-brew.zsh"
+source "${DOTFILES}/lamina/lib/update-envs.zsh"
+
+typeset -i CHECK=0 QUICK=0 INSTALL_LATEST=0
+typeset -i NO_PULL=0 NO_NVIM=0 NO_BREW=0 NO_ENVS=0 NO_PACKAGES=0 SKIP_HEALTH=0
 typeset -i failures=0
 
 while (( $# > 0 )); do
     case "${1}" in
         --check) CHECK=1 ;;
-        --full) FULL=1 ;;
+        --quick) QUICK=1 ;;
+        --full) ;;  # backward compat; comprehensive is now the default
+        --install-latest) INSTALL_LATEST=1 ;;
         --no-pull) NO_PULL=1 ;;
         --no-nvim) NO_NVIM=1 ;;
+        --no-brew) NO_BREW=1 ;;
+        --no-envs) NO_ENVS=1 ;;
+        --no-packages) NO_PACKAGES=1 ;;
         --no-health) SKIP_HEALTH=1 ;;
         -h|--help)
             cat <<'EOF'
-lamina update — sync dotfiles, deploy, and optional platform upgrades
+lamina update — keep dotfiles, platform, runtimes, and packages current
 
 Usage:
-  lamina update [--check] [--full] [--no-pull] [--no-nvim] [--no-health]
+  lamina update [options]
 
-Modes:
-  (default)   git pull (if clean) → deploy → Lazy sync → TSUpdate
-  --full      + Homebrew, Xcode CLT check, npm global, MasonUpdate
-  --check     Print planned steps without running them
+Default (comprehensive):
+  git pull → deploy → Neovim → Homebrew (+ Brewfile dump) → version-manager
+  definitions → pip/gem/npm → health
 
 Options:
-  --no-pull   Skip git pull
-  --no-nvim   Skip Neovim / Lazy / treesitter / mason steps
-  --no-health Skip lamina health at the end
+  --quick           Dotfiles + deploy + Neovim only (fast path)
+  --install-latest  Also compile/install latest stable pyenv/nodenv/rbenv/luaenv/goenv
+  --check           Print planned steps without running them
+
+Skip flags:
+  --no-pull         Skip git pull
+  --no-nvim         Skip Neovim / Lazy / treesitter / mason
+  --no-brew         Skip Homebrew update/upgrade/Brewfile dump
+  --no-envs         Skip version-manager definition refresh
+  --no-packages     Skip pip/gem/npm package upgrades
+  --no-health       Skip lamina health at the end
+
+Legacy:
+  --full            No-op (comprehensive update is now the default)
 
 See: docs/personal-os-layer/UPDATE-STRATEGY.md
 EOF
@@ -106,27 +126,6 @@ __lamina_xcode_update__() {
     lamina_warn "skipped automatic softwareupdate (requires sudo)"
 }
 
-__lamina_brewfile_dump__() {
-    [[ -n "${HOMEBREW_BUNDLE_FILE:-}" && -f "${HOMEBREW_BUNDLE_FILE}" ]] || return 0
-    cp -f "${HOMEBREW_BUNDLE_FILE}"{,.bak}
-    rm -f "${HOMEBREW_BUNDLE_FILE}"
-    if brew bundle dump; then
-        rm -f "${HOMEBREW_BUNDLE_FILE}.bak"
-    else
-        mv -f "${HOMEBREW_BUNDLE_FILE}"{.bak,} 2>/dev/null || true
-        return 1
-    fi
-}
-
-__lamina_brew_update__() {
-    local brew_bin
-    brew_bin="$(command -v brew 2>/dev/null || print -r -- /opt/homebrew/bin/brew)"
-    [[ -x "${brew_bin}" ]] || { lamina_warn "Homebrew not found"; return 0; }
-    "${brew_bin}" update 2>&1 | tee -a "${HOMEBREW_HISTORY_FILE:-/dev/null}"
-    "${brew_bin}" upgrade 2>&1 | tee -a "${HOMEBREW_HISTORY_FILE:-/dev/null}"
-    __lamina_brewfile_dump__
-}
-
 __lamina_nvim_lazy_sync__() {
     command nvim --headless "+Lazy! sync" +qa 2>/dev/null
 }
@@ -139,16 +138,15 @@ __lamina_nvim_mason_update__() {
     command nvim --headless "+Lazy! load mason.nvim" "+MasonUpdate" +qa 2>/dev/null
 }
 
-__lamina_npm_update__() {
-    command npm update -g && npm fund
-}
-
 print -r -- "lamina update — ${DOTFILES}"
 if (( CHECK )); then
     print -r -- "lamina update — check mode (no changes)"
 fi
-if (( FULL )); then
-    print -r -- "lamina update — full mode"
+if (( QUICK )); then
+    print -r -- "lamina update — quick mode"
+fi
+if (( INSTALL_LATEST )); then
+    print -r -- "lamina update — will install latest stable runtimes"
 fi
 
 lamina_update_run "git pull (ff-only if working tree clean)" __lamina_git_pull__
@@ -157,20 +155,36 @@ lamina_update_run "lamina deploy (symlinks + zsh plugins)" __lamina_deploy__
 if (( ! NO_NVIM )) && command -v nvim >/dev/null 2>&1; then
     lamina_update_run "Neovim Lazy sync" __lamina_nvim_lazy_sync__
     lamina_update_run "Neovim TSUpdate" __lamina_nvim_tsupdate__
-    if (( FULL )); then
+    if (( ! QUICK )); then
         lamina_update_run "Neovim MasonUpdate" __lamina_nvim_mason_update__
     fi
 elif (( ! NO_NVIM )); then
     lamina_warn "nvim not found — skipping editor updates"
 fi
 
-if (( FULL )); then
+if (( ! QUICK )); then
     lamina_update_run "Xcode / CLT check" __lamina_xcode_update__
-    if command -v brew >/dev/null 2>&1; then
+
+    if (( ! NO_BREW )) && command -v brew >/dev/null 2>&1; then
         lamina_update_run "Homebrew update + upgrade + Brewfile dump" __lamina_brew_update__
+    elif (( ! NO_BREW )); then
+        lamina_warn "brew not found — skipping Homebrew"
     fi
-    if command -v npm >/dev/null 2>&1; then
-        lamina_update_run "npm global update" __lamina_npm_update__
+
+    if (( ! NO_ENVS )); then
+        lamina_update_run "version-manager build definitions (pyenv/nodenv/rbenv/luaenv/goenv)" __lamina_envs_refresh_definitions__
+        if (( INSTALL_LATEST )); then
+            lamina_update_run "install latest stable runtimes (does not change global)" __lamina_envs_install_latest__
+        fi
+    fi
+
+    if (( ! NO_PACKAGES )); then
+        lamina_update_run "pip (active python)" __lamina_pip_update__
+        lamina_update_run "gem (active ruby)" __lamina_gem_update__
+        if command -v npm >/dev/null 2>&1; then
+            lamina_update_run "npm global update" __lamina_npm_global_update__
+            lamina_update_run "npm local update (~/.node_modules)" __lamina_npm_local_update__
+        fi
     fi
 fi
 

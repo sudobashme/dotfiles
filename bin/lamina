@@ -18,8 +18,8 @@ Usage:
                               Apply symlinks + sync zsh plugins
   lamina sync-plugins [--dry-run] [--no-zrecompile]
                               Sync zsh plugins from lamina/plugins.toml
-  lamina update [--check] [--full] [--no-pull] [--no-nvim]
-                              Pull dotfiles, deploy, Lazy sync, TSUpdate (+ optional brew/npm)
+  lamina update [--check] [--quick] [--install-latest] [--no-*]
+                              Comprehensive platform + runtime + package update (see --help)
   lamina health               Check for drift, strays, plugins, and symlinks
   lamina diff                 Show symlink changes (dotter dry-run)
   lamina repair               Repair symlinks + resync plugins
