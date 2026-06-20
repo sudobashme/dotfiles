@@ -1,3 +1,6 @@
+local home = vim.fn.expand("~")
+local dropbox = vim.env.DROPBOX or (home .. "/Dropbox")
+
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "3.13.1", -- recommended, use latest release instead of latest commit
@@ -21,11 +24,11 @@ return {
     workspaces = {
       {
         name = "Family Room",
-        path = "${HOME}/Dropbox/Family Room",
+        path = dropbox .. "/Family Room",
       },
       {
         name = "PluginDev",
-        path = "${HOME}/Workspace/PluginDev",
+        path = home .. "/Workspace/PluginDev",
       },
     },
 

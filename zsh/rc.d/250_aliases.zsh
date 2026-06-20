@@ -86,7 +86,9 @@ fi
     alias s="subl"
     alias dotfiles="subl --project ${DOTFILES}/.sublime/dotfiles.sublime-project"
     alias nvim_project="subl --project ${XDG_CONFIG_HOME}/nvim/.sublime/nvim.sublime-project"
-    alias exabgp="subl --project ${HOME}/IBM/Repos/github.com/exabgp/.sublime/exabgp.sublime-project"
+    if [[ -d "${HOME}/IBM/Repos/github.com/exabgp" ]]; then
+        alias exabgp="subl --project ${HOME}/IBM/Repos/github.com/exabgp/.sublime/exabgp.sublime-project"
+    fi
 }
 
 # OpenClaw + Grok integration
