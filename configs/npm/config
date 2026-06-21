@@ -11,7 +11,7 @@
 
 package-lock=false
 prefix=${HOME}/.node_modules
-userconfig=~/.config/npm/config
+userconfig=${HOME}/.config/npm/config
 
 ;;;;
 ; all available options shown below with default values

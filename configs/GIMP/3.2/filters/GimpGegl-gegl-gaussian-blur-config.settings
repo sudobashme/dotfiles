@@ -1,5 +1,19 @@
 # settings
 
+(GimpGegl-gegl-gaussian-blur-config "2026-06-20 00:53:57"
+    (time 1781934837)
+    (std-dev-x 14.44)
+    (std-dev-y 14.44)
+    (filter auto)
+    (abyss-policy clamp)
+    (clip-extent yes))
+(GimpGegl-gegl-gaussian-blur-config "2026-06-20 00:49:01"
+    (time 1781934541)
+    (std-dev-x 17.420000000000002)
+    (std-dev-y 17.420000000000002)
+    (filter auto)
+    (abyss-policy clamp)
+    (clip-extent yes))
 (GimpGegl-gegl-gaussian-blur-config "2026-06-14 10:47:51"
     (time 1781452071)
     (gimp-mode darken-only)

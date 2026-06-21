@@ -325,7 +325,7 @@
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
        use_svg2="1"
-       style="line-height:1.25;font-family:CPMono_v07;font-size:5.33333333px;text-orientation:auto;-inkscape-font-specification:'CPMono_v07,  weight=307';font-weight:307"
+       style="line-height:1.25;font-family:Chalkduster;font-size:96px;text-orientation:auto;-inkscape-font-specification:'Chalkduster, Normal'"
        selcue="1"
        align_mode="0"
        writing_mode="0"
@@ -641,14 +641,14 @@
        id="spellcheck"
        w="200"
        h="250"
-       ignorenumbers="1" />
+       ignorenumbers="0" />
     <group
        id="documentoptions"
        state="1" />
     <group
        id="preferences"
        state="1"
-       page="26" />
+       page="53" />
     <group
        id="gradienteditor" />
     <group
@@ -855,7 +855,7 @@
        value="1" />
     <group
        id="transientpolicy"
-       value="1" />
+       value="2" />
     <group
        id="scrollingacceleration"
        value="0.4" />
@@ -897,7 +897,7 @@
        value="1" />
     <group
        id="defaultwindowsize"
-       value="2" />
+       value="1" />
     <group
        id="arenatilescachesize"
        value="8192" />
@@ -912,7 +912,7 @@
        value="0" />
     <group
        id="stickyzoom"
-       value="0" />
+       value="1" />
     <group
        id="selcue"
        value="0" />
@@ -1058,18 +1058,18 @@
        id="ruler" />
     <group
        id="snapping"
-       snap-bbox="0"
-       snap-bbox-edge="0"
-       snap-bbox-corner="0"
+       snap-bbox="1"
+       snap-bbox-edge="1"
+       snap-bbox-corner="1"
        snap-bbox-edge-midpoint="0"
        snap-bbox-center="0"
        simple-snap-bbox="1"
-       snap-node-category="0"
-       snap-path="0"
+       snap-node-category="1"
+       snap-path="1"
        snap-path-intersection="0"
-       snap-node-cusp="0"
-       snap-node-smooth="0"
-       snap-line-midpoint="0"
+       snap-node-cusp="1"
+       snap-node-smooth="1"
+       snap-line-midpoint="1"
        snap-line-tangential="0"
        snap-line-perpendicular="0"
        simple-snap-nodes="1"
@@ -1077,18 +1077,18 @@
        snap-alignment-self="0"
        snap-distribution="0"
        simple-snap-alignment="0"
-       snap-others="0"
+       snap-others="1"
        snap-object-midpoint="0"
        snap-rotation-center="0"
-       snap-text-baseline="0"
-       snap-path-mask="0"
-       snap-path-clip="0"
-       snap-page-border="0"
+       snap-text-baseline="1"
+       snap-path-mask="1"
+       snap-path-clip="1"
+       snap-page-border="1"
        snap-page-margin="1"
        snap-grid="1"
        snap-grid-line="1"
-       snap-guide="0"
-       snap-global-toggle="1" />
+       snap-guide="1"
+       snap-global-toggle="0" />
     <group
        id="cleanupswatches"
        value="1" />
@@ -1127,11 +1127,11 @@
      org.inkscape.template.paper.orientation="land" />
   <group
      id="desktop"
-     style="fill:#d40000;text-orientation:auto;-inkscape-font-specification:'CPMono_v07,  weight=307';font-family:CPMono_v07;font-size:5.33333333px;stroke-width:2.64566929;font-weight:307;letter-spacing:-0.93px;opacity:0.78977273;stroke-linejoin:bevel">
+     style="fill:#d40000;text-orientation:auto;-inkscape-font-specification:'Chalkduster, Normal';font-family:Chalkduster;font-size:96px;stroke-width:7.55905512;letter-spacing:-0.93px;opacity:0.78977273;stroke-linejoin:bevel;word-spacing:0px">
     <group
-       width="3504"
-       height="1350"
-       x="59"
+       width="2864"
+       height="1382"
+       x="58"
        y="30"
        maximized="0"
        fullscreen="0"
@@ -1155,14 +1155,14 @@
      id="toolbox"
      icononly="1"
      secondary="1"
-     simplesnap="2"
+     simplesnap="1"
      small="1">
     <group
        id="tools"
        icononly="1"
        small="0"
-       iconsize="40"
-       width="50">
+       iconsize="24"
+       width="34">
       <group
          id="buttons"
          showSelect="1"
@@ -1181,12 +1181,13 @@
          showMesh="0"
          showSpray="0"
          showLPETool="0"
-         showZoom="0"
-         showPages="0" />
+         showZoom="1"
+         showPages="0"
+         showConnector="0" />
     </group>
     <group
        id="controlbars"
-       iconsize="40" />
+       iconsize="24" />
   </group>
   <group
      id="statusbar">
@@ -1282,7 +1283,6 @@
      symbolicDefaultBaseColors="1"
      symbolicDefaultHighColors="1"
      syntax-color-theme="solarized-light"
-     iconTheme="Tango"
      gtkTheme="Minwaita-Inkscape">
     <group
        id="multicolor"
