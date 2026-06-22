@@ -3,7 +3,7 @@ tags: [dotfiles, lamina, neovim, zsh]
 title: Dotfiles
 aliases: [Dotfiles]
 date created: Friday, February 28th 2025, 11:25:46 pm
-date modified: Sunday, June 21st 2026, 9:00:24 pm
+date modified: Sunday, June 21st 2026, 9:37:19 pm
 ---
 # Dotfiles
 
@@ -24,6 +24,8 @@ that's my take on it anyway. If it works for you today it might not tomorrow and
 Deployment is handled by lamina deploy. Symlinks and zsh plugins are declared in [lamina/plugins.toml](./lamina/plugins.toml).
 
 And then all the applications I install via homebrew of which a list can be found [here](./configs/homebrew/homebrew_bundle_file)
+
+_*New:*_ I am actually working on new documentation. [see here](./docs/personal-os-layer/README.md)
 
 ---
 
