@@ -56,7 +56,7 @@ Per [DIAGNOSTICS-VISION.md](./DIAGNOSTICS-VISION.md) and [PROJECT-CHARTER.md](./
 |------|--------|-------|
 | Lamina deploy CLI | 🟡 Started | `bin/lamina`, `lamina/deploy.zsh`, `manifest.toml` |
 | Update strategy doc | ✅ Done | [UPDATE-STRATEGY.md](./UPDATE-STRATEGY.md) — cadence + gaps documented |
-| `lamina update` command | ✅ Done | `lamina/update.zsh`; `up` → `lamina update --full` |
+| `lamina update` command | ✅ Done | `lamina/update.zsh`; `up` → `lamina update` (comprehensive default; `--full` no-op) |
 | VM deploy sandbox (Tart) | ✅ Validated | `setup-base` + `e2e` pass; guest auto-bootstraps Homebrew/dotter |
 | Declarative desired state | ⬜ Not started | Single source of truth for packages, symlinks, plugins |
 | `deploy.zsh` retirement / shrink | ⬜ Not started | Large imperative script; hard to trust on fresh machine |

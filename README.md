@@ -3,7 +3,7 @@ tags: [dotfiles, lamina, neovim, zsh]
 title: Dotfiles
 aliases: [Dotfiles]
 date created: Friday, February 28th 2025, 11:25:46 pm
-date modified: Sunday, June 21st 2026, 8:40:45 pm
+date modified: Sunday, June 21st 2026, 9:00:24 pm
 ---
 # Dotfiles
 
@@ -11,7 +11,7 @@ These are my dotfiles that I use on my mac mini m4 pro. So first let me state th
 
 > It's about the journey, and not the destination
 
-that's my take on it anyway. If it works for you today it might not tomorrow and I apologize for that. But feel to fork and make it your own.
+that's my take on it anyway. If it works for you today it might not tomorrow and I apologize for that. But feel free to fork and make it your own.
 
 - [xcode developer tools](https://developer.apple.com/xcode/resources/)
 - [homebrew](https://brew.sh/)

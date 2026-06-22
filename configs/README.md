@@ -1,9 +1,9 @@
 ---
 aliases: [Dotfiles / Configs / README.md]
-tags: [aerospace, btop, kitty, lnav, neovim, yazi]
+tags: [aerospace, btop, fish, gimp, git, gtk, homebrew, htop, inkscape, kitty, lnav, mc, neovim, npm, ranger, starship, tmux, yazi, zbrowse, znt, zui]
 title: Dotfiles / Configs / README.md
 date created: Friday, February 28th 2025, 11:25:46 pm
-date modified: Sunday, June 21st 2026, 8:48:29 pm
+date modified: Sunday, June 21st 2026, 8:55:20 pm
 ---
 # Dotfiles / Configs / README.md
 ---
