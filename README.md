@@ -1,33 +1,37 @@
-# dotfiles
+---
+tags: [dotfiles, lamina, neovim, zsh]
+title: Dotfiles
+aliases: [Dotfiles]
+date created: Friday, February 28th 2025, 11:25:46 pm
+date modified: Sunday, June 21st 2026, 8:40:45 pm
+---
+# Dotfiles
 
-These are my dotfiles that I use on my company provided macbook pro. So first let me state that this repo will always be a work in progress and its direction will likely vary based on whatever stage of my own personal development I am in at the moment.
+These are my dotfiles that I use on my mac mini m4 pro. So first let me state that this repo will always be a work in progress and its direction will likely vary based on whatever stage of my own personal development I am in at the moment.
 
 > It's about the journey, and not the destination
 
 that's my take on it anyway. If it works for you today it might not tomorrow and I apologize for that. But feel to fork and make it your own.
 
-The accompanying ~~bootstrap script~~ will attempt to install the following:
-
 - [xcode developer tools](https://developer.apple.com/xcode/resources/)
 - [homebrew](https://brew.sh/)
-- [~~ohmyzsh~~](https://ohmyz.sh/)
 - [this repo](https://github.com/sudobashme/dotfiles)
 - [powerline fonts](https://github.com/powerline/fonts?tab=readme-ov-file)
 - [starship](https://starship.rs/) (prompt)
 - [lamina](./bin/lamina) (deploy, update, and health CLI)
 - [my neovim configuration](https://github.com/sudobashme/dotfiles/tree/main/configs/nvim)
 
-Bootstrap is handled by [deploy.zsh](./deploy.zsh) and [lamina](./bin/lamina). Symlinks and zsh plugins are declared in [lamina/plugins.toml](./lamina/plugins.toml).
+Deployment is handled by lamina deploy. Symlinks and zsh plugins are declared in [lamina/plugins.toml](./lamina/plugins.toml).
 
 And then all the applications I install via homebrew of which a list can be found [here](./configs/homebrew/homebrew_bundle_file)
 
-## Install
-
 ---
 
-is a work in progress [deploy.zsh](./deploy.zsh)
+## Install
 
-I believe this works at this point but I have not had the oportunity to test on a completely new machine yet. To install without any prompts all you have to do is run `./deploy.zsh --install`. That said, I would not use this yet because I have not debugged each piece yet. But it is there... just saying your mileage may vary.
+```
+lamina deploy 
+```
 
 ---
 
@@ -35,15 +39,13 @@ I believe this works at this point but I have not had the oportunity to test on 
 
 ---
 
-so I used ohmyzsh for soooo long and while it is good I saw all this other stuff that made me curious.
+I think zinit is cool as shit. But there seems to be a couple warring factions around it
 
-This one was interesting but still bothersome in some ways:
+[https://zdharma-continuum.github.io/zinit/wiki/INTRODUCTION/](https://zdharma-continuum.github.io/zinit/wiki/INTRODUCTION/)
+and then 
 [https://wiki.zshell.dev/](https://wiki.zshell.dev/)
 
-Which eventually lead me to the original implementation:
-[https://zdharma-continuum.github.io/zinit/wiki/INTRODUCTION/](https://zdharma-continuum.github.io/zinit/wiki/INTRODUCTION/)
-
-Which I honestly liked better and then that brought me to this:
+Somehow through all that I stumbled on this:
 [https://github.com/z0rc/dotfiles](https://github.com/z0rc/dotfiles)
 
 Which I liked even better in most ways but still there were parts that bothered me. So this is my personal implementation largely influenced by the 3 repos above.
@@ -98,8 +100,6 @@ Definitely worth a read:
 
 ## Plugins
 
----
-
 Some plugins I really like (see [lamina/plugins.toml](./lamina/plugins.toml) for the canonical list):
 
 - [zsh navigation tools](https://github.com/z-shell/zsh-navigation-tools)
@@ -107,8 +107,6 @@ Some plugins I really like (see [lamina/plugins.toml](./lamina/plugins.toml) for
 - [fzf-tab](https://github.com/Aloxaf/fzf-tab)
 
 Zoxide is integrated directly via `evalcache zoxide init zsh` in `zsh/.zshrc` (not the z-shell zsh-zoxide plugin wrapper).
-
----
 
 Some plugins I hope to try in the future:
 

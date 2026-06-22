@@ -1,3 +1,10 @@
+---
+aliases: [Dotfiles / Configs / README.md]
+tags: [aerospace, btop, kitty, lnav, neovim, yazi]
+title: Dotfiles / Configs / README.md
+date created: Friday, February 28th 2025, 11:25:46 pm
+date modified: Sunday, June 21st 2026, 8:48:29 pm
+---
 # Dotfiles / Configs / README.md
 ---
 this should be files and folders that get symlinked to $XDG_CONFIG_HOME

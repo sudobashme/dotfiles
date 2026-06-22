@@ -1,8 +1,15 @@
-# more
+---
+aliases: [More]
+tags: [zsh]
+title: More
+date created: Friday, February 28th 2025, 11:25:46 pm
+date modified: Sunday, June 21st 2026, 8:41:16 pm
+---
+# More
 
 ---
 
-## zsh
+## Zsh
 
 This page will probably be all links but specifically this first section will be for common zsh stuff I am always looking up.
 
@@ -15,7 +22,7 @@ This page will probably be all links but specifically this first section will be
 - [zsh completion, old and new](https://zsh.sourceforge.io/Guide/zshguide06.html#l144)
 - [zshell.dev zsh native scripting handbook](https://wiki.zshell.dev/community/zsh_handbook)
 - [Awesome ZSH Plugins](https://github.com/unixorn/awesome-zsh-plugins)
-
+- [dev.to /phantas0s/understanding-and-configuring-zsh-3jnd](https://dev.to/phantas0s/understanding-and-configuring-zsh-3jnd)
 ---
 
 ## Aerospace
