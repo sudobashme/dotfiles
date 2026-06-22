@@ -17,3 +17,12 @@ data
 .sublime/*
 diagnostics/
 diagdump*.txt
+.gitignore
+configs/gtk-3.0/bookmarks
+configs/GIMP/*/tags.xml
+configs/GIMP/*/gimprc
+configs/GIMP/*/theme.css
+configs/GIMP/*/themerc
+configs/lnav/view-info-*
+docs/historical
+
