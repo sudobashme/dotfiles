@@ -17,6 +17,7 @@ data
 .sublime/*
 diagnostics/
 diagdump*.txt
+set.txt
 configs/gtk-3.0/*
 configs/GIMP/*/cache/
 configs/lnav/view-info*
