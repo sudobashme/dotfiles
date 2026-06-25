@@ -52,8 +52,23 @@
                 "field": "ClientRequestUserAgent"
             }
         ],
-        "timestamp-field": "EdgeStartTimestamp",
-        "opid-field": "ClientIP",
+        "timestamp-field": "EdgeEndTimestamp",
+        "timestamp-divisor": 1000000000,
+        "start-timestamp-field": "EdgeStartTimestamp",
+        "opid": {
+            "description": {
+                "std": {
+                    "format": [
+                        {
+                            "field": "ClientIP"
+                        },
+                        {
+                            "field": "ClientRequestUserAgent"
+                        }
+                    ]
+                }
+            }
+        },
         "value": {
             "ClientIP": {
                 "kind": "string",
@@ -77,6 +92,7 @@
                 "kind": "integer"
             },
             "EdgeStartTimestamp": {
+                "hidden": true,
                 "kind": "string"
             },
             "RayID": {

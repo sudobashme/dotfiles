@@ -5,13 +5,29 @@
         "description": "",
         "file-type": "json",
         "timestamp-field": "ts",
+        "duration-field": "duration",
+        "opid": {
+            "description": {
+                "request": {
+                    "format": [
+                        {
+                            "field": "request/client_ip"
+                        },
+                        {
+                            "field": "request/headers/User-Agent#"
+                        }
+                    ]
+                }
+            }
+        },
         "line-format": [
             {
                 "field": "__timestamp__"
             },
             {
                 "prefix": " ",
-                "field": "request/client_ip"
+                "field": "request/client_ip",
+                "default-value": ""
             },
             {
                 "prefix": " ",
@@ -20,27 +36,33 @@
             },
             {
                 "prefix": " \"",
-                "field": "request/method"
+                "field": "request/method",
+                "default-value": ""
             },
             {
                 "prefix": " ",
-                "field": "request/host"
+                "field": "request/host",
+                "default-value": ""
             },
             {
-                "field": "request/uri"
+                "field": "request/uri",
+                "default-value": ""
             },
             {
                 "prefix": " ",
                 "field": "request/proto",
-                "suffix": "\""
+                "suffix": "\"",
+                "default-value": ""
             },
             {
                 "prefix": " ",
-                "field": "status"
+                "field": "status",
+                "default-value": ""
             },
             {
                 "prefix": " ",
-                "field": "size"
+                "field": "size",
+                "default-value": ""
             },
             {
                 "prefix": " ",
@@ -69,6 +91,10 @@
             "request/client_ip": {
                 "kind": "string",
                 "collate": "ipaddress",
+                "identifier": true
+            },
+            "request/headers/User-Agent#": {
+                "kind": "string",
                 "identifier": true
             },
             "request/host": {

@@ -2,7 +2,7 @@
  *
  * This file is written on GIMP startup and on every theme change.
  * It is NOT supposed to be edited manually. Edit your personal
- * gimp.css file instead (${HOME}/Library/Application Support/GIMP/3.2/gimp.css).
+ * gimp.css file instead (/Users/shawnlime/Library/Application Support/GIMP/3.2/gimp.css).
  */
 
 @import url("file:///Applications/GIMP.app/Contents/Resources/share/gimp/3.0/themes/Default/gimp-light.css");

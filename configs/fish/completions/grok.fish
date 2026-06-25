@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_grok_global_optspecs
-	string join \n v/version cwd= leader-socket= debug debug-file= always-approve allow= deny= p/single= prompt-json= prompt-file= verbatim output-format= m/model= reasoning-effort= rules= compaction-mode= compaction-detail= system-prompt-override= r/resume= load= c/continue s/session-id= w/worktree= restore-code no-plan no-subagents no-ask-user experimental-memory no-memory agent= agents= tools= disallowed-tools= effort= max-turns= permission-mode= disable-web-search check best-of-n= sandbox= storage-mode= client-identifier= hunk-tracker-mode= terminal fs-read fs-write no-auto-update todo-gate installer= no-alt-screen log-sampling force-login oauth leader no-leader hub-url= hub-workspace-mode= h/help
+	string join \n v/version cwd= leader-socket= debug debug-file= always-approve trust allow= deny= p/single= prompt-json= prompt-file= verbatim output-format= m/model= reasoning-effort= rules= compaction-mode= compaction-detail= system-prompt-override= r/resume= load= c/continue s/session-id= w/worktree= restore-code no-plan no-subagents no-ask-user experimental-memory no-memory agent= agents= tools= disallowed-tools= effort= max-turns= permission-mode= disable-web-search check no-wait-for-background background-wait-timeout= best-of-n= sandbox= storage-mode= client-identifier= hunk-tracker-mode= terminal fs-read fs-write no-auto-update todo-gate installer= no-alt-screen log-sampling force-login oauth leader no-leader hub-url= hub-workspace-mode= h/help
 end
 
 function __fish_grok_needs_command
@@ -61,6 +61,7 @@ auto\t''
 dontAsk\t''
 bypassPermissions\t''
 plan\t''"
+complete -c grok -n "__fish_grok_needs_command" -l background-wait-timeout -d 'Max seconds to wait for background work after the first turn ends (headless only). Applies to bash/monitor `task_completed`, background subagents (`SubagentFinished`), and any still-running non-persistent work. Persistent `monitor(persistent:true)` never completes and always waits the full timeout — use `--no-wait-for-background` or a lower timeout for throughput. Conflicts with `--no-wait-for-background`' -r
 complete -c grok -n "__fish_grok_needs_command" -l best-of-n -d 'Run the task N ways in parallel and pick the best (headless only)' -r
 complete -c grok -n "__fish_grok_needs_command" -l sandbox -d 'Sandbox profile for filesystem and network access' -r
 complete -c grok -n "__fish_grok_needs_command" -l storage-mode -d 'Session storage mode: local or writeback' -r
@@ -72,6 +73,7 @@ complete -c grok -n "__fish_grok_needs_command" -l hub-workspace-mode -d 'Worksp
 complete -c grok -n "__fish_grok_needs_command" -s v -l version -d 'Print version'
 complete -c grok -n "__fish_grok_needs_command" -l debug -d 'Enable debug logging'
 complete -c grok -n "__fish_grok_needs_command" -l always-approve -d 'Auto-approve all tool executions'
+complete -c grok -n "__fish_grok_needs_command" -l trust -d 'Trust this folder and persist the decision to the trust store'
 complete -c grok -n "__fish_grok_needs_command" -l verbatim -d 'Send the prompt exactly as given'
 complete -c grok -n "__fish_grok_needs_command" -s c -l continue -d 'Continue the most recent session for the current working directory'
 complete -c grok -n "__fish_grok_needs_command" -l restore-code -d 'Check out the original session\'s commit when resuming'
@@ -82,6 +84,7 @@ complete -c grok -n "__fish_grok_needs_command" -l experimental-memory -d 'Enabl
 complete -c grok -n "__fish_grok_needs_command" -l no-memory -d 'Disable cross-session memory for this session'
 complete -c grok -n "__fish_grok_needs_command" -l disable-web-search -d 'Disable web search and web fetch tools'
 complete -c grok -n "__fish_grok_needs_command" -l check -d 'Append a self-verification loop to the prompt (headless only)'
+complete -c grok -n "__fish_grok_needs_command" -l no-wait-for-background -d 'Exit as soon as the first agent turn ends, without waiting for pending background bash/monitor tasks or background subagents (headless only). Default for all `grok -p` runs is to wait (up to `--background-wait-timeout`) so eval harnesses see full task completion. Use this for fast scripts that only need the first turn\'s text. Does not wait for server-side auto-wake output or persistent monitors (those hit the timeout)'
 complete -c grok -n "__fish_grok_needs_command" -l terminal -d 'Enable terminal support for the agent'
 complete -c grok -n "__fish_grok_needs_command" -l fs-read -d 'Enable client-side file reads'
 complete -c grok -n "__fish_grok_needs_command" -l fs-write -d 'Enable client-side file writes'
@@ -93,7 +96,7 @@ complete -c grok -n "__fish_grok_needs_command" -l force-login -d 'Show the logi
 complete -c grok -n "__fish_grok_needs_command" -l oauth -d 'Use OAuth when the welcome screen starts authentication'
 complete -c grok -n "__fish_grok_needs_command" -l leader -d 'Connect to a shared leader process'
 complete -c grok -n "__fish_grok_needs_command" -l no-leader -d 'Run standalone even when leader mode is configured'
-complete -c grok -n "__fish_grok_needs_command" -s h -l help -d 'Print help (see more with \'--help\')'
+complete -c grok -n "__fish_grok_needs_command" -s h -l help -d 'Print help'
 complete -c grok -n "__fish_grok_needs_command" -a "agent" -d 'Run Grok without the interactive UI'
 complete -c grok -n "__fish_grok_needs_command" -a "import" -d 'Import sessions into Grok'
 complete -c grok -n "__fish_grok_needs_command" -a "inspect" -d 'Show the configuration Grok discovers for this directory'

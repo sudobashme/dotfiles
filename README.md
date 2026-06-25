@@ -1,7 +1,12 @@
 ---
-tags: [dotfiles, lamina, neovim, zsh]
+tags:
+  - dotfiles
+  - lamina
+  - neovim
+  - zsh
 title: Dotfiles
-aliases: [Dotfiles]
+aliases:
+  - Dotfiles
 date created: Friday, February 28th 2025, 11:25:46 pm
 date modified: Sunday, June 21st 2026, 9:37:19 pm
 ---
