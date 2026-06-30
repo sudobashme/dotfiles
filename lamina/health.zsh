@@ -121,13 +121,16 @@ check_required_bin "grok-acp" "~/.local/bin/grok-acp"
 check_required_bin "lamina" "~/.local/bin/lamina"
 print -r -- ""
 
-print -r -- "Core symlinks"
+print -r -- "Core symlinks (directory)"
+for cfg in nvim kitty fish git gtk-2.0 mc npm ranger znt; do
+    check_dotter_symlink "configs/${cfg}" "~/.config/${cfg}"
+done
+print -r -- ""
+print -r -- "Core symlinks (zsh + files)"
 check_dotter_symlink "zsh/env.d" "~/.zsh/env.d"
 check_dotter_symlink "zsh/rc.d" "~/.zsh/rc.d"
 check_dotter_symlink "zsh/.zshrc" "~/.zsh/.zshrc"
 check_dotter_symlink "zsh/.zshenv" "~/.zshenv"
-check_dotter_symlink "configs/nvim" "~/.config/nvim"
-check_dotter_symlink "configs/kitty" "~/.config/kitty"
 check_dotter_symlink "configs/starship/starship.toml" "~/.config/starship.toml"
 check_dotter_symlink "configs/tmux/tmux.conf" "~/.tmux.conf"
 

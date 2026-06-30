@@ -21,5 +21,8 @@ set.txt
 configs/gtk-3.0/*
 configs/GIMP/*/cache/
 configs/lnav/view-info*
+configs/lnav/*.history
+configs/lnav/log_metadata.db
+configs/btop/*.log
 docs/historical/
 configs/zbrowse/

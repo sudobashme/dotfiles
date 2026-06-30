@@ -10,6 +10,8 @@ description = "Personal OS Layer deploy and health CLI"
 [symlinks]
 provider = "dotter"
 config = ".dotter/global.toml"
+# Policy: directory symlinks for pure config trees; per-file for btop/lnav
+# (apps that write logs/state into ~/.config/<app>/). See .dotter/global.toml.
 
 # Dual-link: zsh/.zshenv also targets ZDOTDIR (see lamina/deploy.zsh)
 dual_link = "zsh/.zshenv"
