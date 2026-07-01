@@ -11,8 +11,11 @@ data
 */.DS_Store
 .dotter/cache/
 .dotter/cache.toml
+.dotter/local.toml
 .buildian/*
 .dotter/*
+!.dotter/global.toml
+!.dotter/pre_deploy.sh
 .obsidian/*
 .sublime/*
 diagnostics/

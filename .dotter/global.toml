@@ -1,0 +1,53 @@
+# Lamina symlink manifest — managed by dotter
+# Run: lamina deploy  (or: dotter deploy from repo root)
+#
+# Symlink policy:
+#   recurse = false  → symlink the whole directory (pure config trees)
+#   recurse = true   → symlink individual files (apps that write logs/state
+#                      into ~/.config/<app>/ — e.g. btop, lnav)
+
+[settings]
+default_target_type = "symbolic"
+
+[lamina]
+depends = []
+
+[lamina.files]
+# ZDOTDIR structure (directory symlinks)
+"zsh/env.d" = { target = "~/.zsh/env.d", type = "symbolic", recurse = false }
+"zsh/rc.d" = { target = "~/.zsh/rc.d", type = "symbolic", recurse = false }
+"zsh/fpath" = { target = "~/.zsh/fpath", type = "symbolic", recurse = false }
+"zsh/.zshrc" = "~/.zsh/.zshrc"
+"zsh/.zprofile" = "~/.zsh/.zprofile"
+"zsh/.zlogin" = "~/.zsh/.zlogin"
+"zsh/.zlogout" = "~/.zsh/.zlogout"
+
+# HOME entrypoint (ZDOTDIR copy is handled in lamina deploy — dual-link)
+"zsh/.zshenv" = "~/.zshenv"
+
+# Application configs — directory symlinks (config only)
+"configs/fish" = { target = "~/.config/fish", type = "symbolic", recurse = false }
+"configs/git" = { target = "~/.config/git", type = "symbolic", recurse = false }
+"configs/gtk-2.0" = { target = "~/.config/gtk-2.0", type = "symbolic", recurse = false }
+"configs/kitty" = { target = "~/.config/kitty", type = "symbolic", recurse = false }
+"configs/mc" = { target = "~/.config/mc", type = "symbolic", recurse = false }
+"configs/npm" = { target = "~/.config/npm", type = "symbolic", recurse = false }
+"configs/nvim" = { target = "~/.config/nvim", type = "symbolic", recurse = false }
+"configs/ranger" = { target = "~/.config/ranger", type = "symbolic", recurse = false }
+"configs/znt" = { target = "~/.config/znt", type = "symbolic", recurse = false }
+
+# Per-file symlinks (runtime logs/state written alongside config)
+"configs/btop" = { target = "~/.config/btop", type = "symbolic", recurse = true }
+"configs/lnav" = { target = "~/.config/lnav", type = "symbolic", recurse = true }
+
+# Single-file configs
+"configs/starship/starship.toml" = "~/.config/starship.toml"
+"configs/tmux/tmux.conf" = "~/.tmux.conf"
+#"configs/aerospace/aerospace.toml" = "~/.config/aerospace/aerospace.toml"
+#"configs/homebrew/homebrew_bundle_file" = "~/.config/homebrew/homebrew_bundle_file"
+
+
+# Personal OS Layer binaries
+"bin/launch-os-layer" = "~/.local/bin/launch-os-layer"
+"bin/grok-acp" = "~/.local/bin/grok-acp"
+"bin/lamina" = "~/.local/bin/lamina"
