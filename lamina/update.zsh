@@ -62,19 +62,14 @@ EOF
     shift
 done
 
-lamina_update_banner() {
-    print -r -- ""
-    print -r -- "▸ $*"
-}
-
 lamina_update_run() {
     local label="$1"
     shift
     if (( CHECK )); then
-        print -r -- "  → ${label}"
+        lamina_step "${label}"
         return 0
     fi
-    lamina_update_banner "${label}"
+    lamina_banner "${label}"
     if "$@"; then
         lamina_ok "${label}"
     else
@@ -138,15 +133,15 @@ __lamina_nvim_mason_update__() {
     command nvim --headless "+Lazy! load mason.nvim" "+MasonUpdate" +qa 2>/dev/null
 }
 
-print -r -- "lamina update — ${DOTFILES}"
+lamina_header update "${DOTFILES}"
 if (( CHECK )); then
-    print -r -- "lamina update — check mode (no changes)"
+    lamina_note "check mode (no changes)"
 fi
 if (( QUICK )); then
-    print -r -- "lamina update — quick mode"
+    lamina_note "quick mode"
 fi
 if (( INSTALL_LATEST )); then
-    print -r -- "lamina update — will install latest stable runtimes"
+    lamina_note "will install latest stable runtimes"
 fi
 
 lamina_update_run "git pull (ff-only if working tree clean)" __lamina_git_pull__
@@ -193,7 +188,7 @@ if (( ! QUICK )); then
 fi
 
 if (( ! CHECK && ! SKIP_HEALTH )); then
-    lamina_update_banner "lamina health"
+    lamina_banner "lamina health"
     if "${DOTFILES}/bin/lamina" health; then
         :
     else
@@ -203,14 +198,14 @@ fi
 
 print -r -- ""
 if (( CHECK )); then
-    print -r -- "lamina update — check complete"
+    lamina_summary_ok "lamina update — check complete"
     exit 0
 fi
 
 if (( failures > 0 )); then
-    print -r -- "lamina update — finished with ${failures} failure(s)"
+    lamina_summary_fail "lamina update — finished with ${failures} failure(s)"
     exit 1
 fi
 
-print -r -- "lamina update — done"
+lamina_summary_ok "lamina update — done"
 exit 0

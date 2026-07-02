@@ -168,7 +168,7 @@ lamina_vm_setup_base() {
     if lamina_vm_exists "${base}"; then
         lamina_warn "${base} already exists — skipping clone"
     else
-        lamina_update_banner "cloning base image ${image}"
+        lamina_banner "cloning base image ${image}"
         tart clone "${image}" "${base}"
     fi
     tart set "${base}" --cpu "${cpus}" --memory "${memory}"
@@ -214,7 +214,7 @@ lamina_vm_run() {
     fi
 
     zf_mkdir -p "${LAMINA_VM_STATE}"
-    lamina_update_banner "starting ${name} (headless, dotfiles mounted)"
+    lamina_banner "starting ${name} (headless, dotfiles mounted)"
     print -r -- "  guest path: ${guest_dotfiles}"
     tart run --no-graphics --dir="${mount}:${DOTFILES}" "${name}" &
     print -r -- $! >"${LAMINA_VM_STATE}/${name}.pid"
@@ -257,7 +257,7 @@ lamina_vm_guest_bootstrap() {
         return 0
     fi
 
-    lamina_update_banner "guest bootstrap (Homebrew + dotter)"
+    lamina_banner "guest bootstrap (Homebrew + dotter)"
     lamina_vm_ssh "${name}" 'set -euo pipefail
 export PATH="/opt/homebrew/bin:/usr/local/bin:${PATH}"
 if command -v dotter >/dev/null 2>&1; then
@@ -330,11 +330,6 @@ lamina_vm_list() {
     tart list 2>/dev/null | awk 'NR == 1 || ($1 == "local" && $2 ~ /^lamina-/)' || tart list
 }
 
-lamina_update_banner() {
-    print -r -- ""
-    print -r -- "▸ $*"
-}
-
 # --- dispatch ---
 
 # zsh arrays are 1-indexed by default
@@ -343,9 +338,9 @@ typeset -a rest=("${VM_ARGS[@]:2}")
 
 lamina_vm_need_tart
 
-print -r -- "lamina vm-test — ${DOTFILES}"
+lamina_header "vm-test" "${DOTFILES}"
 if (( CHECK )); then
-    print -r -- "lamina vm-test — check mode"
+    lamina_note "check mode"
 fi
 
 case "${subcmd}" in

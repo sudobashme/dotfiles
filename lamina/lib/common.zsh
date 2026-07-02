@@ -34,22 +34,101 @@ lamina_expand() {
     print -r -- "${path}"
 }
 
+lamina_color_enabled() {
+    [[ -z "${NO_COLOR:-}" && -t 1 ]]
+}
+
+lamina_header() {
+    local cmd="$1" detail="${2:-}"
+    if lamina_color_enabled; then
+        print -P "%B%F{6}lamina ${cmd}%f%b %F{8}—%f ${detail}"
+    else
+        print -r -- "lamina ${cmd} — ${detail}"
+    fi
+}
+
+lamina_note() {
+    if lamina_color_enabled; then
+        print -P "%F{8}$*%f"
+    else
+        print -r -- "$*"
+    fi
+}
+
+lamina_section() {
+    if lamina_color_enabled; then
+        print -P "%B%F{4}$*%f%b"
+    else
+        print -r -- "$*"
+    fi
+}
+
+lamina_banner() {
+    if lamina_color_enabled; then
+        print -r -- ""
+        print -P "%F{6}▸%f %B$*%b"
+    else
+        print -r -- ""
+        print -r -- "▸ $*"
+    fi
+}
+
+lamina_step() {
+    if lamina_color_enabled; then
+        print -P "%F{4}  →%f $*"
+    else
+        print -r -- "  → $*"
+    fi
+}
+
 lamina_ok() {
-    print -r -- "  ✓ $*"
+    if lamina_color_enabled; then
+        print -P "%F{2}  ✓%f $*"
+    else
+        print -r -- "  ✓ $*"
+    fi
 }
 
 lamina_warn() {
-    print -r -- "  ⚠ $*"
+    if lamina_color_enabled; then
+        print -P "%F{3}  ⚠%f $*"
+    else
+        print -r -- "  ⚠ $*"
+    fi
 }
 
 lamina_fail() {
-    print -r -- "  ✗ $*"
+    if lamina_color_enabled; then
+        print -P "%F{1}  ✗%f $*"
+    else
+        print -r -- "  ✗ $*"
+    fi
+}
+
+lamina_summary_ok() {
+    if lamina_color_enabled; then
+        print -P "%B%F{2}$*%f%b"
+    else
+        print -r -- "$*"
+    fi
+}
+
+lamina_summary_fail() {
+    if lamina_color_enabled; then
+        print -P "%B%F{1}$*%f%b"
+    else
+        print -r -- "$*"
+    fi
 }
 
 lamina_need_cmd() {
     local cmd="$1"
     if (( ! ${+commands[$cmd]} )); then
-        print -u2 "lamina: required command not found: ${cmd}"
+        if lamina_color_enabled; then
+            print -u2 -P "%F{1}lamina:%f required command not found: %B${cmd}%b"
+        else
+            print -u2 "lamina: required command not found: ${cmd}"
+        fi
         return 1
     fi
 }

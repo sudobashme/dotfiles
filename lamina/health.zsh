@@ -68,14 +68,14 @@ check_dotter_symlink() {
     fi
 }
 
-print -r -- "lamina health — ${DOTFILES}"
+lamina_header health "${DOTFILES}"
 print -r -- ""
 
-print -r -- "Stray files"
+lamina_section "Stray files"
 check_stray_file "${HOME}/.zshrc" "installer wrote a real ~/.zshrc; ZDOTDIR owns config"
 print -r -- ""
 
-print -r -- "Stale artifacts"
+lamina_section "Stale artifacts"
 check_stale_path "${HOME}/.zsh/plugins/powerlevel10k" "replaced by starship"
 check_stale_path "${HOME}/.zsh/plugins/archive" "legacy broken URL"
 check_stale_path "${HOME}/.zsh/plugins/iterm2-shell-integration" "not in rc.d"
@@ -86,7 +86,7 @@ check_stale_path "${HOME}/.colima" "removed; Tart (lamina vm-test) is the VM sta
 check_stale_path "${HOME}/.lima" "removed; Tart (lamina vm-test) is the VM stack"
 print -r -- ""
 
-print -r -- "Zsh plugins"
+lamina_section "Zsh plugins"
 if (( ${+commands[python3]} )); then
     while IFS= read -r line; do
         [[ -z "${line}" ]] && continue
@@ -115,18 +115,18 @@ else
 fi
 print -r -- ""
 
-print -r -- "Required binaries"
+lamina_section "Required binaries"
 check_required_bin "launch-os-layer" "~/.local/bin/launch-os-layer"
 check_required_bin "grok-acp" "~/.local/bin/grok-acp"
 check_required_bin "lamina" "~/.local/bin/lamina"
 print -r -- ""
 
-print -r -- "Core symlinks (directory)"
+lamina_section "Core symlinks (directory)"
 for cfg in nvim kitty fish git gtk-2.0 mc npm ranger znt; do
     check_dotter_symlink "configs/${cfg}" "~/.config/${cfg}"
 done
 print -r -- ""
-print -r -- "Core symlinks (zsh + files)"
+lamina_section "Core symlinks (zsh + files)"
 check_dotter_symlink "zsh/env.d" "~/.zsh/env.d"
 check_dotter_symlink "zsh/rc.d" "~/.zsh/rc.d"
 check_dotter_symlink "zsh/.zshrc" "~/.zsh/.zshrc"
@@ -146,9 +146,9 @@ fi
 
 print -r -- ""
 if (( issues == 0 )); then
-    print -r -- "lamina health — all checks passed"
+    lamina_summary_ok "lamina health — all checks passed"
     exit 0
 fi
 
-print -r -- "lamina health — ${issues} issue(s) found (run: lamina deploy)"
+lamina_summary_fail "lamina health — ${issues} issue(s) found (run: lamina deploy)"
 exit 1
