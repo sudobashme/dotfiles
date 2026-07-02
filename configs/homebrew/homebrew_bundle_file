@@ -45,12 +45,12 @@ brew "ast-grep"
 brew "m4"
 # Automatic configure script builder
 brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
 # Library for command-line editing
 brew "readline"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
-# Tool for generating GNU Standards-compliant Makefiles
-brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Garbage collector for C and C++
@@ -207,6 +207,8 @@ brew "unixodbc"
 brew "gd"
 # Network authentication protocol
 brew "krb5"
+# C library for the Public Suffix List
+brew "libpsl"
 # NaCl networking and cryptography library
 brew "libsodium"
 # Open source suite of directory software
@@ -257,8 +259,8 @@ brew "lame"
 brew "libvpx"
 # Audio codec
 brew "opus"
-# Low-level access to audio, keyboard, mouse, joystick, and graphics
-brew "sdl2"
+# SDL2 compatibility layer that uses SDL3 behind the scenes
+brew "sdl2-compat"
 # AV1 encoder
 brew "svt-av1"
 # H.264/AVC encoder
@@ -429,8 +431,6 @@ brew "libmaxminddb"
 brew "libmetalink"
 # MNG/JNG reference library
 brew "libmng"
-# C library for the Public Suffix List
-brew "libpsl"
 # X.Org: pthread-stubs.pc
 brew "libpthread-stubs"
 # Library for reading RAW files from digital photo cameras
@@ -633,6 +633,8 @@ brew "swig"
 brew "utf8cpp"
 # Audio metadata library
 brew "taglib"
+# Easiest, most secure way to use WireGuard and 2FA
+brew "tailscale"
 # Tool Command Language
 brew "tcl-tk"
 # Modernized, complete, self-contained TeX/LaTeX engine
@@ -723,7 +725,7 @@ brew "steipete/tap/imsg"
 brew "steipete/tap/remindctl"
 # Ookla Speedtest
 brew "teamookla/speedtest/speedtest"
-brew "yakitrak/yakitrak/obsidian-cli"
+brew "yakitrak/yakitrak/notesmd-cli", link: false
 # Real-time strategy game
 cask "0-ad"
 # Command-line interface for 1Password
@@ -888,4 +890,4 @@ cargo "starship"
 cargo "trippy"
 cargo "typescript"
 cargo "zoxide"
-npm "corepack"
+uv "pynvim"

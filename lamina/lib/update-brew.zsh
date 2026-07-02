@@ -40,7 +40,7 @@ __lamina_brewfile_dump__() {
 __lamina_brew_update__() {
     local brew_bin
     brew_bin="$(lamina_update_brew_bin)"
-    [[ -x "${brew_bin}" ]] || { lamina_warn "Homebrew not found"; return 0; }
+    [[ -x "${brew_bin}" ]] || { lamina_warn "Homebrew not found"; return 1; }
 
     export HOMEBREW_BUNDLE_FILE="$(lamina_update_brewfile_path)"
     export HOMEBREW_HISTORY_FILE="${HOMEBREW_HISTORY_FILE:-${HOME}/.homebrew_history}"

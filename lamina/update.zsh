@@ -165,10 +165,14 @@ fi
 if (( ! QUICK )); then
     lamina_update_run "Xcode / CLT check" __lamina_xcode_update__
 
-    if (( ! NO_BREW )) && command -v brew >/dev/null 2>&1; then
-        lamina_update_run "Homebrew update + upgrade + Brewfile dump" __lamina_brew_update__
-    elif (( ! NO_BREW )); then
-        lamina_warn "brew not found — skipping Homebrew"
+    if (( ! NO_BREW )); then
+        local brew_bin
+        brew_bin="$(lamina_update_brew_bin)"
+        if [[ -x "${brew_bin}" ]]; then
+            lamina_update_run "Homebrew update + upgrade + Brewfile dump" __lamina_brew_update__
+        else
+            lamina_warn "brew not found — skipping Homebrew"
+        fi
     fi
 
     if (( ! NO_ENVS )); then

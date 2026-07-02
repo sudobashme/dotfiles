@@ -17,4 +17,5 @@ fi
 lamina_need_cmd python3 || exit 1
 lamina_need_cmd git || exit 1
 
-exec python3 "${DOTFILES}/lamina/lib/sync_plugins.py" "${sync_args[@]}"
+# Do not exec or exit — deploy/update source this file and must continue afterward.
+python3 "${DOTFILES}/lamina/lib/sync_plugins.py" "${sync_args[@]}"
