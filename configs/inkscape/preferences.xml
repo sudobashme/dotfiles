@@ -190,8 +190,8 @@
          selcue="1"
          style="stroke-width:1px;"
          usecurrent="1"
-         freehand-mode="0"
-         shape="3" />
+         freehand-mode="3"
+         shape="0" />
     </group>
     <eventcontext
        id="calligraphic"
@@ -677,7 +677,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="${HOME}/Dropbox/Family Room/2DProjects/Shawn_Shirt_Ideas/extremities"
+       path="/Users/shawnlime/Dropbox/Family Room/2DProjects/Shawn_Shirt_Ideas"
        use_current_dir="1"
        enable_svgexport="0" />
     <group
@@ -1129,9 +1129,9 @@
      id="desktop"
      style="fill:#d40000;text-orientation:auto;-inkscape-font-specification:'Chalkduster, Normal';font-family:Chalkduster;font-size:96px;stroke-width:7.55905512;letter-spacing:-0.93px;opacity:0.78977273;stroke-linejoin:bevel;word-spacing:0px">
     <group
-       width="2864"
-       height="1382"
-       x="58"
+       width="3792"
+       height="1271"
+       x="60"
        y="30"
        maximized="0"
        fullscreen="0"

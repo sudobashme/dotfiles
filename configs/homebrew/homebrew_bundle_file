@@ -79,6 +79,8 @@ brew "bzip2"
 brew "c-ares"
 # Software library to render fonts
 brew "freetype"
+# JSON parser for C
+brew "json-c"
 # XML-based font configuration API for X Windows
 brew "fontconfig"
 # Core application library for C
@@ -253,6 +255,8 @@ brew "faac"
 brew "faad2"
 # Standalone library of the Fraunhofer FDK AAC code from Android
 brew "fdk-aac"
+# MP3 player for Linux and UNIX
+brew "mpg123"
 # High quality MPEG Audio Layer III (MP3) encoder
 brew "lame"
 # VP8/VP9 video codec
@@ -377,8 +381,6 @@ brew "jemalloc"
 brew "jpeg"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# JSON parser for C
-brew "json-c"
 # Library for interacting with JSON
 brew "jsoncpp"
 # Development kit for the Java programming language
@@ -455,8 +457,6 @@ brew "libshout"
 brew "libsm"
 # Library to Access SMI MIB Information
 brew "libsmi"
-# MP3 player for Linux and UNIX
-brew "mpg123"
 # C library for files containing sampled sound
 brew "libsndfile"
 # High quality, one-dimensional sample-rate conversion library

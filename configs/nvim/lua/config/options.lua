@@ -15,7 +15,7 @@ g.autoformat = true
 g.editorconfig = true
 g.root_spec = {
   "lsp",
-  { ".git", "lua", "package.json", "Makefile", "go.mod", "cargo.toml", "pyproject.toml", "src", ".conf" },
+  { ".git", "lua", "package.json", "Makefile", "go.mod", "cargo.toml", "pyproject.toml", "src", ".conf", ".zsh" },
   "cwd",
 }
 
@@ -31,8 +31,9 @@ o.conceallevel = 2
 o.clipboard = "unnamedplus"
 o.nu = true
 o.relativenumber = true
-g.rbenv_host_prog = "${HOME}/.rbenv/versions/3.3.6/bin/neovim-ruby-host"
-g.python3_host_prog = "${HOME}/.pyenv/versions/neovim/bin/python"
+o.termguicolors = true
+g.rbenv_host_prog = vim.fn.expand("~/.rbenv/versions/3.3.6/bin/neovim-ruby-host")
+g.python3_host_prog = vim.fn.expand("~/.pyenv/versions/neovim/bin/python")
 g.lazyvim_python_lsp = "pyright"
 g.lazyvim_python_ruff = "ruff"
 g.loaded_perl_provider = 0

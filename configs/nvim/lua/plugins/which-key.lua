@@ -11,6 +11,9 @@ return {
     end,
     spec = {
       { "<LocalLeader>n", group = "neorg" },
+      { "<LocalLeader>no", desc = "Table of Contents" },
+      { "<LocalLeader>t", group = "todo" },
+      { "<LocalLeader>ts", desc = "Cycle Task" },
     },
   },
 }

@@ -181,6 +181,8 @@ PY
     alias grok-acp-serve="grok agent serve"
 }
 
+(( ${+commands[launch-grok-pane]} )) && alias gp='launch-grok-pane'
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 alias -g ...='../..'
 alias -g ....='../../..'
