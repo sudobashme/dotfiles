@@ -13,5 +13,23 @@ return {
       lua_ls = { enabled = true },
     },
   },
-  config = true,
+  config = function(_, opts)
+    require("neoconf").setup(opts)
+
+    -- neoconf's health check still asks lspconfig.util for legacy server names,
+    -- but nvim-lspconfig now exposes configs through vim.lsp.config.
+    local ok, util = pcall(require, "lspconfig.util")
+    if ok and util.available_servers then
+      local available_servers = util.available_servers
+      util.available_servers = function(...)
+        local servers = available_servers(...)
+        for _, server in ipairs({ "jsonls", "lua_ls" }) do
+          if vim.lsp.config[server] and not vim.tbl_contains(servers, server) then
+            table.insert(servers, server)
+          end
+        end
+        return servers
+      end
+    end
+  end,
 }

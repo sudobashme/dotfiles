@@ -35,8 +35,9 @@ return {
     notes_subdir = "NewTestNotes",
     log_level = vim.log.levels.INFO,
     completion = {
-      -- Set to false to disable completion.
+      -- LazyVim is currently using the nvim-cmp extra.
       nvim_cmp = true,
+      blink = false,
       -- Trigger completion at 2 chars.
       min_chars = 2,
     },

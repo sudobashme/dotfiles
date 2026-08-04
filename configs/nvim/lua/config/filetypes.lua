@@ -7,6 +7,7 @@
 
 vim.filetype.add({
   extension = {
+    mdx = "markdown.mdx",
     -- lemminx lists "xsl"; stock Neovim only knows "xslt"
     xsl = "xsl",
   },
@@ -43,3 +44,5 @@ vim.filetype.add({
     ["\\v\\@lsp/cpp%.doxygen"] = "cpp.doxygen",
   },
 })
+
+vim.treesitter.language.register("json", "jsonc")

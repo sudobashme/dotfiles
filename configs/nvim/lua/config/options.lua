@@ -55,13 +55,10 @@ o.clipboard = "unnamedplus"
 o.nu = true
 o.relativenumber = true
 o.termguicolors = true
-g.rbenv_host_prog = vim.fn.expand("~/.rbenv/versions/3.3.6/bin/neovim-ruby-host")
-g.python3_host_prog = vim.fn.expand("~/.pyenv/versions/neovim/bin/python")
 g.lazyvim_python_lsp = "pyright"
 g.lazyvim_python_ruff = "ruff"
 g.loaded_perl_provider = 0
 g.lazyvim_prettier_needs_config = true
 g.lazyvim_rust_diagnostics = "rust-analyzer"
-g.lazyvim_blink_main = true
 g.lazyvim_picker = "snacks"
 -- Enable this option to avoid conflicts with Prettier.

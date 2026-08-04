@@ -241,8 +241,6 @@ brew "docbook-xsl"
 brew "double-conversion"
 # Generate documentation for several programming languages
 brew "doxygen"
-# YAML Parser
-brew "libyaml"
 # Linux utility to get information on filesystems, like df but better
 brew "dysk"
 # Utilities for the ext2, ext3, and ext4 file systems
@@ -485,6 +483,8 @@ brew "libxt"
 brew "libxmu"
 # C XSLT library for GNOME
 brew "libxslt"
+# YAML Parser
+brew "libyaml"
 # C library for manipulating Yubico one-time passwords
 brew "libyubikey"
 # Curses-based tool for viewing and analyzing log files
@@ -583,10 +583,6 @@ brew "pugixml"
 brew "pv"
 # Python bindings for v6 of Qt
 brew "pyqt"
-# Ethernet compliant virtual network
-brew "vde"
-# Generic machine emulator and virtualizer
-brew "qemu"
 # File browser
 brew "ranger"
 # Fastest and safest AV1 video encoder
@@ -633,8 +629,6 @@ brew "swig"
 brew "utf8cpp"
 # Audio metadata library
 brew "taglib"
-# Easiest, most secure way to use WireGuard and 2FA
-brew "tailscale"
 # Tool Command Language
 brew "tcl-tk"
 # Modernized, complete, self-contained TeX/LaTeX engine
@@ -659,6 +653,8 @@ brew "unzip"
 brew "usb.ids"
 # Visual Binary Diff
 brew "vbindiff"
+# Ethernet compliant virtual network
+brew "vde"
 # Simple terminal image viewer written in Rust
 brew "viu"
 # Convert PostgreSQL changesets to JSON format

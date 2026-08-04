@@ -62,4 +62,16 @@ return {
     toggle = { map = LazyVim.safe_keymap_set },
     words = { enabled = true },
   },
+  config = function(_, opts)
+    require("snacks").setup(opts)
+    if opts.input and opts.input.enabled then
+      vim.ui.input = Snacks.input.input
+    end
+    if opts.picker and opts.picker.ui_select then
+      vim.ui.select = Snacks.picker.select
+    end
+    if opts.notifier and opts.notifier.enabled then
+      vim.notify = Snacks.notifier
+    end
+  end,
 }

@@ -38,7 +38,6 @@ NVIM_APPNAME=sudobashme/dotfiles/configs/nvim nvim
 ### completion
 
 + [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
-+ [saghen/blink.cmp](https://dotfyle.com/plugins/saghen/blink.cmp)
 ### debugging
 
 + [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)

@@ -118,7 +118,6 @@
     "rafamadriz/friendly-snippets",
     "rcarriga/nvim-dap-ui",
     "rktjmp/lush.nvim",
-    "saghen/blink.compat",
     "smjonas/inc-rename.nvim",
     "sphamba/smear-cursor.nvim",
     "stevearc/conform.nvim",
@@ -133,4 +132,3 @@
   "lspServers": [],
   "leaderKey": "<Space>"
 }
-
