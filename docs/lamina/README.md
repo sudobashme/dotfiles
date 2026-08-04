@@ -45,7 +45,7 @@ Lamina is the operational layer on top of your dotfiles repo. It answers four qu
 | `lamina update` | Comprehensive maintenance (see below) |
 | `lamina vm-test <cmd>` | Tart-based macOS deploy sandbox |
 
-Shell aliases: `update` / `up` → `lamina update` (defined in `zsh/rc.d/800_update.zsh`).
+Shell aliases: `update` / `up` → `lamina update` (defined in `zsh/rc.d/650_update.zsh`).
 
 ---
 

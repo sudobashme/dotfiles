@@ -79,7 +79,7 @@ lamina_section "Stale artifacts"
 check_stale_path "${HOME}/.zsh/plugins/powerlevel10k" "replaced by starship"
 check_stale_path "${HOME}/.zsh/plugins/archive" "legacy broken URL"
 check_stale_path "${HOME}/.zsh/plugins/iterm2-shell-integration" "not in rc.d"
-check_stale_path "${HOME}/.zsh/plugins/autocomplete" "disabled in rc.d/720_autosuggest.zsh"
+check_stale_path "${HOME}/.zsh/plugins/autocomplete" "disabled in rc.d/600_autosuggest.zsh"
 check_stale_path "${HOME}/.zsh/plugins/zsh-zoxide" "redundant; use zoxide init in .zshrc"
 check_stale_path "${HOME}/.zsh/plugins/autoenv" "removed; use direnv later if per-project env is needed"
 check_stale_path "${HOME}/.colima" "removed; Tart (lamina vm-test) is the VM stack"
@@ -122,7 +122,7 @@ check_required_bin "lamina" "~/.local/bin/lamina"
 print -r -- ""
 
 lamina_section "Core symlinks (directory)"
-for cfg in nvim kitty fish git gtk-2.0 mc npm ranger znt; do
+for cfg in nvim kitty fish bat git lazygit gtk-2.0 mc npm ranger znt; do
     check_dotter_symlink "configs/${cfg}" "~/.config/${cfg}"
 done
 print -r -- ""

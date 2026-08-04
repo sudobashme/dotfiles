@@ -9,9 +9,9 @@
 (prev-language "en-US")
 (config-version "3.2.4")
 (import-raw-plug-in "${gimp_plug_in_dir}/plug-ins/file-rawtherapee/file-rawtherapee")
-(check-update-timestamp 1781314491)
-(monitor-xresolution 109)
-(monitor-yresolution 108)
+(check-update-timestamp 1785535486)
+(monitor-xresolution 82)
+(monitor-yresolution 81)
 (default-view
     (show-menubar yes)
     (show-statusbar yes)
@@ -56,6 +56,7 @@
     (padding-in-show-all no))
 (toolbox-groups no)
 (theme-color-scheme light)
+(show-welcome-dialog no)
 (fill-options
     (style fg-color)
     (custom-style solid-color)

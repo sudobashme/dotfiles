@@ -1,6 +1,7 @@
 # Lamina manifest — Personal OS Layer desired state
 # Symlinks are applied via dotter (.dotter/global.toml).
-# Health checks read this file for drift and stray-file detection.
+# Aspirational desired-state metadata. Today: health.zsh hardcodes checks;
+# keep manifest and health.zsh in sync when editing either.
 
 [meta]
 name = "lamina"
@@ -27,7 +28,7 @@ sync_hook = "lamina/hooks/sync-plugins.zsh"
 "~/.zsh/plugins/powerlevel10k" = "Removed from stack; starship is the prompt now"
 "~/.zsh/plugins/archive" = "Legacy broken URL; not used in rc.d"
 "~/.zsh/plugins/iterm2-shell-integration" = "Not referenced in rc.d"
-"~/.zsh/plugins/autocomplete" = "Deliberately disabled in rc.d/720_autosuggest.zsh"
+"~/.zsh/plugins/autocomplete" = "Deliberately disabled in rc.d/600_autosuggest.zsh"
 "~/.zsh/plugins/zsh-zoxide" = "Redundant; zoxide init runs directly in zsh/.zshrc"
 "~/.colima" = "Removed colima; Tart (lamina vm-test) is the VM stack"
 "~/.lima" = "Removed lima; Tart (lamina vm-test) is the VM stack"

@@ -2,6 +2,29 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- Compound filetypes for LSP (yamlls, lemminx, clangd, LazyVim TS extras)
+require("config.filetypes")
+
+-- Drop empty Neovim 0.12 vim.pack shell so lazy.nvim doesn't WARN about it.
+-- (vim.pack.get() mkdir's site/pack/core/opt even with zero plugins.)
+do
+  local pack = vim.fs.joinpath(vim.fn.stdpath("data"), "site", "pack", "core")
+  local opt = vim.fs.joinpath(pack, "opt")
+  if vim.fn.isdirectory(opt) == 1 then
+    local entries = vim.fn.readdir(opt)
+    if not entries or #entries == 0 then
+      vim.fn.delete(pack, "rf")
+      local parent = vim.fs.joinpath(vim.fn.stdpath("data"), "site", "pack")
+      if vim.fn.isdirectory(parent) == 1 then
+        local pentries = vim.fn.readdir(parent)
+        if not pentries or #pentries == 0 then
+          vim.fn.delete(parent, "rf")
+        end
+      end
+    end
+  end
+end
+
 local o = vim.opt
 local g = vim.g
 local u = vim.ui

@@ -116,7 +116,7 @@ depth = 1
 
 # Removed from stack (do not sync):
 # - powerlevel10k (starship is the prompt)
-# - zsh-autocomplete (explicitly disabled in rc.d/720_autosuggest.zsh)
+# - zsh-autocomplete (explicitly disabled in rc.d/600_autosuggest.zsh)
 # - romkatv/archive (was a broken URL in legacy deploy.zsh)
 # - iterm2-shell-integration (not referenced in rc.d)
 # - zsh-zoxide (redundant; zoxide init runs directly in zsh/.zshrc)

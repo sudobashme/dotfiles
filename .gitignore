@@ -27,5 +27,7 @@ configs/lnav/view-info*
 configs/lnav/*.history
 configs/lnav/log_metadata.db
 configs/btop/*.log
+configs/bat/config
+configs/lazygit/config.yml
 docs/historical/
 configs/zbrowse/

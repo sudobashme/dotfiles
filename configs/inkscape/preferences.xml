@@ -119,8 +119,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="8.64012781778971"
-         height="4.59348583221435" />
+         width="17.0000001201479"
+         height="0.999999947435257" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -325,7 +325,7 @@
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
        use_svg2="1"
-       style="line-height:1.25;font-family:Chalkduster;font-size:96px;text-orientation:auto;-inkscape-font-specification:'Chalkduster, Normal'"
+       style="line-height:1.25;font-family:sans-serif;font-size:37.33417511px;text-orientation:auto;-inkscape-font-specification:'sans-serif, Normal'"
        selcue="1"
        align_mode="0"
        writing_mode="0"
@@ -758,6 +758,12 @@
     <group
        id="livepatheffect"
        showexperimental="1" />
+    <group
+       id="extensions-gallery">
+      <group
+         id="filters"
+         selected="org.inkscape.effect.filter.f016" />
+    </group>
   </group>
   <group
      id="printing">
@@ -1124,14 +1130,22 @@
      org.inkscape.template.paper.max="17.0"
      org.inkscape.template.paper.min="11.0"
      org.inkscape.template.paper.unit="in"
-     org.inkscape.template.paper.orientation="land" />
+     org.inkscape.template.paper.orientation="land"
+     org.inkscape.effect.filter.Solarize.type="solarize"
+     org.inkscape.effect.filter.Solarize.__live_effect__="0"
+     org.inkscape.effect.filter.Solarize.rotate="357"
+     org.inkscape.effect.filter.Electrize.type="table"
+     org.inkscape.effect.filter.Electrize.__live_effect__="0"
+     org.inkscape.effect.filter.Electrize.levels="1"
+     org.inkscape.effect.filter.Electrize.blur="8.21716923076923"
+     org.inkscape.effect.filter.Electrize.invert="0" />
   <group
      id="desktop"
-     style="fill:#d40000;text-orientation:auto;-inkscape-font-specification:'Chalkduster, Normal';font-family:Chalkduster;font-size:96px;stroke-width:7.55905512;letter-spacing:-0.93px;opacity:0.78977273;stroke-linejoin:bevel;word-spacing:0px">
+     style="fill:#717171;text-orientation:auto;-inkscape-font-specification:Zapfino;font-family:Zapfino;font-size:37.33333333px;stroke-width:13.11496063;letter-spacing:-0.93px;stroke-linejoin:round;word-spacing:0px;opacity:0.99166667;stroke:#000000;fill-opacity:0.87019229">
     <group
        width="3792"
-       height="1271"
-       x="60"
+       height="1022"
+       x="48"
        y="30"
        maximized="0"
        fullscreen="0"

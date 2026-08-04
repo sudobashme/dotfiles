@@ -60,7 +60,7 @@ Chronological record of meaningful changes. One entry per sprint or significant 
 
 - `lamina/update.zsh` — `lamina update [--quick|--check|--install-latest|--no-*]` (`--full` no-op)
 - `bin/lamina` — `update` / `up` subcommand
-- `zsh/rc.d/800_update.zsh` — `update`/`up` delegates to `lamina update` (comprehensive default)
+- `zsh/rc.d/650_update.zsh` — `update`/`up` delegates to `lamina update` (comprehensive default)
 - `docs/personal-os-layer/VM-INFRASTRUCTURE.md` — Tart (macOS guests) vs Lima/Colima (Linux)
 
 ### VM takeaway

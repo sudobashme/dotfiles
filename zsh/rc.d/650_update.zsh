@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # repo: https://github.com/sudobashme/dotfiles
-# file: 800_update.zsh
-# filepath: ${ZDOTDIR}/rc.d/800_update.zsh
+# file: 650_update.zsh
+# filepath: ${ZDOTDIR}/rc.d/650_update.zsh
 
 # Routine system update — delegates to lamina when available.
 # See: docs/personal-os-layer/UPDATE-STRATEGY.md

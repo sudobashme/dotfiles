@@ -49,7 +49,7 @@ Reload shell (`exec zsh`) or restart Neovim if symlinks/plugins changed.
 
 ### B. Routine maintenance — `update` / `up`
 
-Defined in `zsh/rc.d/800_update.zsh`. One command for everything you'd otherwise do manually:
+Defined in `zsh/rc.d/650_update.zsh`. One command for everything you'd otherwise do manually:
 
 1. `git pull` (if clean) → `lamina deploy`
 2. Neovim `Lazy! sync`, `TSUpdate`, `MasonUpdate`

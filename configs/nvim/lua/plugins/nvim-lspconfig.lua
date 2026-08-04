@@ -3,9 +3,8 @@ return {
   opts = {
     servers = {
       bashls = {
-        settings = {
-          filetypes = { "sh", "zsh", "typescript", "typescriptreact", "typescript.tsx" },
-        },
+        -- Top-level filetypes (not settings.*). zsh is extra; drop bogus TS entries.
+        filetypes = { "sh", "bash", "zsh" },
       },
       biome = {},
       html = {},

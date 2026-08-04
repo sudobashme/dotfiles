@@ -125,7 +125,8 @@
     "theHamsta/nvim-dap-virtual-text",
     "uloco/bluloco.nvim",
     "windwp/nvim-ts-autotag",
-    "xvzc/chezmoi.nvim"
+    "xvzc/chezmoi.nvim",
+    "zenbones-theme/zenbones.nvim"
   ],
   "pluginManager": "lazy.nvim",
   "treesitterParsers": [],

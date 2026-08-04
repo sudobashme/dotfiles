@@ -27,7 +27,9 @@ depends = []
 
 # Application configs — directory symlinks (config only)
 "configs/fish" = { target = "~/.config/fish", type = "symbolic", recurse = false }
+"configs/bat" = { target = "~/.config/bat", type = "symbolic", recurse = false }
 "configs/git" = { target = "~/.config/git", type = "symbolic", recurse = false }
+"configs/lazygit" = { target = "~/.config/lazygit", type = "symbolic", recurse = false }
 "configs/gtk-2.0" = { target = "~/.config/gtk-2.0", type = "symbolic", recurse = false }
 "configs/kitty" = { target = "~/.config/kitty", type = "symbolic", recurse = false }
 "configs/mc" = { target = "~/.config/mc", type = "symbolic", recurse = false }
@@ -47,7 +49,11 @@ depends = []
 #"configs/homebrew/homebrew_bundle_file" = "~/.config/homebrew/homebrew_bundle_file"
 
 
+# Grok agent skills (canonical copy in repo → auto-loaded by Grok)
+"lamina/skills/dotfiles" = { target = "~/.grok/skills/dotfiles", type = "symbolic", recurse = false }
+
 # Personal OS Layer binaries
 "bin/launch-os-layer" = "~/.local/bin/launch-os-layer"
 "bin/grok-acp" = "~/.local/bin/grok-acp"
+"bin/launch-grok-pane" = "~/.local/bin/launch-grok-pane"
 "bin/lamina" = "~/.local/bin/lamina"

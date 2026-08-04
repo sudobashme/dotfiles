@@ -47,6 +47,11 @@ fi
 # Dual-link .zshenv into ZDOTDIR (dotter handles ~/.zshenv)
 zf_ln -sf "${DOTFILES}/zsh/.zshenv" "${ZDOTDIR}/.zshenv"
 
+# Grok cross-session memory (unless dry-run / symlinks-only)
+if (( ! ${dotter_args[(I)--symlinks-only]} && ! ${dotter_args[(I)--dry-run]} )); then
+    source "${DOTFILES}/lamina/hooks/bootstrap-grok-memory.zsh"
+fi
+
 # Zsh plugins (unless symlinks-only)
 if (( ! ${dotter_args[(I)--symlinks-only]} )); then
     if (( ${dotter_args[(I)--dry-run]} )); then
