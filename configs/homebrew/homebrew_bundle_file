@@ -705,8 +705,6 @@ brew "zsh"
 brew "antoniorodr/memo/memo"
 # Convert existing TrueType/OpenType fonts to WOFF format
 brew "bramstein/webfonttools/sfnt2woff"
-# WOFF utilities with Zopfli compression
-brew "bramstein/webfonttools/sfnt2woff-zopfli"
 # Non-interactive ssh password auth Files
 brew "cirruslabs/cli/sshpass", trusted: true
 # Run macOS and Linux VMs on Apple Hardware
