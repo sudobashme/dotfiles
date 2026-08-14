@@ -165,12 +165,14 @@ brew "ceres-solver"
 brew "dav1d"
 # Implementation of the Unicode BiDi algorithm
 brew "fribidi"
+# Library and utilities for processing GIFs
+brew "giflib"
 # JPEG image codec that aids compression and decompression
 brew "jpeg-turbo"
 # TIFF library and utilities
 brew "libtiff"
-# Library and utilities for processing GIFs
-brew "giflib"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
 # Smart font renderer for non-Roman scripts
 brew "graphite2"
 # Performance-portable, length-agnostic SIMD with runtime dispatch
@@ -179,8 +181,6 @@ brew "highway"
 brew "imath"
 # Color management engine supporting ICC profiles
 brew "little-cms2"
-# Image format providing lossless and lossy compression for web images
-brew "webp"
 # High dynamic-range image file format
 brew "openexr"
 # New file format for still image compression
