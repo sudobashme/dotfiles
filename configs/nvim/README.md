@@ -29,7 +29,12 @@ NVIM_APPNAME=sudobashme/dotfiles/configs/nvim nvim
 ### colorscheme
 
 + [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
++ [uloco/bluloco.nvim](https://dotfyle.com/plugins/uloco/bluloco.nvim)
 + [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
++ [zenbones-theme/zenbones.nvim](https://dotfyle.com/plugins/zenbones-theme/zenbones.nvim)
+### colorscheme-creation
+
++ [rktjmp/lush.nvim](https://dotfyle.com/plugins/rktjmp/lush.nvim)
 ### comment
 
 + [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
@@ -64,8 +69,8 @@ NVIM_APPNAME=sudobashme/dotfiles/configs/nvim nvim
 + [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
 ### fuzzy-finder
 
-+ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
 + [ibhagwan/fzf-lua](https://dotfyle.com/plugins/ibhagwan/fzf-lua)
++ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
 ### keybinding
 
 + [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
@@ -94,6 +99,7 @@ NVIM_APPNAME=sudobashme/dotfiles/configs/nvim nvim
 + [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
 + [jbyuki/one-small-step-for-vimkind](https://dotfyle.com/plugins/jbyuki/one-small-step-for-vimkind)
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
++ [folke/neodev.nvim](https://dotfyle.com/plugins/folke/neodev.nvim)
 + [folke/lazydev.nvim](https://dotfyle.com/plugins/folke/lazydev.nvim)
 ### plugin-manager
 
@@ -137,7 +143,9 @@ NVIM_APPNAME=sudobashme/dotfiles/configs/nvim nvim
 + clangd
 + graphql
 + html
++ jsonls
 + lemminx
++ lua_ls
 + marksman
 + pyright
 + svelte
