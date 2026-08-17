@@ -24,7 +24,16 @@ zf_mkdir -p \
 
 # Symlinks via dotter (forward extra args, e.g. --dry-run, --force)
 typeset -a dotter_args
-dotter_args=("$@")
+typeset -i symlinks_only=0
+dotter_args=()
+for deploy_arg in "$@"; do
+    if [[ "${deploy_arg}" == --symlinks-only ]]; then
+        symlinks_only=1
+    else
+        dotter_args+=("${deploy_arg}")
+    fi
+done
+unset deploy_arg
 
 # Replace copied bin scripts with symlinks when repairing
 if [[ "${LAMINA_DEPLOY_MODE:-}" == repair ]]; then
@@ -48,12 +57,12 @@ fi
 zf_ln -sf "${DOTFILES}/zsh/.zshenv" "${ZDOTDIR}/.zshenv"
 
 # Grok cross-session memory (unless dry-run / symlinks-only)
-if (( ! ${dotter_args[(I)--symlinks-only]} && ! ${dotter_args[(I)--dry-run]} )); then
+if (( ! symlinks_only && ! ${dotter_args[(I)--dry-run]} )); then
     source "${DOTFILES}/lamina/hooks/bootstrap-grok-memory.zsh"
 fi
 
 # Zsh plugins (unless symlinks-only)
-if (( ! ${dotter_args[(I)--symlinks-only]} )); then
+if (( ! symlinks_only )); then
     if (( ${dotter_args[(I)--dry-run]} )); then
         export LAMINA_PLUGINS_DRY_RUN=1
     fi

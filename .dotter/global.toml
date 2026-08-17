@@ -52,6 +52,10 @@ depends = []
 # Grok agent skills (canonical copy in repo → auto-loaded by Grok)
 "lamina/skills/dotfiles" = { target = "~/.grok/skills/dotfiles", type = "symbolic", recurse = false }
 
+# Portable agent operating conventions (private runtime state lives in Lamina Vault)
+"agents/AGENTS.md" = "~/AGENTS.md"
+"agents/docs" = { target = "~/docs", type = "symbolic", recurse = false }
+
 # Personal OS Layer binaries
 "bin/launch-os-layer" = "~/.local/bin/launch-os-layer"
 "bin/grok-acp" = "~/.local/bin/grok-acp"

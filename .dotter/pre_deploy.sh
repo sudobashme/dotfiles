@@ -28,7 +28,8 @@ mkdir -p \
   "${home}/.cache/zsh" \
   "${home}/.tmux" \
   "${home}/.grok/skills" \
-  "${home}/.grok/memory"
+  "${home}/.grok/memory" \
+  "${home}/.config/lamina"
 
 # bat + lazygit ship light/dark variants; link the active config before dotter runs.
 if defaults read -g AppleInterfaceStyle 2>/dev/null | grep -qi '^Dark'; then

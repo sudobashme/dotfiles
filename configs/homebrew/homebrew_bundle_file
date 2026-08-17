@@ -585,6 +585,7 @@ brew "pv"
 brew "pyqt"
 # File browser
 brew "ranger"
+brew "rclone"
 # Fastest and safest AV1 video encoder
 brew "rav1e"
 # RC file (dotfile) management
@@ -593,6 +594,7 @@ brew "rcm"
 brew "reattach-to-user-namespace"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
+brew "restic"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Readline wrapper: adds readline support to tools that lack it

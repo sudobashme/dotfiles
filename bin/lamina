@@ -21,6 +21,7 @@ Usage:
   lamina update [--check] [--quick] [--install-latest] [--no-*]
                               Comprehensive platform + runtime + package update (see --help)
   lamina health               Check for drift, strays, plugins, and symlinks
+  lamina vault <cmd>          Back up and restore private AI state (see --help)
   lamina diff                 Show symlink changes (dotter dry-run)
   lamina repair               Repair symlinks + resync plugins
   lamina vm-test <cmd>        Tart macOS sandbox for deploy testing (see --help)
@@ -64,6 +65,9 @@ case "${cmd}" in
         ;;
     health|check)
         source "${LAMINA_DIR}/health.zsh"
+        ;;
+    vault)
+        source "${LAMINA_DIR}/vault.zsh" "$@"
         ;;
     diff)
         (

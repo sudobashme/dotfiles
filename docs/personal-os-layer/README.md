@@ -13,6 +13,7 @@ This is the working space for a serious, long-term project:
 - [WORKLOG.md](./WORKLOG.md) — **Session log** — what actually shipped and when
 - [UPDATE-STRATEGY.md](./UPDATE-STRATEGY.md) — **How to update** — `lamina update`, `up`, Neovim, docs cadence
 - [VM-INFRASTRUCTURE.md](./VM-INFRASTRUCTURE.md) — **Deploy testing VMs** — Tart vs Lima on Apple Silicon
+- [AI-STATE-RECOVERY.md](./AI-STATE-RECOVERY.md) — **Lamina Vault** — encrypted recovery for Codex, Grok, Cursor, OpenClaw, and agent memory
 
 ## Where we are (Jun 2026)
 

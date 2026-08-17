@@ -133,6 +133,8 @@ check_dotter_symlink "zsh/.zshrc" "~/.zsh/.zshrc"
 check_dotter_symlink "zsh/.zshenv" "~/.zshenv"
 check_dotter_symlink "configs/starship/starship.toml" "~/.config/starship.toml"
 check_dotter_symlink "configs/tmux/tmux.conf" "~/.tmux.conf"
+check_dotter_symlink "agents/AGENTS.md" "~/AGENTS.md"
+check_dotter_symlink "agents/docs" "~/docs"
 
 # Dual-link check (.zshenv → both HOME and ZDOTDIR)
 local zdot_zshenv="${ZDOTDIR}/.zshenv"

@@ -19,6 +19,11 @@
 # Only for interactive shells
 [[ $- != *i* ]] && return
 
+# GUI apps such as Cursor spawn an interactive shell without a terminal to
+# import its environment.  Handing that probe off to tmux makes the shell exit
+# instead of printing its environment, so only auto-start tmux on a real TTY.
+[[ ! -t 0 || ! -t 1 ]] && return
+
 # Opt-out support
 [[ -n $NO_TMUX || -n $TMUX_AUTO_OFF ]] && return
 

@@ -21,6 +21,18 @@ dual_link = "zsh/.zshenv"
 zsh = "lamina/plugins.toml"
 sync_hook = "lamina/hooks/sync-plugins.zsh"
 
+[vault]
+engine = "restic"
+transport = "rclone"
+config = "~/.config/lamina/vault.zsh"
+docs = "docs/personal-os-layer/AI-STATE-RECOVERY.md"
+
+[vault.retention]
+daily = 7
+weekly = 8
+monthly = 12
+yearly = 3
+
 [health.stray_files]
 "~/.zshrc" = "Installer stray; real config lives in ZDOTDIR (~/.zsh)"
 
