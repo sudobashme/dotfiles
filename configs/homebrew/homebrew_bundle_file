@@ -13,6 +13,7 @@ tap "nikitabobko/tap"
 tap "romkatv/gitstatus"
 tap "rsteube/tap"
 tap "steipete/tap"
+tap "supabase/tap"
 tap "teamookla/speedtest"
 tap "thoughtbot/formulae"
 tap "universal-ctags/universal-ctags"
@@ -585,15 +586,17 @@ brew "pv"
 brew "pyqt"
 # File browser
 brew "ranger"
-brew "rclone"
 # Fastest and safest AV1 video encoder
 brew "rav1e"
+# Rsync for cloud storage
+brew "rclone"
 # RC file (dotfile) management
 brew "rcm"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
+# Fast, efficient and secure backup program
 brew "restic"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
@@ -719,6 +722,8 @@ brew "romkatv/gitstatus/gitstatus"
 brew "steipete/tap/imsg"
 # Fast CLI for Apple Reminders
 brew "steipete/tap/remindctl"
+# Supabase CLI
+brew "supabase/tap/supabase", trusted: true
 # Ookla Speedtest
 brew "teamookla/speedtest/speedtest"
 brew "yakitrak/yakitrak/notesmd-cli", link: false
@@ -730,6 +735,8 @@ cask "1password-cli"
 cask "nikitabobko/tap/aerospace"
 # Utility that prevents the system from going to sleep
 cask "caffeine"
+# Write, edit, and chat about your code with AI
+cask "cursor"
 # Online diagram software
 cask "drawio"
 cask "font-awesome-terminal-fonts"
