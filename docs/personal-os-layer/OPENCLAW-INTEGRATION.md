@@ -15,16 +15,16 @@ The integration below adds the *local* Grok (this one) as a first-class option v
 
 ## Setup (already partially done)
 
-We added convenient aliases in your dotfiles zsh config (`rc.d/250_aliases.zsh`):
+Convenient aliases live in your dotfiles zsh config (`rc.d/200_aliases.zsh`):
 
 - `oc` → openclaw
 - `oc-tui` / `oct` → openclaw tui (the main interface)
-- `oc-grok` [cwd] → openclaw acp client --server grok --server-args "agent stdio" --cwd "$cwd"
+- `oc-grok` [cwd] → openclaw acp client using the `grok-acp` wrapper as the server
 - `oc-grok-here` → oc-grok .
 - `oc-with-grok` → launches TUI with a reminder
 - `oc-mcp`, `oc-agents`, `oc-doctor` etc. for management
 
-- `grok-acp` → grok agent stdio (for other ACP clients)
+- `grok-acp` → wrapper around `grok agent stdio` (for OpenClaw and other ACP clients)
 
 After sourcing your zsh (or new shell), these should be available. They were added to the dotfiles so they deploy with everything else.
 
@@ -36,7 +36,7 @@ After sourcing your zsh (or new shell), these should be available. They were add
    oc-grok-here
    ```
 
-   This starts an interactive ACP client in OpenClaw that spawns `grok agent stdio` as the backend.
+   This starts an interactive ACP client in OpenClaw that spawns the `grok-acp` wrapper as the backend.
 
    You'll get Grok's full local capabilities (edits, commands, our skills, subagents, plan mode, the Personal OS Layer work) presented through OpenClaw's ACP interface.
 
@@ -64,7 +64,7 @@ Since you use tmux heavily:
 - Pane 2: `oc-grok-here` (local Grok bridge for heavy lifting on current project)
 - Pane 3: plain `grok` or direct `nvim` on the project
 
-You can also run `openclaw acp client --server grok --server-args "agent stdio" --cwd ~/path/to/specific/project` for project-specific sessions.
+You can also run `openclaw acp --provenance off client --server grok-acp --cwd ~/path/to/specific/project` for project-specific sessions.
 
 ## Deeper integration ideas
 
@@ -267,18 +267,11 @@ We have the note printed by the alias now, which is why you see the "Note: Some 
 
 The `launch-os-layer` / `os-layer` script exists precisely to make the side-by-side cheap and pleasant (especially in tmux).
 
-The ACP bridge aliases are still there as an experiment, but they hit this wall.
+The ACP bridge aliases are still there as an experiment, but they hit this wall. MCP bridging remains the more promising route for sharing tools without requiring OpenClaw and local Grok to agree on every ACP extension.
 
-If you want, we can:
-- Make `oc-grok-here` print a clearer "this is known to be partial, here's the side-by-side command instead" and then just launch `grok`.
-- Clean up the experimental aliases.
-- Pivot to MCP bridging for tool sharing (different protocol, potentially less friction).
-- Or just document this as "known limitation" and move on to the next piece of the layer (diagnostics, deploy script, etc.).
-
-What would you like to do with this?
 ## os-layer / launch-os-layer improvements (latest)
 
-The launcher script at `~/.local/bin/launch-os-layer` (aliased as `os-layer`) was updated with:
+The launcher script at `~/.local/bin/launch-os-layer` (aliased as `os-layer`) is tracked at `bin/launch-os-layer` and managed by `lamina deploy`. It uses:
 
 - Full paths to `grok` and `openclaw` (avoids PATH inheritance problems in the tmux child pane).
 - Proper use of `$TMUX_PANE` to select the original pane after split (more reliable than hard-coded `-t 0`).
@@ -292,32 +285,13 @@ This should resolve common "os-layer has issues" problems like:
 - Wrong pane ending up with openclaw tui.
 - Losing the current working directory.
 
-Run `os-layer` while inside tmux to get a clean horizontal split: one pane with openclaw tui, the other with grok.
-
-(If you still see problems, paste the exact error/output and we'll iterate.)
-
-The `launch-os-layer` script is now also tracked in the repo at `bin/launch-os-layer` (so it becomes part of your versioned Personal OS Layer). The live one in `~/.local/bin/` is what the `os-layer` alias uses.
-
-If you want your deploy to manage `~/.local/bin/launch-os-layer`, you can add a symlink step for it (similar to how other tools are handled).
-
-## os-layer / launch-os-layer (latest improvements)
-
-The launcher has been significantly hardened:
-
-- Full hardcoded paths to avoid any PATH resolution issues in tmux child panes or different shell contexts.
-- Uses `$TMUX_PANE` (the pane ID where the launcher is running) for reliable `select-pane` after split (previous versions used brittle `-t 0`).
-- Split uses `-c "#{pane_current_path}"` to preserve the working directory in the Grok pane.
-- Added binary existence checks and `set -euo pipefail`.
-- Cleaner code and comments.
-- The script is now tracked in the repo at `bin/launch-os-layer` (so it's part of your versioned Personal OS Layer and can be deployed/linked via your deploy.zsh if desired).
-
 The `os-layer` alias runs it.
 
 Run `os-layer` while inside tmux to get the side-by-side.
 
 If it still has issues, paste the exact output or describe (e.g. "split happens but grok pane is empty", "focus is on the Grok pane instead of OpenClaw", "commands not found", "no split at all", etc.).
 
-We can easily add features like:
+Possible future additions:
 - `--vertical` or `--horizontal` flag.
 - 3-pane layout (OpenClaw | Grok | nvim on the docs or AGENTS.md).
 - Auto `cd` to `~/` or the dotfiles or the personal-os-layer docs.
@@ -338,4 +312,4 @@ To recover the OpenClaw TUI/agent:
 
 For the terminal corruption/garble: after exiting the TUI, run `reset` or `stty sane` in your shell.
 
-Let me know the specific issues with `os-layer` (or the current OpenClaw state), and we'll fix them immediately. This is all part of crafting your personal OS layer the way you want.
+This is all part of crafting the personal OS layer toward reliable side-by-side agent work.

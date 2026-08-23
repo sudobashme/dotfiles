@@ -10,6 +10,7 @@ tap "getsentry/tools"
 tap "heroku/brew"
 tap "jstkdng/programs"
 tap "nikitabobko/tap"
+tap "openhue/cli"
 tap "romkatv/gitstatus"
 tap "rsteube/tap"
 tap "steipete/tap"
@@ -550,6 +551,10 @@ brew "nmap"
 brew "norm"
 # Modern shell for the GitHub era
 brew "nushell"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# General-purpose speech recognition model
+brew "openai-whisper"
 # Audio codecs extracted from Android open source project
 brew "opencore-amr"
 # Oil Runtime Compiler (ORC)
@@ -574,8 +579,6 @@ brew "popt"
 brew "prettierd"
 # Wrapper to colorize and simplify ping's output
 brew "prettyping"
-# Protocol buffers (Google's data interchange format)
-brew "protobuf"
 # Show ps output as a tree
 brew "pstree"
 # Light-weight C++ XML processing library
@@ -628,6 +631,8 @@ brew "ssh-copy-id"
 brew "stow"
 # Version control system designed to be a better CVS
 brew "subversion"
+# Multi-modal AI tool to extract and summarize content
+brew "summarize"
 # Generate scripting interfaces to C/C++ code
 brew "swig"
 # UTF-8 with C++ in a Portable Way
@@ -716,6 +721,8 @@ brew "cirruslabs/cli/sshpass", trusted: true
 brew "cirruslabs/cli/tart", trusted: true
 # Drop in replacement for ueberzug written in C++
 brew "jstkdng/programs/ueberzugpp"
+# OpenHue CLI is a command-line interface for interacting with Philips Hue smart lighting systems
+brew "openhue/cli/openhue-cli"
 # Git status for Bash/Zsh prompt
 brew "romkatv/gitstatus/gitstatus"
 # Send and read iMessage / SMS from the terminal
@@ -735,6 +742,8 @@ cask "1password-cli"
 cask "nikitabobko/tap/aerospace"
 # Utility that prevents the system from going to sleep
 cask "caffeine"
+# Menu bar usage monitor for Codex and Claude
+cask "codexbar"
 # Write, edit, and chat about your code with AI
 cask "cursor"
 # Online diagram software
@@ -779,8 +788,8 @@ cask "latexit"
 cask "loop"
 # File system integration
 cask "macfuse"
-# Previewer for Markdown, MultiMarkdown and other text markup languages
-cask "marked-app"
+# Markdown editor
+cask "markedit"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Visual communication software

@@ -294,10 +294,18 @@ vault_health() {
         issues+=1
     fi
     if (( issues == 0 )); then
-        if vault_restic snapshots --compact >/dev/null 2>&1; then
+        local health_timeout="${LAMINA_VAULT_HEALTH_TIMEOUT:-20s}"
+        local -a snapshots_cmd
+        snapshots_cmd=(restic snapshots --compact)
+        if (( ${+commands[timeout]} )); then
+            snapshots_cmd=(timeout "${health_timeout}" "${snapshots_cmd[@]}")
+        elif (( ${+commands[gtimeout]} )); then
+            snapshots_cmd=(gtimeout "${health_timeout}" "${snapshots_cmd[@]}")
+        fi
+        if "${snapshots_cmd[@]}" >/dev/null 2>&1; then
             lamina_ok 'repository accessible'
         else
-            lamina_warn 'configuration is complete, but repository is not initialized or reachable'
+            lamina_warn "configuration is complete, but repository is not initialized, reachable, or responsive within ${health_timeout}"
         fi
         return 0
     fi

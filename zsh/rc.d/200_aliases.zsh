@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #               repo: https://github.com/sudobashme/dotfiles
-#               file: 070_aliases.zsh
-#           filepath: ${ZDOTDIR}/rc.d/070_aliases.zsh
+#               file: 200_aliases.zsh
+#           filepath: ${ZDOTDIR}/rc.d/200_aliases.zsh
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Some handy suffix aliases
@@ -177,7 +177,7 @@ PY
 
 # Grok ACP helpers (for use with OpenClaw or other ACP clients like Neovim)
 (( ${+commands[grok]} )) && {
-    alias grok-acp="grok agent stdio"
+    (( ${+commands[grok-acp]} )) && alias grok-acp="command grok-acp"
     alias grok-acp-serve="grok agent serve"
 }
 
@@ -224,7 +224,7 @@ alias -g X0='| xargs -0'
 alias -g XG='| xargs egrep'
 alias -g X='| xargs'
 
-alias sa='source "${ZDOTDIR}/rc.d/250_aliases.zsh"'
+alias sa='source "${ZDOTDIR}/rc.d/200_aliases.zsh"'
 alias grealpath="/usr/local/bin/realpath"
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # nvim: ft=zsh
