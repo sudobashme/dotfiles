@@ -634,6 +634,8 @@ brew "srtp"
 brew "ssh-copy-id"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Opinionated Lua code formatter
+brew "stylua"
 # Version control system designed to be a better CVS
 brew "subversion"
 # Multi-modal AI tool to extract and summarize content
