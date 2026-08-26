@@ -129,6 +129,7 @@
   ],
   "pluginManager": "lazy.nvim",
   "treesitterParsers": [],
-  "lspServers": [],
+  "lspServers": ["jsonls", "lua_ls"],
   "leaderKey": "<Space>"
 }
+

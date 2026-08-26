@@ -48,7 +48,12 @@ return {
           tr = "<Plug>(neorg.qol.todo-items.todo.task-recurring)",
           tu = "<Plug>(neorg.qol.todo-items.todo.task-undone)",
         }) do
-          vim.keymap.set("n", "<LocalLeader>" .. key, plug, vim.tbl_extend("force", opts, { desc = "[neorg] Task " .. key }))
+          vim.keymap.set(
+            "n",
+            "<LocalLeader>" .. key,
+            plug,
+            vim.tbl_extend("force", opts, { desc = "[neorg] Task " .. key })
+          )
         end
         vim.keymap.set(
           "n",

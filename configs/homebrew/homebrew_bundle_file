@@ -10,6 +10,7 @@ tap "getsentry/tools"
 tap "heroku/brew"
 tap "jstkdng/programs"
 tap "nikitabobko/tap"
+tap "openclaw/tap"
 tap "openhue/cli"
 tap "romkatv/gitstatus"
 tap "rsteube/tap"
@@ -123,14 +124,14 @@ brew "nettle"
 brew "p11-kit"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
+# Incremental parsing library
+brew "tree-sitter"
 # Asynchronous event library
 brew "libevent"
 # HTTP/2 C Library
 brew "libnghttp2"
 # Validating, recursive, caching DNS resolver
 brew "unbound"
-# Incremental parsing library
-brew "tree-sitter"
 # Emacs dependency management
 brew "cask"
 # Extremely fast non-cryptographic hash algorithm
@@ -345,6 +346,8 @@ brew "npth"
 brew "pinentry"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # GNU grep, egrep and fgrep
 brew "grep"
 # Package compiler and linker metadata toolkit
@@ -363,6 +366,8 @@ brew "hexedit"
 brew "hfsutils"
 # Fallback theme for FreeDesktop.org icon themes
 brew "hicolor-icon-theme"
+# CLI email client written in Rust
+brew "himalaya"
 # Improved top (interactive process viewer)
 brew "htop"
 # Spell checker and morphological analyzer
@@ -635,6 +640,8 @@ brew "subversion"
 brew "summarize"
 # Generate scripting interfaces to C/C++ code
 brew "swig"
+# Change macOS audio source from the command-line
+brew "switchaudio-osx"
 # UTF-8 with C++ in a Portable Way
 brew "utf8cpp"
 # Audio metadata library
@@ -661,6 +668,8 @@ brew "universal-ctags"
 brew "unzip"
 # Repository of vendor, device, subsystem and device class IDs used in USB devices
 brew "usb.ids"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Visual Binary Diff
 brew "vbindiff"
 # Ethernet compliant virtual network
@@ -725,10 +734,20 @@ brew "jstkdng/programs/ueberzugpp"
 brew "openhue/cli/openhue-cli"
 # Git status for Bash/Zsh prompt
 brew "romkatv/gitstatus/gitstatus"
+# One command to grab frames, clips, or motion alerts from RTSP/ONVIF cams
+brew "steipete/tap/camsnap"
+# Grep the GIF. Stick the landing
+brew "steipete/tap/gifgrep"
 # Send and read iMessage / SMS from the terminal
 brew "steipete/tap/imsg"
+# Model Context Protocol runtime and CLI generator
+brew "steipete/tap/mcporter"
+# Lightning-fast macOS screenshots & AI vision analysis
+brew "steipete/tap/peekaboo"
 # Fast CLI for Apple Reminders
 brew "steipete/tap/remindctl"
+# Command-line ElevenLabs TTS with mac-style flags
+brew "steipete/tap/sag"
 # Supabase CLI
 brew "supabase/tap/supabase", trusted: true
 # Ookla Speedtest
@@ -774,10 +793,14 @@ cask "font-sf-mono-for-powerline"
 cask "font-ubuntu-mono-nerd-font"
 cask "font-ubuntu-nerd-font"
 cask "font-victor-mono-nerd-font"
+# Font viewer for various font formats
+cask "fontgoggles"
 # Git client focusing on productivity
 cask "gitkraken"
 # Virtual globe
 cask "google-earth-pro"
+# Modern Go client + CLI for the Google Places API (New).
+cask "openclaw/tap/goplaces"
 # Keyboard customiser
 cask "karabiner-elements"
 # GPU-based terminal emulator
@@ -901,4 +924,5 @@ cargo "starship"
 cargo "trippy"
 cargo "typescript"
 cargo "zoxide"
+uv "nano-pdf"
 uv "pynvim"

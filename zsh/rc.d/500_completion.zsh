@@ -28,6 +28,7 @@ fi
 # Additional completions
 fpath=("${ZDOTDIR}/plugins/completions/src" ${fpath})
 fpath=("${ZDOTDIR}/plugins/git-completion/src" ${fpath})
+source <(openhue completion zsh)
 
 
 source "${HOME}/.local/tools/git-extras/etc/git-extras-completion.zsh"
