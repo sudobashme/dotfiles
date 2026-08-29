@@ -8,6 +8,15 @@ name = "lamina"
 version = "0.1.0"
 description = "Personal OS Layer deploy and health CLI"
 
+[packages]
+providers = ["brew", "cargo", "npm", "uv", "pip", "gem", "git"]
+search_providers = ["brew", "cargo", "npm"]
+cache_ttl_hours = 24
+
+[packages.install]
+confirm_ambiguous = true
+confirm_git = true
+
 [symlinks]
 provider = "dotter"
 config = ".dotter/global.toml"

@@ -72,6 +72,10 @@ brew "xz"
 brew "zstd"
 # Collection of portable C++ source libraries
 brew "boost"
+# Library for decimal floating point arithmetic
+brew "mpdecimal"
+# C++ library for C++/Python3 interoperability
+brew "boost-python3"
 # Generic-purpose lossless compression algorithm by Google
 brew "brotli"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
@@ -164,6 +168,12 @@ brew "suite-sparse"
 brew "tbb"
 # C++ library for large-scale optimization
 brew "ceres-solver"
+# Adaptive Entropy Coding implementing Golomb-Rice algorithm
+brew "libaec"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# File format designed to store large amounts of data
+brew "hdf5"
 # AV1 decoder targeted to be small and fast
 brew "dav1d"
 # Implementation of the Unicode BiDi algorithm
@@ -202,6 +212,16 @@ brew "cmake-docs"
 brew "cmocka"
 # High performance code minimap generator
 brew "code-minimap"
+# Message bus system, providing inter-application communication
+brew "dbus"
+# Binary-decimal and decimal-binary routines for IEEE doubles
+brew "double-conversion"
+# Secure hashing function
+brew "libb2"
+# C Markdown parser. Fast. SAX-like interface
+brew "md4c"
+# Open Inventor 2.1 API implementation (Coin)
+brew "coin3d"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Generic library support script
@@ -232,16 +252,12 @@ brew "cpio"
 brew "cunit"
 # POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)
 brew "dash-shell"
-# Message bus system, providing inter-application communication
-brew "dbus"
 # Debugger for the Go programming language
 brew "delve"
 # Standard XML representation system for technical documents
 brew "docbook"
 # XML vocabulary to create presentation-neutral documents
 brew "docbook-xsl"
-# Binary-decimal and decimal-binary routines for IEEE doubles
-brew "double-conversion"
 # Generate documentation for several programming languages
 brew "doxygen"
 # Linux utility to get information on filesystems, like df but better
@@ -306,8 +322,6 @@ brew "jbig2dec"
 brew "openjpeg"
 # Image processing and image analysis library
 brew "leptonica"
-# Secure hashing function
-brew "libb2"
 # Multi-format archive and compression library
 brew "libarchive"
 # International domain name library
@@ -350,16 +364,10 @@ brew "gnupg"
 brew "go"
 # GNU grep, egrep and fgrep
 brew "grep"
-# Package compiler and linker metadata toolkit
-brew "pkgconf"
 # GNU Ubiquitous Intelligent Language for Extensions
 brew "guile"
 # Popular GNU data compression program
 brew "gzip"
-# Adaptive Entropy Coding implementing Golomb-Rice algorithm
-brew "libaec"
-# File format designed to store large amounts of data
-brew "hdf5"
 # View and edit files in hexadecimal or ASCII
 brew "hexedit"
 # Tools for reading and writing Macintosh volumes
@@ -494,6 +502,8 @@ brew "libxslt"
 brew "libyaml"
 # C library for manipulating Yubico one-time passwords
 brew "libyubikey"
+# High-performance theorem prover
+brew "z3"
 # Curses-based tool for viewing and analyzing log files
 brew "lnav"
 # Logging Framework for C++
@@ -520,16 +530,12 @@ brew "make"
 brew "mas"
 # Cryptographic & SSL/TLS library
 brew "mbedtls"
-# C Markdown parser. Fast. SAX-like interface
-brew "md4c"
 # Library for creating multi-platform software
 brew "s-lang"
 # Terminal-based visual file manager
 brew "midnight-commander"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
-# Library for decimal floating point arithmetic
-brew "mpdecimal"
 # Library for a binary-based efficient data interchange format
 brew "msgpack"
 # 'traceroute' and 'ping' in a single tool
@@ -560,6 +566,8 @@ brew "nushell"
 brew "protobuf"
 # General-purpose speech recognition model
 brew "openai-whisper"
+# 3D modeling and numerical simulation software for CAD/CAM/CAE
+brew "opencascade"
 # Audio codecs extracted from Android open source project
 brew "opencore-amr"
 # Oil Runtime Compiler (ORC)
@@ -574,6 +582,10 @@ brew "pandoc"
 brew "perl"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Official Python bindings for Qt
+brew "pyside"
+# Python bindings to coin3d
+brew "pivy"
 # Paste PNG into files
 brew "pngpaste"
 # Tool for managing OCI containers and pods
@@ -592,6 +604,8 @@ brew "pugixml"
 brew "pv"
 # Python bindings for v6 of Qt
 brew "pyqt"
+# Cross-platform application and UI framework
+brew "qt"
 # File browser
 brew "ranger"
 # Fastest and safest AV1 video encoder
@@ -678,6 +692,8 @@ brew "vbindiff"
 brew "vde"
 # Simple terminal image viewer written in Rust
 brew "viu"
+# Toolkit for 3D computer graphics, image processing, and visualization
+brew "vtk"
 # Convert PostgreSQL changesets to JSON format
 brew "wal2json"
 # Internet file retriever
@@ -692,10 +708,14 @@ brew "woff2"
 brew "xclip"
 # Binary diff, differential compression tools
 brew "xdelta"
+# Validating XML parser
+brew "xerces-c"
 # High-performance, high-quality MPEG-4 video library
 brew "xvid"
 # Yet Another JSON Library
 brew "yajl"
+# C++ YAML parser and emitter for YAML 1.2 spec
+brew "yaml-cpp"
 # JavaScript package manager
 brew "yarn"
 # Modular BSD reimplementation of NASM
@@ -708,8 +728,6 @@ brew "yj"
 brew "yq"
 # Tracks most-used directories to make cd smarter
 brew "z"
-# High-performance theorem prover
-brew "z3"
 # High-performance, asynchronous messaging library
 brew "zeromq"
 # Scaling, colorspace conversion, and dithering library

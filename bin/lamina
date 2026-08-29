@@ -20,6 +20,10 @@ Usage:
                               Sync zsh plugins from lamina/plugins.toml
   lamina update [--check] [--quick] [--install-latest] [--no-*]
                               Comprehensive platform + runtime + package update (see --help)
+  lamina search <query> [--json]
+                              Search package providers and rank normalized results
+  lamina install <package> [--dry-run]
+                              Resolve and install a package (provider:name supported)
   lamina health               Check for drift, strays, plugins, and symlinks
   lamina vault <cmd>          Back up and restore private AI state (see --help)
   lamina diff                 Show symlink changes (dotter dry-run)
@@ -59,6 +63,9 @@ case "${cmd}" in
         ;;
     update|up)
         source "${LAMINA_DIR}/update.zsh" "$@"
+        ;;
+    search|install)
+        exec python3 "${LAMINA_LIB}/packages.py" "${cmd}" "$@"
         ;;
     vm|vm-test)
         source "${LAMINA_DIR}/vm-test.zsh" "$@"

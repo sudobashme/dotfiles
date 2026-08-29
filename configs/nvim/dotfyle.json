@@ -82,6 +82,7 @@
     "iamcco/markdown-preview.nvim",
     "jay-babu/mason-nvim-dap.nvim",
     "jbyuki/one-small-step-for-vimkind",
+    "kkrampis/codex.nvim",
     "linux-cultist/venv-selector.nvim",
     "luarocks/hererocks",
     "mason-org/mason-lspconfig.nvim",
