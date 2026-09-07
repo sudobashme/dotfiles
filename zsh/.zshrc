@@ -63,3 +63,6 @@ fi
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # nvim: ft=zsh
 # EOF
+
+# OpenClaw Completion
+[ -f '/Users/shawnlime/.openclaw/completions/openclaw.zsh' ] && source '/Users/shawnlime/.openclaw/completions/openclaw.zsh'
