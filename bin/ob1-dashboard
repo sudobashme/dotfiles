@@ -140,6 +140,18 @@ service_start() {
     fi
 }
 
+wait_ready() {
+    local attempt
+    for attempt in {1..40}; do
+        if curl -fsS http://127.0.0.1:3010/login >/dev/null 2>&1; then
+            return 0
+        fi
+        sleep 0.25
+    done
+    print -u2 "ob1-dashboard: service did not become ready on 127.0.0.1:3010"
+    return 1
+}
+
 case "${1:-}" in
     setup)
         need git; need npm; need openssl; need tailscale; need jq; need launchctl
@@ -149,6 +161,7 @@ case "${1:-}" in
         build_app
         write_plist
         service_start
+        wait_ready
         tailscale serve --bg --https=8443 localhost:3010
         print -r -- "Open Brain Dashboard is available at $(dashboard_url)"
         ;;
@@ -163,9 +176,9 @@ case "${1:-}" in
         export NEXT_PUBLIC_APP_URL="$(dashboard_url)"
         exec npm run start -- --hostname 127.0.0.1 --port 3010
         ;;
-    start) service_start ;;
+    start) service_start; wait_ready ;;
     stop) service_stop ;;
-    restart) service_stop; service_start ;;
+    restart) service_start; wait_ready ;;
     update)
         install_checkout
         ensure_secret
@@ -173,6 +186,7 @@ case "${1:-}" in
         git -C "${OB1_CHECKOUT}" pull --ff-only origin "${OB1_BRANCH}"
         build_app
         service_start
+        wait_ready
         ;;
     status)
         launchctl print "gui/${UID}/${OB1_LABEL}" >/dev/null 2>&1 \
