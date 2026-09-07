@@ -93,10 +93,13 @@ install_checkout() {
     else
         local actual_origin
         actual_origin="$(git -C "${OB1_CHECKOUT}" remote get-url origin)"
-        [[ "${actual_origin}" == "${OB1_REPO_URL}" ]] || {
-            print -u2 "ob1-dashboard: refusing unexpected checkout origin: ${actual_origin}"
-            return 1
-        }
+        case "${actual_origin}" in
+            "${OB1_REPO_URL}"|git@github.com:sudobashme/OB1.git|ssh://git@github.com/sudobashme/OB1.git) ;;
+            *)
+                print -u2 "ob1-dashboard: refusing unexpected checkout origin: ${actual_origin}"
+                return 1
+                ;;
+        esac
     fi
 }
 
