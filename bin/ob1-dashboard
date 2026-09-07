@@ -133,7 +133,11 @@ service_start() {
         print -u2 "ob1-dashboard: run setup first"
         return 1
     }
-    launchctl bootstrap "gui/${UID}" "${OB1_PLIST}"
+    if launchctl print "gui/${UID}/${OB1_LABEL}" >/dev/null 2>&1; then
+        launchctl kickstart -k "gui/${UID}/${OB1_LABEL}"
+    else
+        launchctl bootstrap "gui/${UID}" "${OB1_PLIST}"
+    fi
 }
 
 case "${1:-}" in
@@ -144,7 +148,6 @@ case "${1:-}" in
         discover_tailscale_url >| "${OB1_URL_FILE}"
         build_app
         write_plist
-        service_stop
         service_start
         tailscale serve --bg --https=8443 localhost:3010
         print -r -- "Open Brain Dashboard is available at $(dashboard_url)"
@@ -169,7 +172,6 @@ case "${1:-}" in
         git -C "${OB1_CHECKOUT}" diff --quiet
         git -C "${OB1_CHECKOUT}" pull --ff-only origin "${OB1_BRANCH}"
         build_app
-        service_stop
         service_start
         ;;
     status)
