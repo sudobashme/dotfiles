@@ -7,11 +7,11 @@ readonly OB1_CHECKOUT="${OB1_DASHBOARD_CHECKOUT:-${HOME}/.local/share/ob1-dashbo
 readonly OB1_APP="${OB1_CHECKOUT}/dashboards/open-brain-dashboard-next"
 readonly OB1_CONFIG_DIR="${HOME}/.config/ob1-dashboard"
 readonly OB1_SESSION_SECRET="${OB1_CONFIG_DIR}/session-secret"
+readonly OB1_URL_FILE="${OB1_CONFIG_DIR}/tailscale-url"
 readonly OB1_PLIST="${HOME}/Library/LaunchAgents/com.sudobashme.ob1-dashboard.plist"
 readonly OB1_LABEL="com.sudobashme.ob1-dashboard"
 readonly OB1_REST_URL="https://fyuyuyjtdfrixfgfdtqs.supabase.co/functions/v1/open-brain-rest"
 readonly OB1_MEMORY_URL="https://fyuyuyjtdfrixfgfdtqs.supabase.co/functions/v1/agent-memory-api"
-readonly OB1_TAILSCALE_URL="https://shawns-mac-mini.tailb425d7.ts.net:8443"
 
 export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -36,6 +36,25 @@ need() {
         print -u2 "ob1-dashboard: missing required command: $1"
         return 1
     }
+}
+
+discover_tailscale_url() {
+    local dns_name
+    dns_name="$(tailscale status --self --json | jq -r '.Self.DNSName // empty')"
+    dns_name="${dns_name%.}"
+    [[ -n "${dns_name}" ]] || {
+        print -u2 "ob1-dashboard: Tailscale MagicDNS name is unavailable"
+        return 1
+    }
+    print -r -- "https://${dns_name}:8443"
+}
+
+dashboard_url() {
+    if [[ -s "${OB1_URL_FILE}" ]]; then
+        <"${OB1_URL_FILE}"
+    else
+        discover_tailscale_url
+    fi
 }
 
 write_plist() {
@@ -70,6 +89,8 @@ ensure_secret() {
 }
 
 build_app() {
+    local app_url
+    app_url="$(dashboard_url)"
     (
         cd "${OB1_APP}"
         # The dashboard builds without native package install hooks. Skipping
@@ -81,7 +102,7 @@ build_app() {
         AGENT_MEMORY_WORKSPACE_ID="personal" \
         SESSION_SECRET="$(<"${OB1_SESSION_SECRET}")" \
         AUTH_COOKIE_SECURE="true" \
-        NEXT_PUBLIC_APP_URL="${OB1_TAILSCALE_URL}" \
+        NEXT_PUBLIC_APP_URL="${app_url}" \
         npm run build
     )
 }
@@ -117,15 +138,16 @@ service_start() {
 
 case "${1:-}" in
     setup)
-        need git; need npm; need openssl; need tailscale; need launchctl
+        need git; need npm; need openssl; need tailscale; need jq; need launchctl
         install_checkout
         ensure_secret
+        discover_tailscale_url >| "${OB1_URL_FILE}"
         build_app
         write_plist
         service_stop
         service_start
         tailscale serve --bg --https=8443 localhost:3010
-        print -r -- "Open Brain Dashboard is available at ${OB1_TAILSCALE_URL}"
+        print -r -- "Open Brain Dashboard is available at $(dashboard_url)"
         ;;
     serve)
         ensure_secret
@@ -135,7 +157,7 @@ case "${1:-}" in
         export AGENT_MEMORY_WORKSPACE_ID="personal"
         export SESSION_SECRET="$(<"${OB1_SESSION_SECRET}")"
         export AUTH_COOKIE_SECURE="true"
-        export NEXT_PUBLIC_APP_URL="${OB1_TAILSCALE_URL}"
+        export NEXT_PUBLIC_APP_URL="$(dashboard_url)"
         exec npm run start -- --hostname 127.0.0.1 --port 3010
         ;;
     start) service_start ;;
@@ -159,8 +181,8 @@ case "${1:-}" in
             || print -r -- "local: unavailable"
         tailscale serve status
         ;;
-    open) open "${OB1_TAILSCALE_URL}" ;;
-    url) print -r -- "${OB1_TAILSCALE_URL}" ;;
+    open) open "$(dashboard_url)" ;;
+    url) dashboard_url ;;
     -h|--help|help|"") usage ;;
     *) print -u2 "ob1-dashboard: unknown command: $1"; usage >&2; exit 1 ;;
 esac
