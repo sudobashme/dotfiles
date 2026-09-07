@@ -72,7 +72,10 @@ ensure_secret() {
 build_app() {
     (
         cd "${OB1_APP}"
-        npm ci
+        # The dashboard builds without native package install hooks. Skipping
+        # them avoids a machine-dependent sharp/node-gyp source build while
+        # preserving the exact package-lock dependency graph.
+        npm ci --ignore-scripts
         NEXT_PUBLIC_API_URL="${OB1_REST_URL}" \
         AGENT_MEMORY_API_URL="${OB1_MEMORY_URL}" \
         AGENT_MEMORY_WORKSPACE_ID="personal" \
