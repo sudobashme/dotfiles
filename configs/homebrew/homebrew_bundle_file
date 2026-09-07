@@ -270,8 +270,6 @@ brew "exiftool"
 brew "faac"
 # ISO AAC audio decoder
 brew "faad2"
-# Standalone library of the Fraunhofer FDK AAC code from Android
-brew "fdk-aac"
 # MP3 player for Linux and UNIX
 brew "mpg123"
 # High quality MPEG Audio Layer III (MP3) encoder
