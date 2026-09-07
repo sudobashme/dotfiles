@@ -125,6 +125,35 @@ Inspect the proof directory before considering setup complete. A backup that has
 11. Reauthenticate Codex, Grok, Cursor, and OpenClaw providers.
 12. Run `lamina health`, `lamina vault health`, and a fresh backup.
 
+### Restore the local Open Brain dashboard
+
+The dashboard source is pinned to the `codex/openbrain-attention-dashboard`
+branch of `https://github.com/sudobashme/OB1`. It is deliberately re-created
+from Git rather than copied into Lamina Vault.
+
+After Tailscale, Node.js, and the dotfiles symlinks are available, run:
+
+```bash
+ob1-dashboard setup
+ob1-dashboard status
+```
+
+`setup` clones the fork into `~/.local/share/ob1-dashboard`, installs the
+locked Node dependencies, builds the production dashboard, generates a local
+mode-600 session-cookie secret, installs a per-user launchd service, and adds a
+tailnet-only HTTPS listener on port 8443. It does not store the Open Brain API
+key in Git or in the dashboard checkout.
+
+Open the dashboard with:
+
+```bash
+ob1-dashboard open
+```
+
+The Open Brain data and Edge Functions remain in Supabase. Reauthenticate with
+the OB1 access key after a restore. Use `ob1-dashboard update` to fast-forward
+the pinned branch, rebuild, and restart the service.
+
 Database state should be restored conservatively. Prefer current portable Markdown memories and configuration when a new application version cannot read an old database.
 
 ## Retention and verification

@@ -119,6 +119,7 @@ lamina_section "Required binaries"
 check_required_bin "launch-os-layer" "~/.local/bin/launch-os-layer"
 check_required_bin "grok-acp" "~/.local/bin/grok-acp"
 check_required_bin "lamina" "~/.local/bin/lamina"
+check_required_bin "ob1-dashboard" "~/.local/bin/ob1-dashboard"
 print -r -- ""
 
 lamina_section "Core symlinks (directory)"

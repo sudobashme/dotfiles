@@ -61,3 +61,4 @@ depends = []
 "bin/grok-acp" = "~/.local/bin/grok-acp"
 "bin/launch-grok-pane" = "~/.local/bin/launch-grok-pane"
 "bin/lamina" = "~/.local/bin/lamina"
+"bin/ob1-dashboard" = "~/.local/bin/ob1-dashboard"

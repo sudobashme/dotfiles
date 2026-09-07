@@ -58,3 +58,4 @@ yearly = 3
 launch-os-layer = "~/.local/bin/launch-os-layer"
 grok-acp = "~/.local/bin/grok-acp"
 lamina = "~/.local/bin/lamina"
+ob1-dashboard = "~/.local/bin/ob1-dashboard"

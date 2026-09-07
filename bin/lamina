@@ -26,6 +26,7 @@ Usage:
                               Resolve and install a package (provider:name supported)
   lamina health               Check for drift, strays, plugins, and symlinks
   lamina vault <cmd>          Back up and restore private AI state (see --help)
+  ob1-dashboard <cmd>         Install and operate the tailnet-only Open Brain dashboard
   lamina diff                 Show symlink changes (dotter dry-run)
   lamina repair               Repair symlinks + resync plugins
   lamina vm-test <cmd>        Tart macOS sandbox for deploy testing (see --help)
