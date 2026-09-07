@@ -31,12 +31,8 @@ for envfile in ${ZDOTDIR}/env.d/*; do
     source ${envfile}
 done
 unset envfile
-# once that is complete
-# if this is an interactive shell then we are
-# ready to process our zshrc file
-if [[ "$-" == *i* ]]; then
-  source ${ZDOTDIR}/.zshrc
-fi
+# Interactive startup continues in ${ZDOTDIR}/.zshrc. Zsh sources that file
+# itself after .zshenv, so sourcing it here would run the whole rc stack twice.
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # nvim: ft=zsh
 # EOF

@@ -77,7 +77,6 @@ export PYENV_PLUGINS="${PYENV_ROOT}/plugins"
 # homebrew
 export HOMEBREW_BUNDLE_FILE="${DOTFILES}/configs/homebrew/homebrew_bundle_file"
 export HOMEBREW_HISTORY_FILE="${HOME}/.homebrew_history"
-export HOMEBREW_NO_REQUIRE_TAP_TRUST=1
 export HOMEBREW_UPGRADE_GREEDY=1
 export HOMEBREW_UPGRADE_GREEDY_CASKS=1
 # Obsidian Rest API Key

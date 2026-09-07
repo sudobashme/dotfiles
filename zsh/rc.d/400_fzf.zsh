@@ -34,7 +34,18 @@ elif (( ${+commands[ag]} )); then
     export FZF_DEFAULT_COMMAND='ag --ignore .git --color -g ""'
     export FZF_CTRL_T_COMMAND="${FZF_DEFAULT_COMMAND}"
 fi
-source "${HOME}/.local/tools/fzf/shell/key-bindings.zsh"
+_fzf_key_bindings="${HOME}/.local/tools/fzf/shell/key-bindings.zsh"
+if [[ -r "${_fzf_key_bindings}" ]]; then
+    # fzf snapshots ${options} and restores it with eval; zsh 5.9.2 includes
+    # the read-only zle option in that hash, which makes new shells print
+    # "can't change option: zle". Strip only that option from the restore.
+    source <(
+        sed '/__fzf_key_bindings_options="options=/a\
+  __fzf_key_bindings_options=${__fzf_key_bindings_options// zle on/}\
+  __fzf_key_bindings_options=${__fzf_key_bindings_options// zle off/}' "${_fzf_key_bindings}"
+    )
+fi
+unset _fzf_key_bindings
 
 #export FZF_DEFAULT_COMMAND='rg --files'
 #export FZF_DEFAULT_OPTS='-m --height 50% --border'

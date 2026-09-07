@@ -41,7 +41,6 @@ unsetopt RM_STAR_SILENT # notify when rm is running with *
 setopt RM_STAR_WAIT # wait for 10 seconds confirmation when running rm with *
 setopt ALIASFUNCDEF
 setopt COMBININGCHARS
-setopt LOGIN
 setopt PUSHDMINUS
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS

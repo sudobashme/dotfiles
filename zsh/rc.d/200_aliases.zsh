@@ -31,7 +31,7 @@ alias clear=clear-screen-soft-bottom
     alias ls="gls --group-directories-first --color=auto --classify"
     #  alias ls="ls --group-directories-first --color=auto --hyperlink=auto --classify"
     alias ll="LC_COLLATE=C ls -l -v --almost-all --human-readable"
-    alias lhat="ls -lhat"
+    alias lhat="/bin/ls -lhat"
     alias lha="ls -lha"
     alias la="ls -a"
 }

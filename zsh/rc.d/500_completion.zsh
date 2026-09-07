@@ -28,10 +28,6 @@ fi
 # Additional completions
 fpath=("${ZDOTDIR}/plugins/completions/src" ${fpath})
 fpath=("${ZDOTDIR}/plugins/git-completion/src" ${fpath})
-source <(openhue completion zsh)
-
-
-source "${HOME}/.local/tools/git-extras/etc/git-extras-completion.zsh"
 zmodload zsh/complist
 
 # Completion initialization with smart caching.
@@ -63,6 +59,16 @@ export COMPDUMPFILE="$compdump"
 # Enable bash completions too
 autoload -Uz bashcompinit
 bashcompinit
+
+# Generated completion scripts often call `compdef` as they are sourced, so
+# load them only after compinit has installed the completion functions.
+if (( ${+commands[openhue]} )); then
+    source <(openhue completion zsh)
+fi
+
+if [[ -r "${HOME}/.local/tools/git-extras/etc/git-extras-completion.zsh" ]]; then
+    source "${HOME}/.local/tools/git-extras/etc/git-extras-completion.zsh"
+fi
 
 # OpenClaw CLI completions live in $OPENCLAW_STATE_DIR (default ~/.openclaw).
 # Never run `openclaw completion --install` — it writes a stray ~/.zshrc
