@@ -1,27 +1,26 @@
-tap "antoniorodr/memo"
-tap "bramstein/webfonttools"
-tap "brewsci/science"
-tap "buo/cask-upgrade"
-tap "cirruslabs/cli"
-tap "damenly/virt-manager"
-tap "fairwindsops/tap"
-tap "fsouza/prettierd"
-tap "getsentry/tools"
-tap "heroku/brew"
-tap "jstkdng/programs"
-tap "nikitabobko/tap"
-tap "openclaw/tap"
-tap "openhue/cli"
-tap "romkatv/gitstatus"
-tap "rsteube/tap"
-tap "steipete/tap"
-tap "supabase/tap"
-tap "teamookla/speedtest"
-tap "thoughtbot/formulae"
-tap "universal-ctags/universal-ctags"
-tap "visidata/vd", "https://github.com/visidata/homebrew-vd.git"
-tap "xdevplatform/tap"
-tap "yakitrak/yakitrak"
+tap "antoniorodr/memo", trusted: true
+tap "bramstein/webfonttools", trusted: true
+tap "brewsci/science", trusted: true
+tap "buo/cask-upgrade", trusted: true
+tap "cirruslabs/cli", trusted: true
+tap "damenly/virt-manager", trusted: true
+tap "fairwindsops/tap", trusted: true
+tap "getsentry/tools", trusted: true
+tap "heroku/brew", trusted: true
+tap "jstkdng/programs", trusted: true
+tap "nikitabobko/tap", trusted: true
+tap "openclaw/tap", trusted: true
+tap "openhue/cli", trusted: true
+tap "romkatv/gitstatus", trusted: true
+tap "rsteube/tap", trusted: true
+tap "steipete/tap", trusted: true
+tap "supabase/tap", trusted: true
+tap "teamookla/speedtest", trusted: true
+tap "thoughtbot/formulae", trusted: true
+tap "universal-ctags/universal-ctags", trusted: true
+tap "visidata/vd", "https://github.com/visidata/homebrew-vd.git", trusted: true
+tap "xdevplatform/tap", trusted: true
+tap "yakitrak/yakitrak", trusted: true
 # C++ Common Libraries
 brew "abseil"
 # Search tool like grep, but optimized for programmers
@@ -50,6 +49,8 @@ brew "m4"
 brew "autoconf"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# JSON parser for C
+brew "json-c"
 # Library for command-line editing
 brew "readline"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -86,8 +87,6 @@ brew "bzip2"
 brew "c-ares"
 # Software library to render fonts
 brew "freetype"
-# JSON parser for C
-brew "json-c"
 # XML-based font configuration API for X Windows
 brew "fontconfig"
 # Core application library for C
@@ -222,6 +221,8 @@ brew "libb2"
 brew "md4c"
 # Open Inventor 2.1 API implementation (Coin)
 brew "coin3d"
+# C library for the Public Suffix List
+brew "libpsl"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Generic library support script
@@ -232,8 +233,6 @@ brew "unixodbc"
 brew "gd"
 # Network authentication protocol
 brew "krb5"
-# C library for the Public Suffix List
-brew "libpsl"
 # NaCl networking and cryptography library
 brew "libsodium"
 # Open source suite of directory software
@@ -748,6 +747,8 @@ brew "cirruslabs/cli/sshpass", trusted: true
 brew "cirruslabs/cli/tart", trusted: true
 # Drop in replacement for ueberzug written in C++
 brew "jstkdng/programs/ueberzugpp"
+# Go client and CLI for the Google Places API (New)
+brew "openclaw/tap/goplaces", trusted: true
 # OpenHue CLI is a command-line interface for interacting with Philips Hue smart lighting systems
 brew "openhue/cli/openhue-cli"
 # Git status for Bash/Zsh prompt
@@ -779,6 +780,8 @@ cask "1password-cli"
 cask "nikitabobko/tap/aerospace"
 # Utility that prevents the system from going to sleep
 cask "caffeine"
+# Use your phone as a high-quality webcam with image tuning controls
+cask "camo-studio"
 # Menu bar usage monitor for Codex and Claude
 cask "codexbar"
 # Write, edit, and chat about your code with AI
@@ -817,8 +820,7 @@ cask "fontgoggles"
 cask "gitkraken"
 # Virtual globe
 cask "google-earth-pro"
-# Modern Go client + CLI for the Google Places API (New).
-cask "openclaw/tap/goplaces"
+cask "goplaces"
 # Keyboard customiser
 cask "karabiner-elements"
 # GPU-based terminal emulator
@@ -837,6 +839,8 @@ cask "obsidian"
 cask "omnigraffle"
 # Collaboration platform for API development
 cask "postman"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
 # Web browser focusing on security
 cask "tor-browser"
 # Open-source code editor
@@ -861,7 +865,6 @@ mas "Save to Pinterest", id: 6473649042
 mas "Skitch", id: 425955336
 mas "Telegram", id: 747648890
 mas "WhatsApp", id: 310633997
-mas "Xcode", id: 497799835
 vscode "4ops.packer"
 vscode "acherkashin.virtualbox-extension"
 vscode "alefragnani.project-manager"

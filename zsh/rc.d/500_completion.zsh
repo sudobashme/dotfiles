@@ -70,6 +70,7 @@ if [[ -r "${HOME}/.local/tools/git-extras/etc/git-extras-completion.zsh" ]]; the
     source "${HOME}/.local/tools/git-extras/etc/git-extras-completion.zsh"
 fi
 
+eval "$(codex completion zsh)"
 # OpenClaw CLI completions live in $OPENCLAW_STATE_DIR (default ~/.openclaw).
 # Never run `openclaw completion --install` — it writes a stray ~/.zshrc
 # that lamina health rejects. Use `--write-state` to refresh the scripts.

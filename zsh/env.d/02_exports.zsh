@@ -87,7 +87,11 @@ export LUAENV_ROOT="${HOME}/.luaenv"
 export LUAENV_PLUGINS="${LUAENV_ROOT}/plugins"
 
 if (( ${+commands[xcodebuild]} )); then
-    export MACOSX_DEPLOYMENT_TARGET=$(xcodebuild -version | grep Xcode | sed 's/Xcode\ //')
+    xcode_version="$(xcodebuild -version 2>/dev/null | awk '/^Xcode / { print $2; exit }')"
+    if [[ -n "${xcode_version}" ]]; then
+        export MACOSX_DEPLOYMENT_TARGET="${xcode_version}"
+    fi
+    unset xcode_version
 fi
 
 if [[ -d "${XDG_CONFIG_HOME}" ]]; then

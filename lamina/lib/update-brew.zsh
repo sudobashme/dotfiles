@@ -22,7 +22,7 @@ __lamina_brewfile_dump__() {
     cp -f "${bundle_file}"{,.bak} 2>/dev/null || true
     rm -f "${bundle_file}"
 
-    if brew bundle dump --force --describe; then
+    if brew bundle dump --force; then
         rm -f "${bundle_file}.bak"
         if git -C "${DOTFILES}" diff --quiet -- "${bundle_file}" 2>/dev/null; then
             lamina_ok "Brewfile unchanged"
