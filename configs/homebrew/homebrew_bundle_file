@@ -851,8 +851,6 @@ cask "vlc"
 cask "wireshark-chmodbpf"
 # Mind mapping and brainstorming tool
 cask "xmind"
-# Auth-enabled curl-like CLI for the X API
-cask "xdevplatform/tap/xurl"
 mas "Adobe Lightroom", id: 1451544217
 mas "Canva", id: 897446215
 mas "Developer", id: 640199958
@@ -922,6 +920,7 @@ vscode "msjsdiag.vscode-react-native"
 vscode "nixon.env-cmd-file-syntax"
 vscode "okirshen.data"
 vscode "openai.chatgpt"
+vscode "openai.codex-audio"
 vscode "pawelhuryn.grok-vscode-phuryn"
 vscode "pkief.material-icon-theme"
 vscode "poeticandroid.vscode-poetry"
