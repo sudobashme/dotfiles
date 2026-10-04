@@ -75,6 +75,8 @@ brew "zstd"
 brew "boost"
 # Library for decimal floating point arithmetic
 brew "mpdecimal"
+# Command-line interface for SQLite
+brew "sqlite"
 # C++ library for C++/Python3 interoperability
 brew "boost-python3"
 # Generic-purpose lossless compression algorithm by Google
@@ -862,7 +864,6 @@ mas "Prime Video", id: 545519333
 mas "Save to Pinterest", id: 6473649042
 mas "Skitch", id: 425955336
 mas "Telegram", id: 747648890
-mas "WhatsApp", id: 310633997
 vscode "4ops.packer"
 vscode "acherkashin.virtualbox-extension"
 vscode "alefragnani.project-manager"
@@ -874,6 +875,7 @@ vscode "bernardodsanderson.theme-material-neutral"
 vscode "brofox86.theme-espresso-soda-light"
 vscode "brofox86.theme-espresso-soda-solarized"
 vscode "catppuccin.catppuccin-vsc"
+vscode "christian-kohler.npm-intellisense"
 vscode "cschlosser.doxdocgen"
 vscode "davidanson.vscode-markdownlint"
 vscode "dbaeumer.vscode-eslint"
@@ -885,6 +887,7 @@ vscode "eliostruyf.vscode-front-matter"
 vscode "fabiosvm.hook"
 vscode "felipecaputo.git-project-manager"
 vscode "ginfuru.ginfuru-vscode-jekyll-syntax"
+vscode "github.vscode-github-actions"
 vscode "grapecity.gc-excelviewer"
 vscode "jacqueslucke.blender-development"
 vscode "jeff-hykin.better-cpp-syntax"
