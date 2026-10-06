@@ -42,7 +42,7 @@ dotfiles/
 └── bin/                     # Scripts symlinked to ~/.local/bin
 ```
 
-**Not everything under `configs/` is deployed.** Only paths in `global.toml` are linked. Examples currently *outside* dotter: `yazi`, `GIMP`, `homebrew` (commented), `aerospace`.
+**Not everything under `configs/` is deployed.** Only paths in `global.toml` are linked. Examples currently *outside* dotter: `yazi`, `GIMP`, `homebrew` (commented). AeroSpace is deployed as a directory symlink.
 
 ## Symlink policy (dotter)
 

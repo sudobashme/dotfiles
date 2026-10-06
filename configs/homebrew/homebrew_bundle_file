@@ -784,7 +784,7 @@ cask "nikitabobko/tap/aerospace"
 cask "caffeine"
 # Use your phone as a high-quality webcam with image tuning controls
 cask "camo-studio"
-# Menu bar usage monitor for Codex and Claude
+# Menu bar app for tracking agentic coding limits and usage
 cask "codexbar"
 # Write, edit, and chat about your code with AI
 cask "cursor"
@@ -864,6 +864,7 @@ mas "Prime Video", id: 545519333
 mas "Save to Pinterest", id: 6473649042
 mas "Skitch", id: 425955336
 mas "Telegram", id: 747648890
+mas "WhatsApp", id: 310633997
 vscode "4ops.packer"
 vscode "acherkashin.virtualbox-extension"
 vscode "alefragnani.project-manager"
@@ -949,3 +950,6 @@ cargo "typescript"
 cargo "zoxide"
 uv "nano-pdf"
 uv "pynvim"
+
+# Desktop shortcut reference overlay
+cask "hammerspoon"

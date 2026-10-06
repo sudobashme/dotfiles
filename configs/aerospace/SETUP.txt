@@ -1,0 +1,39 @@
+AeroSpace setup verified October 5, 2026 (America/Chicago)
+
+Source: configs/aerospace/aerospace.toml
+Live: ~/.config/aerospace -> ~/.local/share/dotfiles/configs/aerospace
+Dotter manifest: .dotter/global.toml
+Health check: lamina/health.zsh
+Original config: ~/.config/aerospace.toml.backup-20261005-200652
+
+Verified: AeroSpace client/server 0.21.3-Beta, Odyssey G95SD detected;
+config dry-run with warnings-as-errors passed; reload passed;
+Lamina symlinks-only deployment passed; Lamina health all checks passed.
+Automatic horizontal tiling retained; workspaces 1-9 persistent;
+config auto-reload and start-at-login enabled. Login itself not tested.
+
+Option shortcuts (alt in TOML):
+H/J/K/L focus; Shift+H/J/K/L move; 1-9 workspace; Shift+1-9 move window.
+Return open kitty; F toggle AeroSpace fullscreen; Shift+Space float/tile.
+Minus/Equal resize; Shift+B balance; Slash tile orientation; Comma accordion.
+Tab previous workspace; Shift+P pause/resume; Shift+R reload.
+Service mode: Option+Shift+Semicolon, then Escape to return.
+Existing service Backspace closes every other window on this workspace.
+
+Next: try keyboard focus, resizing, fullscreen and floating in daily use.
+System Mission Control settings were not changed or confirmed through UI.
+Reference: https://nikitabobko.github.io/AeroSpace/guide
+
+HUD added October 5, 2026 (America/Chicago)
+Hammerspoon 1.1.1 installed with Homebrew and launch-at-login enabled.
+Source: configs/hammerspoon/init.lua and aerospace_hud.lua
+Dotter deploys these two files to ~/.hammerspoon/ (runtime state stays local).
+Option+Space toggles the reference panel. Bindings read from AeroSpace main
+mode on every open; numbered workspace bindings condensed only when all match.
+The reader supports this config's single-line quoted string bindings; other
+main binding syntax produces a visible error instead of silently omitting it.
+Panel uses nonactivating canvas; Hammerspoon windows explicitly float in AeroSpace.
+Verified live Accessibility permission, registered hotkey, no system assignment,
+rendering, direct toggle show/hide and preserved kitty focus.
+Physical keypress still needs user verification; computer-use attempts could
+not reliably dispatch to the working apps.

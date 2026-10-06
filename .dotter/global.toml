@@ -42,10 +42,13 @@ depends = []
 "configs/btop" = { target = "~/.config/btop", type = "symbolic", recurse = true }
 "configs/lnav" = { target = "~/.config/lnav", type = "symbolic", recurse = true }
 
+"configs/hammerspoon/init.lua" = "~/.hammerspoon/init.lua"
+"configs/hammerspoon/aerospace_hud.lua" = "~/.hammerspoon/aerospace_hud.lua"
+
 # Single-file configs
 "configs/starship/starship.toml" = "~/.config/starship.toml"
 "configs/tmux/tmux.conf" = "~/.tmux.conf"
-#"configs/aerospace/aerospace.toml" = "~/.config/aerospace/aerospace.toml"
+"configs/aerospace" = { target = "~/.config/aerospace", type = "symbolic", recurse = false }
 #"configs/homebrew/homebrew_bundle_file" = "~/.config/homebrew/homebrew_bundle_file"
 
 

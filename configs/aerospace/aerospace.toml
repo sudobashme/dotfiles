@@ -1,12 +1,15 @@
-# Place a copy of this config to ~/.aerospace.toml
-# After that, you can edit ~/.aerospace.toml to your liking
+# Managed by Dotter: edit this repository file.
+# Live path: ~/.config/aerospace/aerospace.toml
+config-version = 2
+auto-reload-config = true
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -92,6 +95,14 @@ automatically-unhide-macos-hidden-apps = true
     # '''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
+    # Everyday controls; Option is called alt in AeroSpace.
+    alt-enter = 'exec-and-forget open -a kitty'
+    alt-f = 'fullscreen'
+    alt-shift-space = 'layout floating tiling'
+    alt-shift-b = 'balance-sizes'
+    alt-shift-p = 'enable toggle'
+    alt-shift-r = 'reload-config'
+
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
 
@@ -160,3 +171,8 @@ automatically-unhide-macos-hidden-apps = true
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
+# Hammerspoon reference panels must remain outside the tiled layout.
+[[on-window-detected]]
+if.app-id = "org.hammerspoon.Hammerspoon"
+run = "layout floating"

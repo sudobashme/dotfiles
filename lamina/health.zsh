@@ -123,7 +123,7 @@ check_required_bin "ob1-dashboard" "~/.local/bin/ob1-dashboard"
 print -r -- ""
 
 lamina_section "Core symlinks (directory)"
-for cfg in nvim kitty fish bat git lazygit gtk-2.0 mc npm ranger znt; do
+for cfg in aerospace nvim kitty fish bat git lazygit gtk-2.0 mc npm ranger znt; do
     check_dotter_symlink "configs/${cfg}" "~/.config/${cfg}"
 done
 print -r -- ""
@@ -133,6 +133,8 @@ check_dotter_symlink "zsh/rc.d" "~/.zsh/rc.d"
 check_dotter_symlink "zsh/.zshrc" "~/.zsh/.zshrc"
 check_dotter_symlink "zsh/.zshenv" "~/.zshenv"
 check_dotter_symlink "configs/starship/starship.toml" "~/.config/starship.toml"
+check_dotter_symlink "configs/hammerspoon/init.lua" "~/.hammerspoon/init.lua"
+check_dotter_symlink "configs/hammerspoon/aerospace_hud.lua" "~/.hammerspoon/aerospace_hud.lua"
 check_dotter_symlink "configs/tmux/tmux.conf" "~/.tmux.conf"
 check_dotter_symlink "agents/AGENTS.md" "~/AGENTS.md"
 check_dotter_symlink "agents/docs" "~/docs"
