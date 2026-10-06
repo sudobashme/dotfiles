@@ -823,6 +823,8 @@ cask "gitkraken"
 # Virtual globe
 cask "google-earth-pro"
 cask "goplaces"
+# Desktop automation application
+cask "hammerspoon"
 # Keyboard customiser
 cask "karabiner-elements"
 # GPU-based terminal emulator
@@ -950,6 +952,3 @@ cargo "typescript"
 cargo "zoxide"
 uv "nano-pdf"
 uv "pynvim"
-
-# Desktop shortcut reference overlay
-cask "hammerspoon"
